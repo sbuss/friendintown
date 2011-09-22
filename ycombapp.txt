@@ -1,0 +1,172 @@
+Y Combinator Funding Application
+Winter 2012
+Application deadline: 8 pm PST on October 10, 2011.
+
+Please try to answer each question in less than 120 words.
+
+We look at online demos only for the most promising applications, so don't skimp on the application because you're relying on a good demo.
+
+Though we don't make any formal promise about secrecy, we will try to avoid disclosing your plans to potential competitors.
+
+If you're about to answer a question by saying you can't tell us because the answer is classified or controversial, please tell us instead about an instance that isn't.
+
+We recommend you save regularly by clicking on the update button at the bottom of this page. Otherwise you may lose work if we restart the server.
+
+Please enter the Posterous url of a 1 minute video introducing the founders. (Instructions.)
+
+
+YC usernames of all founders, including you, buss, separated by spaces. (That'susernames, not given names: "bksmith," not "Bob Smith." If the startup has 3 founders, there should be 3 tokens in this answer.)
+======
+buss cnk devin
+
+
+YC usernames of all founders, including you, buss, who will live in the Bay Area January through March if we fund you. (Again, that's usernames, not given names.)
+======
+buss cnk devin
+
+
+What is your company going to make?
+======
+Crowdsourced (or sponsored) walking tours of foreign cities. We let people map out great trips in a city, allowing people to see the city like a local, without all the time spent on wikitravel, yelp, tripadvisor, and guidebooks.
+
+
+If this application is a response to a YC RFS, which one?
+======
+NA
+
+
+For each founder, please list: YC username; name; age; year of graduation, school, degree and subject for each degree; email address; personal url, github url, facebook id, twitter id; employer and title (if any). Put unfinished degrees in parens. List the main contact first. Separate founders with blank lines. Put an asterisk before the name of anyone not able to move to the Bay Area.
+======
+buss; Steven Buss; 25; 2005, University of Florida, B.S. Computer Science, minor in Math; steven.buss@gmail.com; http://stevenbuss.com/; http://github.com/sbuss/; steven.buss; @sbuss; Amazon SDE1.
+
+
+Please tell us in one or two sentences about the most impressive thing other than this startup that each founder has built or achieved.
+======
+Steven - In college I built an autonomous robot that chased after soccer balls using embedded C and a bluetooth link to a desktop running MATLAB for image processing. I machined custom hardware and soldered (sometimes under a microscope) most of the boards.
+
+
+Please tell us about the time you, buss, most successfully hacked some (non-computer) system to your advantage.
+======
+During my autonomous robotics course in college I needed a way to track the rotation of my robot. I got a gyroscope, but needed to write a driver for it and calibrate it. The voltage output of the gyroscope is proportional to the angular velocity, and I needed to account for slight variations in the manufacture of the sensor that differed from spec. I realized that I could use a record player to give me a constant rotation with two known speeds (33 1/3 and 45 rpm). I could also accurately rotate the gyroscope a fixed number of degrees by placing stops at certain points around the record player. Using this setup, I successfully calibrated the gyroscope and it worked (almost) perfectly. (I know this is _close_ to a computer system, but since it involved old hardware, I figured it counted)
+
+
+Please tell us about an interesting project, preferably outside of class or work, that two or more of you created together. Include urls if possible.
+======
+Chris and Steven tried to create a general purpose recommender system near the end of college (that's just a timeframe; it wasn't for a class). We mined digg and reddit for the preferences graph (user U_n likes link L_m), and tried to learn groups of users and recommend new content. We tried various approaches: Jaccard coefficient, collaborative filtering, singular value decomposition, latent semantic indexing, and probabilistic latent semantic indexing -- all of which produced mediocre results. It turns out that there's just not enough information in the preferences graph to make meaningful recommendations with the current methods. We learned a ton during that project, despite it ultimately being a failure.
+
+
+How long have the founders known one another and how did you meet? Have any of the founders not met in person?
+======
+Steven and Chris have known each other since the summer of 2006, when we both took a discrete math course at UF. I overheard Chris talking about ticket scalping becoming legal, and I was interested. I said we should make a website for selling Florida Gators football tickets, and we set out making SwampTickets.com. We incorporated in Florida, printed a banner and flyers to hand out at games, and promoted our site among students. We got thousands of visitors but only made one sale due to our own ignorance of the problem space and how to run a business effectively. We've learned a lot since then.
+
+Chris and Steven met Devin through a mutual friend that we met at a Reddit board game night in Seattle. Steven pitched the idea for OMGWENEEDANAME to Devin over drinks at our favorite local bar, and he was immediately taken by the idea. We have known each other for about a year now.
+
+
+Why did you pick this idea to work on? Do you have domain expertise in this area? How do you know people need what you're making?
+======
+We picked this idea because all of the founders have had the experience of traveling to a foreign city and, despite having looked hard for things to do before arrival, not knowing what to do once we got there.
+
+We have domain experience in the sense that we all love to travel, but we have never developed in the travel space before. All three founders have been programming for over a decade, and we all have experience launching websites. Steven has done some android development.
+
+We know people need what we're making because everyone we talk to has the same complaints about travel. We've asked people what they do when they are traveling somewhere, and they all say the same things: "I check wikipedia, yelp, guidebooks, etc." We ask if they're happy with this, and none of them are, because it is so hard to actually find things worth doing. The best source of travel information is always a friend or relative who's been there, or the random stranger that lives in the city that gives great advice. We're trying to be that guy.
+
+
+What's new about what you're making? What substitutes do people resort to because it doesn't exist yet (or they don't know about it)?
+======
+The idea of city tours, created by people who actually live in the city, available on any phone is new. Currently people have to: 1) build their own tours by researching for countless hours and hoping they picked the right things to see, 2) find a tour guide and spend a bunch of money for an inauthentic experience, or 3) amble about a city, hoping to find something cool.
+
+
+Who are your competitors, and who might become competitors? Who do you fear most?
+======
+We have no direct competitors, as far as we can tell, but the following are all close and could become competitors: Tripadvisor, gowalla, wikitravel, yelp, google. We fear gowalla most, since they've just recently re-launched with a slick interface (and updated business model) and already have a great community.
+
+
+What do you understand about your business that other companies in it just don't get?
+======
+People are overwhelmed by choice, and there isn't any good system for recommending places. The best we can do is get recommended routes through a city from the people that live there.
+
+On average, everything has 3 stars and is 5 miles away. But if you ask _anyone_ that lives in a city what to do, they will give you the best things they know about on a logical route. Nobody is using this data.
+
+
+How do or will you make money? How much could you make? (We realize you can't know precisely, but give your best estimate.)
+======
+* Premium accounts?
+* Sponsored routes (Tom Douglas wrote a book recently that is about walking tours in Seattle that go to famous sights in Seattle and --shock!-- his restaurants. We can do the same thing for other business owners.)
+* $20 city packs, when traveling internationally since you won't want to pay the crazy international data charges.
+
+
+If you've already started working on it, how long have you been working and how many lines of code (if applicable) have you written?
+======
+
+
+How far along are you? Do you have a beta yet? If not, when will you? Are you launched? If so, how many users do you have? Do you have revenue? If so, how much? If you're launched, what is your monthly growth rate (in users or revenue or both)?
+======
+
+
+If you have an online demo, what's the url? (Please don't password protect it; just use an obscure url.)
+======
+
+
+How will you get users? If your idea is the type that faces a chicken-and-egg problem in the sense that it won't be attractive to users till it has a lot of users (e.g. a marketplace, a dating site, an ad network), how will you overcome that?
+======
+We're not totally sure how to get users... Promote on travel blogs? Techcrunch? Watch twitter for keywords (travel, tripadvisor, sucks, yelp...)
+
+We can overcome the cold-start problem by offering a free 1-year premium membership to the first 1000 people to create a walking tour in a city, and a free lifetime premium membership to the first 100 people to create 5 or more tours.
+
+
+If you're already incorporated, when were you? Who are the shareholders and what percent does each own? If you've had funding, how much, at what valuation(s)?
+======
+
+
+If you're not incorporated yet, please list the percent of the company you plan to give each founder, and anyone else you plan to give stock to. (This question is as much for you as us.)
+======
+
+
+If we fund you, which of the founders will commit to working exclusively (no school, no other jobs) on this project for the next year?
+======
+Steven, Devin
+
+
+For founders who can't, why not? What level of commitment are they willing to make?
+======
+
+
+Do any founders have other commitments between January and March 2012 inclusive?
+======
+
+
+Do any founders have commitments in the future (e.g. finishing college, going to grad school), and if so what?
+======
+No.
+
+
+Where do you live now, and where would the company be based after YC?
+======
+Seattle. We would probably move back to Seattle unless we fall in love with SF, since we all love the city and there's a growing startup community we'd like to be a part of.
+
+
+Are any of the founders covered by noncompetes or intellectual property agreements that overlap with your project? Will any be working as employees or consultants for anyone else?
+======
+No.
+
+
+Was any of your code written by someone who is not one of your founders? If so, how can you safely use it? (Open source is ok of course.)
+======
+Nothing other than OSS or APIs.
+
+
+Are any of the following true? (a) You are the only founder. (b) You are a student who may return to school when the next term starts. (c) Half or more of your group can't move to the Bay Area. (d) One or more founders will keep their current jobs. (e) None of the founders are programmers.
+(Answering yes doesn't disqualify you. It's just to remind us to check.)
+======
+yes
+
+
+If you had any other ideas you considered applying with, please list them. One may be something we've been waiting for. Often when we fund people it's to do something they list here and not in the main application.
+======
+Version control for news. After moving from print to digital media, there is no longer a hard record of news. All of us have had the experience of sending an article to a friend, only to come back later and see that it's changed. This is unacceptable in our society, and we want to create a watchdog service that monitors all published news articles for unannounced changes, and alerts subscribers.
+
+
+Please tell us something surprising or amusing that one of you has discovered. (The answer need not be related to your project.)
+======
+
+
