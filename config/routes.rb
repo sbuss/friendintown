@@ -1,4 +1,8 @@
 FriendInTown::Application.routes.draw do
+  resources :places
+
+  resources :tours
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
