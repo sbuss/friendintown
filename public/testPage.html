@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<link rel="StyleSheet" href="./css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" media="screen">
+
+<style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0; padding: 0 }
+    #map_canvas { height: 100% }
+    
+    
+    #search {
+        position:absolute;
+        top:0;
+        width:100%;
+        text-align:center;
+    }
+    #search form {
+        -webkit-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+        box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+        display:inline-block;
+        margin:0 auto;
+        background:#FFF;
+        padding:10px;
+        -webkit-border-radius: 0 0 10px 10px;
+        -moz-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+    }
+    #search label {
+        font-size:3em;
+        font-family:Helvetica, Verdana, Sans-Serif;
+    }
+    
+    #search input {
+        text-align:left;
+        width:400px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        font-size:3em;
+        color:#666;
+        padding-left:10px;
+    }
+    
+    #listWrap {
+        text-align:center;
+        font-weight:bold;
+        color:#FFF;
+        font-family:helvetica, arial, sans-serif;
+        position:absolute;
+        right:0;
+        top:100px;
+        width:200px;
+        background:#666;
+        padding:25px 15px;
+        -webkit-border-radius: 10px 0 0 10px;
+        -moz-border-radius: 10px 0 0 10px;
+        border-radius: 10px 0 0 10px;
+        -webkit-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+        box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    .ui-state-highlight { height: 64px; }
+    
+    
+    #list {
+        font-weight:normal;
+        color:#666;
+        padding:0;
+        margin:10px 0 0 0;
+    }
+    
+    #list li {
+        height:32px;
+        padding:16px;
+        list-style: none outside none; 
+    }
+    
+    #list li div.grips {
+        position:absolute;
+        top:5px;
+        bottom:5px;
+        right:0;
+        width:16px;
+        background:transparent url("./images/Gripper.png") repeat left top;
+    }
+    
+    #list li.mapItem {
+        cursor:move;
+        position:relative;
+        background:transparent url('./images/li_background.png') repeat-x left top;
+    }
+    
+    #saveButton{
+/*        display:none;*/
+    }
+    
+    #createForm {
+        display:none;
+    }
+    
+    #createForm input, #createForm textarea{
+        margin-left:10px;
+    }
+    
+    #createForm textarea {
+        width:270px;
+    }
+    
+    /* Header/Nav */
+    #header {
+        background: url("images/header.gif") repeat scroll 0 0 transparent;
+        height: 90px;
+    }
+    
+    .shell {
+        margin: 0 auto;
+        width: 980px;
+    }
+    h1#logo {
+        float: left;
+        font-size: 0;
+        height: 90px;
+        line-height: 0;
+        width: 216px;
+    }
+    #navigation {
+        float: right;
+    }
+    h2, h3, #navigation, #slider-navigation, #footer {
+        font-family: "Trebuchet MS",Arial,sans-serif;
+    }
+    #navigation ul {
+        float: left;
+        font-size: 14px;
+        list-style-type: none;
+        padding-top: 37px;
+    }
+    #navigation ul li {
+        background: url("images/nav-border.gif") repeat-y scroll right 0 transparent;
+        display: inline;
+        float: left;
+        height: 21px;
+        margin-right: 20px;
+        padding: 0 20px 0 0;
+        position: relative;
+    }
+    #navigation ul li a {
+        color: #FFFFFF;
+        float: left;
+        text-decoration: none;
+    }
+    </style>
+<script type="text/javascript" src="./js/jq1.6.4.js"></script>
+<script type="text/javascript" src="./js/gGears.js"></script>
+<script type="text/javascript" src="./js/jqui1.8.16.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+<script type="text/javascript">
+var loc,// Starting location
+    map,
+    info,
+    locService,
+    markers = [],
+    directionsDisplay,
+    directionsService = new google.maps.DirectionsService(),
+    currentLoc;
+    
+function initialize() {
+    var myOptions = {
+        zoom: 13,
+        center: new google.maps.LatLng(47.6062095, -122.3320708),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    directionsDisplay.setMap(map);
+  
+  // < determine location >
+  // Try W3C Geolocation (Preferred)
+  // if(navigator.geolocation) {
+  //    navigator.geolocation.getCurrentPosition(function(position) {
+  //      loc = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+  //      map.setCenter(loc);
+  //    }, function() {
+  //      handleNoGeolocation();
+  //    });
+  //  // Try Google Gears Geolocation
+  //  } else if (google.gears) {
+  //    var geo = google.gears.factory.create('beta.geolocation');
+  //    geo.getCurrentPosition(function(position) {
+  //      loc = new google.maps.LatLng(position.latitude,position.longitude);
+  //      map.setCenter(loc);
+  //    }, function() {
+  //      handleNoGeoLocation();
+  //    });
+  //  // Browser doesn't support Geolocation
+  //  } else {
+  //    handleNoGeolocation();
+  //  }
+  // 
+  // function handleNoGeolocation() {
+  //   loc = new google.maps.LatLng(47.6062095, -122.3320708);//Seattle
+  // }
+  // map.setCenter(loc);
+  
+  // </ determine location >
+  
+  
+    locService = new google.maps.places.PlacesService(map);
+    info = new google.maps.InfoWindow();
+    
+    
+    //Fire off an ajax request to grab some data
+    $.ajax({
+      url: "./data.json",
+      success: function(data, textStatus, jqXHR) {
+         loadRoute(data.data[0])//Load the first test, just for testing
+      },
+      error: function () {
+          console.log(arguments)
+      },
+      dataType: "JSON"
+    });
+}
+
+function callback(results, status) {
+    removeAllMarkers();
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]); 
+        }
+        
+        if(markers.length) {
+            info.setContent(markers[0].name);
+            info.open(map, markers[0]);
+        }
+    }
+}
+
+function calcRoute() {
+    
+    var $allPoints = $("#list li");
+    
+    if($allPoints.length < 2) {
+        return false;
+    }
+    
+    var start = $allPoints.eq(0).data("loc"),
+        end = $allPoints.eq(-1).data("loc"),
+        wayPoints = [];
+    
+    for(var i=1,l=$allPoints.length-1;i<l;i++) {
+        wayPoints.push({location:$allPoints.eq(i).data("loc"), stopover:true});
+    }
+
+  var request = {
+    origin:start,
+    destination:end,
+    waypoints:wayPoints,
+    travelMode: google.maps.TravelMode.DRIVING
+  };
+  
+  directionsService.route(request, function(result, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(result);
+    }
+  });
+}
+
+
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+  
+  markers.push(marker);
+   
+  //Need to store current location in a better place
+  google.maps.event.addListener(marker, 'click', function() {
+    info.setContent(("<div> <span class='title'>" + place.name + "</span><br /><button id='add'>Add</button></div>"));
+    currentLoc = place.geometry.location;
+    info.open(map, this);
+    
+  });
+}
+
+function removeAllMarkers() {
+    for (i in markers) {
+        markers[i].setMap(null);
+    }
+    markers.length = 0;
+}
+</script>
+</head>
+<body onload="initialize()">
+    <div id="header">
+        <div class="shell">
+            <h1 id="logo"><a href="#">Friend in Town</a></h1>
+            <div id="navigation">
+                <ul>
+                    <li><a href="#">Home<span><em></em></span></a></li>
+                    <li><a href="#">About<span><em></em></span></a></li>
+                    <li><a href="#">Services<span><em></em></span></a></li>
+
+                    <li><a href="#">Clients<span><em></em></span></a></li>
+                    <li class="last"><a href="#">Contact<span><em></em></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  <div id="map_canvas" style="width:100%; height:100%"></div>
+  <div id="search">
+      <form id="searchForm">
+          <label for="searchBox">Search: </label>
+          <input type="text" id="searchBox" />
+      </form>
+  </div>
+  <div id="listWrap">
+      Places
+    <ul id="list">
+    </ul>
+    <button id="saveButton">Save Tour</button>
+  </div>
+  
+  <form id="createForm" title="Save Tour">
+      <fieldset>
+        <label for="name">Name</label><br />
+        <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" /><br />
+        <label for="desc">Description</label><br />
+        <textarea  name="desc" id="desc" class="text ui-widget-content ui-corner-all" ></textarea>
+        <input type="submit" id="createTour" />
+    </fieldset> 
+  </form>
+ <script type="text/javascript">
+ function loadRoute(tour) {
+     //Add items to list
+    for(var i=0, l=tour.routes.length;i<l;i++) {
+        var location = new google.maps.LatLng(tour.routes[i].lat, tour.routes[i].long);
+        
+        $("#list").append($("<li />").addClass("mapItem").text(tour.routes[i].name).data("loc", location).append("<div class='grips'></div>"));
+        
+    }
+       
+    calcRoute();
+    //Do something with the name and description....
+     
+     
+     
+    //There needs to be a list of Tours
+ }
+
+$(function () { 
+        
+         $( "#list" ).sortable({
+                    placeholder: "ui-state-highlight",
+                    update:calcRoute
+                });
+                $( "#list" ).disableSelection();
+                
+         $("#add").live('click', function () {
+             
+             $("#list").append($("<li />").addClass("mapItem").text($(this).siblings("span.title").text()).data("loc", currentLoc).append("<div class='grips'></div>"));
+             calcRoute();
+         })
+         
+        $("#searchForm").submit( function () {
+            locService.search(
+                {
+                    location: map.getCenter(),
+                    radius: '1',
+                    //types: ['store'],
+                    name: $("#searchBox").val()
+                }, 
+                callback
+            );
+            
+            return false;
+        })
+        
+        $("#saveButton").click(function() {
+            $( "#createForm" ).dialog( "open" );
+        })
+        
+        $( "#createForm" ).dialog({
+            autoOpen: false,
+            height: 300,
+            width: 350,
+            modal: true
+        }).submit(function () {
+            // Create routes
+            var allRoutes = [];
+            
+            for(var i=0,$allPoints=$("#list li"), l=$allPoints.length;i<l;i++) {
+                  allRoutes.push({name:$allPoints.eq(i).text(), lat: $allPoints.eq(i).data('loc').Ja, Long:$allPoints.eq(i).data('loc').Ka });
+               }
+            
+            // Create JSON blob of the routes
+            var blob = {
+                name: $("#name").val(),
+                desc: $("#desc").val(),
+                routes: allRoutes
+            }
+            
+            console.log(blob)
+            
+            return false;
+        })
+        
+        
+        
+    })
+ 
+ 
+ </script>
+  
+  
+</body>
+</html>
