@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-script-type" content="text/javascript">
+<style type="text/css">
+html    {
+    height: 100%;
+}
+
+body    {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map_canvas {
+    height: 100%;
+    width: 70%;
+    float: left;
+}
+#places {
+    width:28%;
+    float: left;
+}
+</style>
+<script type="text/javascript"
+    src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false">
+</script>
+<script type="text/javascript">
+var latlng;
+var seattle = new google.maps.LatLng(37.0625,-95.67706);
+var map;
+
+function initialize() {
+    var myOptions = {
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            latlng = new google.maps.LatLng(
+                position.coords.latitude, position.coords.longitude);
+            map.setCenter(latlng);
+            }, function() {
+                handleNoGeo(false);
+            });
+    } else {
+        latlng = seattle;
+    };
+    map.setCenter(latlng);
+
+    function handleNoGeo(errorFlag) {
+        map.setCenter(seattle);
+    }
+}
+
+function search_place(id) {
+    console.log("got id " + id);
+    var elem = document.getElementById(id);
+    var place = elem.value;
+    // Set up the places API call
+    var request = {
+        location: latlng,
+        radius: '500',
+        types: ['store']
+    };
+    service = new google.maps.places.PlacesService(map);
+    service.search(request, search_place_callback);
+}
+
+function search_place_callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            console.log(place);
+            createMarker(place);
+        }
+    }
+}
+
+function createMarker(result) {
+    var marker = new google.maps.Marker({
+        position: result.geometry.location,
+        map: map,
+        title: result.name
+    })
+}
+
+</script>
+</head>
+<body onload="initialize()">
+    <p style="font-size: 1.8em;">
+        Find a place:
+        <input type="text" name="place_name" id="place_name" />
+        <input type="button" value="search" name="place_search" 
+            onclick="search_place('place_name')" />
+    </p>
+    <br style="clear: both;" />
+
+    <div id="map_canvas">
+    </div>
+    <div id="places">
+        <h2>Your places</h2>
+        <ol id="places_list">
+        </ol>
+    </div>
+</body>
+</html>
