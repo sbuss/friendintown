@@ -64,12 +64,17 @@
     }
     .ui-state-highlight { height: 64px; }
     
+    #listWrap label{
+        font-size:10px;
+        font-weight:normal;
+    }
+    
     
     #list {
         font-weight:normal;
         color:#666;
         padding:0;
-        margin:10px 0 0 0;
+        margin:10px 0;
     }
     
     #list li {
@@ -91,6 +96,16 @@
         cursor:move;
         position:relative;
         background:transparent url('./images/li_background.png') repeat-x left top;
+    }
+    
+    #list a.remove, #list a.remove:visited {
+        font-size:10px;
+        text-decoration:none;
+        color:#194c70;
+    }
+    
+    #list a.remove:hover {
+        text-decoration:underline;
     }
     
     #saveButton{
@@ -321,7 +336,8 @@ function removeAllMarkers() {
       </form>
   </div>
   <div id="listWrap">
-      Places
+      Places <br />
+      <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
     <ul id="list">
     </ul>
     <button id="saveButton">Save Tour</button>
@@ -341,18 +357,15 @@ function removeAllMarkers() {
      //Add items to list
     for(var i=0, l=tour.routes.length;i<l;i++) {
         var location = new google.maps.LatLng(tour.routes[i].lat, tour.routes[i].long);
-        
-        $("#list").append($("<li />").addClass("mapItem").text(tour.routes[i].name).data("loc", location).append("<div class='grips'></div>"));
-        
+        createListItem(tour.routes[i].name, location);
     }
        
     calcRoute();
-    //Do something with the name and description....
-     
-     
-     
-    //There needs to be a list of Tours
  }
+ 
+function createListItem(text, loc) {
+     $("#list").append($("<li />").addClass("mapItem").text(text).data("loc", loc).append("<br /><a class='remove' href='#'>[Remove]</a>").append("<div class='grips'></div>"));
+}
 
 $(function () { 
         
@@ -361,12 +374,28 @@ $(function () {
                     update:calcRoute
                 });
                 $( "#list" ).disableSelection();
+         
+         $("a.remove").live('click', function () {
+             $(this).parents("li.mapItem").remove();
+             if($("#autoRoute").is(":checked")) {
+                  calcRoute();
+              }
+         })
                 
          $("#add").live('click', function () {
-             
-             $("#list").append($("<li />").addClass("mapItem").text($(this).siblings("span.title").text()).data("loc", currentLoc).append("<div class='grips'></div>"));
-             calcRoute();
+             createListItem($(this).siblings("span.title").text(),currentLoc);
+            
+             if($("#autoRoute").is(":checked")) {
+                 calcRoute();
+             }
          })
+         
+         
+        $("#autoRoute").click(function() {
+            if($(this).is(":checked")) {
+                calcRoute();
+            }
+        }) 
          
         $("#searchForm").submit( function () {
             locService.search(
@@ -405,8 +434,6 @@ $(function () {
                 desc: $("#desc").val(),
                 routes: allRoutes
             }
-            
-            console.log(blob)
             
             return false;
         })
