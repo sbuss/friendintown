@@ -4,6 +4,8 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :name
       t.string :lat
       t.string :long
+      t.integer :order
+      t.integer :tour_id
 
       t.timestamps
     end
