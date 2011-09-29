@@ -3,6 +3,8 @@ SignupPlaceholder::Application.routes.draw do
 
   resources :subscriptions
 
+  match '/signup', :to => 'subscriptions#new'
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:
