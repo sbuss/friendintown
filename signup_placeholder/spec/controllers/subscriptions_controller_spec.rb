@@ -24,7 +24,7 @@ describe SubscriptionsController do
   # Subscription. As you add validations to Subscription, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :email => "foo.bar+baz@example.com" }
   end
 
   describe "GET index" do
