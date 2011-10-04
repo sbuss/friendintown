@@ -10,17 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922124841) do
+ActiveRecord::Schema.define(:version => 20111004014856) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
     t.string   "lat"
     t.string   "long"
-    t.integer  "order"
-    t.integer  "tour_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "stops", :force => true do |t|
+    t.integer  "tour_id"
+    t.integer  "place_id"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stops", ["tour_id", "place_id", "order"], :name => "index_stops_on_tour_id_and_place_id_and_order"
 
   create_table "tours", :force => true do |t|
     t.string   "name"

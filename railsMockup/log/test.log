@@ -1,0 +1,736 @@
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (1.3ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:11:26.380154', '2011-10-04 03:11:26.380154')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:12:08.001817', '2011-10-04 03:12:08.001817')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:15:31.655778', '2011-10-04 03:15:31.655778')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:15:35.753237', '2011-10-04 03:15:35.753237')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:16:16.392137', '2011-10-04 03:16:16.392137')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:16:57.251067', '2011-10-04 03:16:57.251067')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:17:09.664405', '2011-10-04 03:17:09.664405')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:17:13.725531', '2011-10-04 03:17:13.725531')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:19:07.734515', '2011-10-04 03:19:07.734515')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:19:46.129696', '2011-10-04 03:19:46.129696')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:21:29.102915', '2011-10-04 03:21:29.102915')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:25:20.147271', '2011-10-04 03:25:20.147271')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:25:20.159642', '2011-10-04 03:25:20.159642')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:25:25.069733', '2011-10-04 03:25:25.069733')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:25:25.081654', '2011-10-04 03:25:25.081654')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:26:55.944468', '2011-10-04 03:26:55.944468')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:26:56.003906', '2011-10-04 03:26:56.003906')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:30:11.492590', '2011-10-04 03:30:11.492590')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:30:11.551209', '2011-10-04 03:30:11.551209')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:30:15.729432', '2011-10-04 03:30:15.729432')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:30:15.788259', '2011-10-04 03:30:15.788259')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:31:50.640417', '2011-10-04 03:31:50.640417')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:31:50.698065', '2011-10-04 03:31:50.698065')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:31:50.703994', '2011-10-04 03:31:50.703994')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:33:20.343156', '2011-10-04 03:33:20.343156')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:33:20.401287', '2011-10-04 03:33:20.401287')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:33:20.407838', '2011-10-04 03:33:20.407838')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:34:12.156743', '2011-10-04 03:34:12.156743')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:34:12.217192', '2011-10-04 03:34:12.217192')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:34:12.228144', '2011-10-04 03:34:12.228144')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:34:59.602224', '2011-10-04 03:34:59.602224')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:34:59.658884', '2011-10-04 03:34:59.658884')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:34:59.664996', '2011-10-04 03:34:59.664996')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:36:38.408195', '2011-10-04 03:36:38.408195')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:36:38.465524', '2011-10-04 03:36:38.465524')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:36:38.471523', '2011-10-04 03:36:38.471523')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:37:56.350742', '2011-10-04 03:37:56.350742')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:37:56.410089', '2011-10-04 03:37:56.410089')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:37:56.415855', '2011-10-04 03:37:56.415855')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:38:00.502893', '2011-10-04 03:38:00.502893')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:38:00.561957', '2011-10-04 03:38:00.561957')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:38:00.568014', '2011-10-04 03:38:00.568014')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 03:39:22.435718', '2011-10-04 03:39:22.435718')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:39:22.448908', '2011-10-04 03:39:22.448908')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:39:22.491103', '2011-10-04 03:39:22.491103')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:39:22.522055', '2011-10-04 03:39:22.522055')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:39:22.528462', '2011-10-04 03:39:22.528462')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (1.5ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 03:40:01.390515', '2011-10-04 03:40:01.390515')[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:40:01.405868', '2011-10-04 03:40:01.405868')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:40:01.450323', '2011-10-04 03:40:01.450323')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:40:01.454130' WHERE "places"."id" = 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 03:40:05.483708', '2011-10-04 03:40:05.483708')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:40:05.496240', '2011-10-04 03:40:05.496240')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:40:05.537481', '2011-10-04 03:40:05.537481')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:40:05.541327' WHERE "places"."id" = 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:40:05.546590', '2011-10-04 03:40:05.546590')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mAREL (0.8ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:40:05.582138', '2011-10-04 03:40:05.582138')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:40:05.589564', '2011-10-04 03:40:05.589564')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:47:43.925270', '2011-10-04 03:47:43.925270')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:47:43.985450', '2011-10-04 03:47:43.985450')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:47:43.991095', '2011-10-04 03:47:43.991095')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 1, 2, '2011-10-04 03:47:43.998037', '2011-10-04 03:47:43.998037')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 3, 4, '2011-10-04 03:47:44.002407', '2011-10-04 03:47:44.002407')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:47:44.021595', '2011-10-04 03:47:44.021595')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:47:44.026082' WHERE "places"."id" = 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:47:44.027218', '2011-10-04 03:47:44.027218')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:47:44.028054' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:47:44.031410', '2011-10-04 03:47:44.031410')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 1, 2, '2011-10-04 03:47:44.032653', '2011-10-04 03:47:44.032653')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 3, 4, '2011-10-04 03:47:44.033464', '2011-10-04 03:47:44.033464')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:47:44.034440', '2011-10-04 03:47:44.034440')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:47:44.035221' WHERE "places"."id" = 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:47:44.036169', '2011-10-04 03:47:44.036169')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:47:44.036844' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.3ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id DESC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:48:11.564285', '2011-10-04 03:48:11.564285')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:48:11.621636', '2011-10-04 03:48:11.621636')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:48:11.627600', '2011-10-04 03:48:11.627600')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 1, 2, '2011-10-04 03:48:11.634679', '2011-10-04 03:48:11.634679')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 3, 4, '2011-10-04 03:48:11.639522', '2011-10-04 03:48:11.639522')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:48:11.659471', '2011-10-04 03:48:11.659471')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:48:11.663999' WHERE "places"."id" = 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:48:11.665420', '2011-10-04 03:48:11.665420')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:48:11.666204' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:48:11.669485', '2011-10-04 03:48:11.669485')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 1, 2, '2011-10-04 03:48:11.670676', '2011-10-04 03:48:11.670676')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 3, 4, '2011-10-04 03:48:11.671483', '2011-10-04 03:48:11.671483')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:48:11.672484', '2011-10-04 03:48:11.672484')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:48:11.673323' WHERE "places"."id" = 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:48:11.674316', '2011-10-04 03:48:11.674316')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:48:11.674989' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.4ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 03:48:11.706163', '2011-10-04 03:48:11.706163')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:48:11.707353', '2011-10-04 03:48:11.707353')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:48:11.708964', '2011-10-04 03:48:11.708964')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:48:11.709848' WHERE "places"."id" = 1[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 03:48:15.908512', '2011-10-04 03:48:15.908512')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:48:15.921216', '2011-10-04 03:48:15.921216')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:48:15.974239', '2011-10-04 03:48:15.974239')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:48:15.980673' WHERE "places"."id" = 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:48:15.986755', '2011-10-04 03:48:15.986755')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:48:16.016554', '2011-10-04 03:48:16.016554')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:48:16.023013', '2011-10-04 03:48:16.023013')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 1, 2, '2011-10-04 03:48:16.024204', '2011-10-04 03:48:16.024204')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 3, 4, '2011-10-04 03:48:16.025010', '2011-10-04 03:48:16.025010')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:48:16.032430', '2011-10-04 03:48:16.032430')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:48:16.033357' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:48:16.034490', '2011-10-04 03:48:16.034490')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:48:16.035222' WHERE "places"."id" = 2
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:48:16.038163', '2011-10-04 03:48:16.038163')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 1, 2, '2011-10-04 03:48:16.039337', '2011-10-04 03:48:16.039337')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 3, 4, '2011-10-04 03:48:16.040131', '2011-10-04 03:48:16.040131')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:48:16.041106', '2011-10-04 03:48:16.041106')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:48:16.064518' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:48:16.065884', '2011-10-04 03:48:16.065884')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:48:16.066550' WHERE "places"."id" = 2
+  [1m[36mStop Load (0.3ms)[0m  [1mSELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:16.490442', '2011-10-04 03:49:16.490442')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:49:16.547095', '2011-10-04 03:49:16.547095')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:16.552923', '2011-10-04 03:49:16.552923')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:16.559794', '2011-10-04 03:49:16.559794')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:49:16.583246', '2011-10-04 03:49:16.583246')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:49:16.587787' WHERE "places"."id" = 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:16.591213', '2011-10-04 03:49:16.591213')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:16.592384', '2011-10-04 03:49:16.592384')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:49:16.593440', '2011-10-04 03:49:16.593440')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:49:16.594216' WHERE "places"."id" = 1[0m
+  [1m[35mStop Load (0.2ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:33.133983', '2011-10-04 03:49:33.133983')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:49:33.192598', '2011-10-04 03:49:33.192598')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:33.205472', '2011-10-04 03:49:33.205472')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:33.211978', '2011-10-04 03:49:33.211978')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:49:33.235739', '2011-10-04 03:49:33.235739')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:49:33.239660' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:33.240722', '2011-10-04 03:49:33.240722')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:49:33.241678', '2011-10-04 03:49:33.241678')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:49:33.242340' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:33.246307', '2011-10-04 03:49:33.246307')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:33.247397', '2011-10-04 03:49:33.247397')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:49:33.248419', '2011-10-04 03:49:33.248419')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:49:33.249182' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:33.249997', '2011-10-04 03:49:33.249997')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:49:33.250944', '2011-10-04 03:49:33.250944')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:49:33.251705' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.3ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 03:49:37.350376', '2011-10-04 03:49:37.350376')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:37.362795', '2011-10-04 03:49:37.362795')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:49:37.402425', '2011-10-04 03:49:37.402425')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:49:37.406218' WHERE "places"."id" = 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:37.409746', '2011-10-04 03:49:37.409746')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:49:37.440654', '2011-10-04 03:49:37.440654')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:37.446822', '2011-10-04 03:49:37.446822')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:37.447945', '2011-10-04 03:49:37.447945')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:49:37.455482', '2011-10-04 03:49:37.455482')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:49:37.456464' WHERE "places"."id" = 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:37.457379', '2011-10-04 03:49:37.457379')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:49:37.458281', '2011-10-04 03:49:37.458281')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:49:37.458971' WHERE "places"."id" = 2
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:49:37.461878', '2011-10-04 03:49:37.461878')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:37.463020', '2011-10-04 03:49:37.463020')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:49:37.464080', '2011-10-04 03:49:37.464080')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:49:37.464862' WHERE "places"."id" = 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 34.567, 66.453, '2011-10-04 03:49:37.465736', '2011-10-04 03:49:37.465736')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:49:37.488660', '2011-10-04 03:49:37.488660')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:49:37.489632' WHERE "places"."id" = 2
+  [1m[36mStop Load (0.3ms)[0m  [1mSELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC[0m
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 03:53:54.993986', '2011-10-04 03:53:54.993986')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:53:55.009876', '2011-10-04 03:53:55.009876')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:53:55.061229', '2011-10-04 03:53:55.061229')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:53:55.067210', '2011-10-04 03:53:55.067210')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:53:55.070501', '2011-10-04 03:53:55.070501')[0m
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:01.540732', '2011-10-04 03:59:01.540732')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:59:01.611923', '2011-10-04 03:59:01.611923')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:01.621438', '2011-10-04 03:59:01.621438')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:01.629399', '2011-10-04 03:59:01.629399')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:59:01.658708', '2011-10-04 03:59:01.658708')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:01.664220' WHERE "places"."id" = 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:01.665346', '2011-10-04 03:59:01.665346')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:01.666866', '2011-10-04 03:59:01.666866')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:59:01.667869' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:01.671922', '2011-10-04 03:59:01.671922')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:01.673223', '2011-10-04 03:59:01.673223')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:59:01.674318', '2011-10-04 03:59:01.674318')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:01.675001' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:01.675772', '2011-10-04 03:59:01.675772')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:01.676766', '2011-10-04 03:59:01.676766')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:59:01.677673' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.4ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 03:59:05.817217', '2011-10-04 03:59:05.817217')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:05.829788', '2011-10-04 03:59:05.829788')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:05.871370', '2011-10-04 03:59:05.871370')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:05.875164' WHERE "places"."id" = 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:05.879731', '2011-10-04 03:59:05.879731')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:59:05.908674', '2011-10-04 03:59:05.908674')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:05.914684', '2011-10-04 03:59:05.914684')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:05.915858', '2011-10-04 03:59:05.915858')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:59:05.923273', '2011-10-04 03:59:05.923273')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:59:05.924229' WHERE "places"."id" = 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:05.925132', '2011-10-04 03:59:05.925132')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:05.925995', '2011-10-04 03:59:05.925995')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:05.926674' WHERE "places"."id" = 2
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:05.929682', '2011-10-04 03:59:05.929682')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:05.930824', '2011-10-04 03:59:05.930824')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:59:05.931845', '2011-10-04 03:59:05.931845')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:59:05.932607' WHERE "places"."id" = 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:05.933437', '2011-10-04 03:59:05.933437')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:05.957168', '2011-10-04 03:59:05.957168')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:05.958157' WHERE "places"."id" = 2
+  [1m[36mStop Load (0.3ms)[0m  [1mSELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:49.151041', '2011-10-04 03:59:49.151041')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:59:49.210866', '2011-10-04 03:59:49.210866')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:49.216877', '2011-10-04 03:59:49.216877')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:49.223951', '2011-10-04 03:59:49.223951')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:59:49.247061', '2011-10-04 03:59:49.247061')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:49.251573' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:49.252646', '2011-10-04 03:59:49.252646')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:49.253580', '2011-10-04 03:59:49.253580')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:59:49.254329' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:49.257344', '2011-10-04 03:59:49.257344')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:49.258513', '2011-10-04 03:59:49.258513')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:59:49.259561', '2011-10-04 03:59:49.259561')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:49.260337' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:49.261180', '2011-10-04 03:59:49.261180')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:49.262031', '2011-10-04 03:59:49.262031')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:59:49.262732' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.3ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:55.199592', '2011-10-04 03:59:55.199592')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 03:59:55.256169', '2011-10-04 03:59:55.256169')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:55.262006', '2011-10-04 03:59:55.262006')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:55.268799', '2011-10-04 03:59:55.268799')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:59:55.291096', '2011-10-04 03:59:55.291096')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:55.295265' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:55.296331', '2011-10-04 03:59:55.296331')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:55.297169', '2011-10-04 03:59:55.297169')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:59:55.297786' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 03:59:55.300787', '2011-10-04 03:59:55.300787')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:55.301928', '2011-10-04 03:59:55.301928')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 03:59:55.302956', '2011-10-04 03:59:55.302956')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 03:59:55.303748' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 03:59:55.304635', '2011-10-04 03:59:55.304635')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 03:59:55.305490', '2011-10-04 03:59:55.305490')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 03:59:55.306225' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.3ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:00:03.753106', '2011-10-04 04:00:03.753106')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 04:00:03.808457', '2011-10-04 04:00:03.808457')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:00:03.814273', '2011-10-04 04:00:03.814273')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:00:03.821068', '2011-10-04 04:00:03.821068')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 04:00:03.844134', '2011-10-04 04:00:03.844134')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 04:00:03.848647' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:00:03.849727', '2011-10-04 04:00:03.849727')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:00:03.850660', '2011-10-04 04:00:03.850660')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 04:00:03.851398' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:00:03.854561', '2011-10-04 04:00:03.854561')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:00:03.855743', '2011-10-04 04:00:03.855743')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 04:00:03.856774', '2011-10-04 04:00:03.856774')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 04:00:03.857533' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:00:03.858369', '2011-10-04 04:00:03.858369')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:00:03.859214', '2011-10-04 04:00:03.859214')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 04:00:03.859863' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.3ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 04:01:01.653612', '2011-10-04 04:01:01.653612')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:01:01.666235', '2011-10-04 04:01:01.666235')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:01:01.707434', '2011-10-04 04:01:01.707434')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 04:01:01.711105' WHERE "places"."id" = 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 04:04:43.325789', '2011-10-04 04:04:43.325789')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:04:43.338150', '2011-10-04 04:04:43.338150')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:04:43.378781', '2011-10-04 04:04:43.378781')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 04:04:43.382895' WHERE "places"."id" = 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:06:40.947831', '2011-10-04 04:06:40.947831')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 04:06:41.003469', '2011-10-04 04:06:41.003469')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:06:41.009443', '2011-10-04 04:06:41.009443')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:06:41.016614', '2011-10-04 04:06:41.016614')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 04:06:41.040532', '2011-10-04 04:06:41.040532')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 04:06:41.045150' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:06:41.046254', '2011-10-04 04:06:41.046254')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:06:41.047205', '2011-10-04 04:06:41.047205')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 04:06:41.047888' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:06:41.050930', '2011-10-04 04:06:41.050930')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:06:41.052092', '2011-10-04 04:06:41.052092')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 04:06:41.053136', '2011-10-04 04:06:41.053136')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 04:06:41.053908' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:06:41.054766', '2011-10-04 04:06:41.054766')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:06:41.055637', '2011-10-04 04:06:41.055637')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 04:06:41.056314' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.3ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('McFakey''s', 13.45, 66.634, '2011-10-04 04:09:03.403396', '2011-10-04 04:09:03.403396')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'The test tour, used for testing', '2011-10-04 04:09:03.436501', '2011-10-04 04:09:03.436501')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:09:03.461491', '2011-10-04 04:09:03.461491')[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:09:03.477581', '2011-10-04 04:09:03.477581')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 04:09:03.481104' WHERE "places"."id" = 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:09:03.485631', '2011-10-04 04:09:03.485631')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaaa')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('aaaa')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Non-unique title', 'Has a description', '2011-10-04 04:09:03.514871', '2011-10-04 04:09:03.514871')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) AND ("tours".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Non-unique title')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:09:03.521173', '2011-10-04 04:09:03.521173')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:09:03.522408', '2011-10-04 04:09:03.522408')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 04:09:03.551942', '2011-10-04 04:09:03.551942')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 04:09:03.552994' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:09:03.554042', '2011-10-04 04:09:03.554042')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:09:03.555043', '2011-10-04 04:09:03.555043')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 04:09:03.556088' WHERE "places"."id" = 2[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('Test tour')) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('Test tour', 'Has a description', '2011-10-04 04:09:03.559277', '2011-10-04 04:09:03.559277')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:09:03.560682', '2011-10-04 04:09:03.560682')
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 1, '2011-10-04 04:09:03.561765', '2011-10-04 04:09:03.561765')[0m
+  [1m[35mAREL (0.1ms)[0m  UPDATE "places" SET "updated_at" = '2011-10-04 04:09:03.562499' WHERE "places"."id" = 1
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO "places" ("name", "lat", "long", "created_at", "updated_at") VALUES ('A test place', 1, 1, '2011-10-04 04:09:03.563360', '2011-10-04 04:09:03.563360')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "stops" ("tour_id", "place_id", "order", "created_at", "updated_at") VALUES (1, NULL, 0, '2011-10-04 04:09:03.564223', '2011-10-04 04:09:03.564223')
+  [1m[36mAREL (0.1ms)[0m  [1mUPDATE "places" SET "updated_at" = '2011-10-04 04:09:03.564894' WHERE "places"."id" = 2[0m
+  [1m[35mStop Load (0.3ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 1) ORDER BY stops.tour_id ASC
