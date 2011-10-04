@@ -30,3 +30,13 @@ Factory.define :place do |place|
   place.long  ll[1]
 end
 
+Factory.define :user do |user|
+  user.name                   "Steven Buss"
+  user.email                  "steven.buss@gmail.com"
+  user.password               "foobar"
+  user.password_confirmation  "foobar"
+end
+
+Factory.sequence :email do |n|
+  "person-#{n}@example.com"
+end

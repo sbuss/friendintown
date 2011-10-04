@@ -6,7 +6,6 @@ Spork.prefork do
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
-  # This file is copied to spec/ when you run 'rails generate rspec:install'
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
@@ -32,11 +31,21 @@ Spork.prefork do
     # examples within a transaction, remove the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = true
-  end
 
-  end
+    def test_sign_in(user)
+      controller.sign_in(user)
+    end
 
-  Spork.each_run do
+    def integration_sign_in(user)
+      visit signin_path
+      fill_in :email,     :with => user.email
+      fill_in :password,  :with => user.password
+      click_button
+    end
+  end
+end
+
+Spork.each_run do
   # This code will be run each time you run your specs.
 
 end
@@ -69,7 +78,3 @@ end
 #
 # These instructions should self-destruct in 10 seconds.  If they don't, feel
 # free to delete them.
-
-
-
-
