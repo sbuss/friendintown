@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Stop do
   before(:each) do
     @tour = Factory(:tour)
-    @attr = { :place => Factory(:place), :order => 0 }
+    @attr = { :place => Factory(:place), :stop_num => 0 }
   end
 
   describe "A stop must be associated with a tour"

@@ -47,8 +47,10 @@ describe Tour do
   describe "Add stops" do
     before(:each) do
       @tour = Tour.create(@attr)
-      @stop_1 = Factory(:stop, :tour => @tour, :place => Factory(:place), :order => 1)
-      @stop_0 = Factory(:stop, :tour => @tour, :place => Factory(:place), :order => 0)
+      @stop_1 = Factory(:stop, :tour => @tour, :place => Factory(:place), 
+                        :stop_num => 1)
+      @stop_0 = Factory(:stop, :tour => @tour, :place => Factory(:place), 
+                        :stop_num => 0)
     end
 
     it "should have a stops attribute" do

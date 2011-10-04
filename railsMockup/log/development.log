@@ -632,3 +632,218 @@ Migrating to RemoveOrderAndTourFromPlace (20111004014856)
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('abcdefgh', NULL, '2011-10-04 03:37:15.590909', '2011-10-04 03:37:15.590909')[0m
   [1m[35mStop Load (1.7ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".tour_id = 3) ORDER BY stops.tour_id DESC
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateTours (20110922124706)
+Migrating to CreatePlaces (20110922124841)
+Migrating to CreateStops (20111004013128)
+Migrating to RemoveOrderAndTourFromPlace (20111004014856)
+Migrating to ChangeLatLngToDecimalsInPlace (20111004042617)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "altered_places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "lat" varchar(255), "long" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("places")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "places"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "long" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_places")[0m
+  [1m[35mSQL (0.5ms)[0m  DROP TABLE "altered_places"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "long" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("places")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "places"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_places")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_places"
+  [1m[36mSQL (1.8ms)[0m  [1mALTER TABLE "users" ADD "lat" decimal(15,10)[0m
+SQLite3::SQLException: no such table: users: ALTER TABLE "users" ADD "lat" decimal(15,10)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateTours (20110922124706)
+Migrating to CreatePlaces (20110922124841)
+Migrating to CreateStops (20111004013128)
+Migrating to RemoveOrderAndTourFromPlace (20111004014856)
+Migrating to ChangeLatLngToDecimalsInPlace (20111004042617)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "altered_places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "lat" varchar(255), "long" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("places")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "places"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "long" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_places")[0m
+  [1m[35mSQL (0.5ms)[0m  DROP TABLE "altered_places"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "long" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("places")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "places"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_places")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_places"
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "places" ADD "lat" decimal(15,10)[0m
+  [1m[35mSQL (0.1ms)[0m  ALTER TABLE "places" ADD "long" decimal(15,10)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111004042617')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("places")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("stops")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_stops_on_tour_id_and_place_id_and_order')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("tours")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "lat" decimal(15,10), "long" decimal(15,10)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  CREATE TABLE "stops" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tour_id" integer, "place_id" integer, "order" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("stops")[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE INDEX "index_stops_on_tour_id_and_place_id_and_order" ON "stops" ("tour_id", "place_id", "order")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE TABLE "tours" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "desc" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111004042617')[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110922124706')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110922124841')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111004013128')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111004014856')[0m
+  [1m[36mPlace Load (0.2ms)[0m  [1mSELECT "places".* FROM "places" LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "places" ("name", "created_at", "updated_at", "lat", "long") VALUES ('myname', '2011-10-04 04:39:27.950492', '2011-10-04 04:39:27.950492', 123.456, -12.754)[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateTours (20110922124706)
+Migrating to CreatePlaces (20110922124841)
+Migrating to CreateStops (20111004013128)
+Migrating to RemoveOrderAndTourFromPlace (20111004014856)
+Migrating to ChangeLatLngToDecimalsInPlace (20111004042617)
+Migrating to ChangeOrderToStopnumInStops (20111004045427)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "altered_stops" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tour_id" integer, "place_id" integer, "stop_num" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("stops")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_stops_on_tour_id_and_place_id_and_order')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_stops")
+  [1m[36mSQL (0.1ms)[0m  [1mCREATE INDEX "temp_index_altered_stops_on_tour_id_and_place_id_and_order" ON "altered_stops" ("tour_id", "place_id", "stop_num")[0m
+  [1m[35mSQL (0.4ms)[0m  DROP TABLE "stops"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "stops" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tour_id" integer, "place_id" integer, "stop_num" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("altered_stops")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('temp_index_altered_stops_on_tour_id_and_place_id_and_order')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("stops")
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "index_stops_on_tour_id_and_place_id_and_order" ON "stops" ("tour_id", "place_id", "stop_num")[0m
+  [1m[35mSQL (0.4ms)[0m  DROP TABLE "altered_stops"
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111004045427')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("places")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("stops")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_stops_on_tour_id_and_place_id_and_order')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("tours")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "lat" decimal(15,10), "long" decimal(15,10)) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  CREATE TABLE "stops" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tour_id" integer, "place_id" integer, "stop_num" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("stops")[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE INDEX "index_stops_on_tour_id_and_place_id_and_order" ON "stops" ("tour_id", "place_id", "stop_num")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE TABLE "tours" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "desc" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111004045427')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110922124706')
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110922124841')[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111004013128')
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111004014856')[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111004042617')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "places" ("name", "created_at", "updated_at", "lat", "long") VALUES ('myname', '2011-10-04 05:03:50.903715', '2011-10-04 05:03:50.903715', 123.456, -12.754)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('abcdefgh')) LIMIT 1[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('abcdefgh', NULL, '2011-10-04 05:10:02.993993', '2011-10-04 05:10:02.993993')
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "stop_num", "created_at", "updated_at") VALUES (1, 1, 0, '2011-10-04 05:10:05.032667', '2011-10-04 05:10:05.032667')[0m
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "tours" WHERE (LOWER("tours"."name") = LOWER('abcdefgh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "tours" ("name", "desc", "created_at", "updated_at") VALUES ('abcdefgh', NULL, '2011-10-04 05:10:55.562519', '2011-10-04 05:10:55.562519')[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO "places" ("name", "created_at", "updated_at", "lat", "long") VALUES ('myname', '2011-10-04 05:10:58.789392', '2011-10-04 05:10:58.789392', 123.456, -12.754)
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO "stops" ("tour_id", "place_id", "stop_num", "created_at", "updated_at") VALUES (1, 1, 0, '2011-10-04 05:11:02.065094', '2011-10-04 05:11:02.065094')[0m
+  [1m[35mStop Load (0.2ms)[0m  SELECT "stops".* FROM "stops" WHERE ("stops".place_id = 1) ORDER BY stops.stop_num ASC

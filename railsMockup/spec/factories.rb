@@ -4,6 +4,8 @@ Factory.define :tour do |tour|
 end
 
 Factory.define :stop do |stop|
+  Factory.sequence(:stop_num) { |n| n }
+
   stop.association :tour
   stop.association :place
 end
