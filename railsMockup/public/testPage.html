@@ -2,173 +2,14 @@
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-<link rel="StyleSheet" href="./css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen">
+<link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,600' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:700' rel='stylesheet' type='text/css'>
 
 <style type="text/css">
-    html { height: 100% }
-    body { height: 100%; margin: 0; padding: 0 }
-    #map_canvas { height: 100% }
-    
-    
-    #search {
-        position:absolute;
-        top:0;
-        width:100%;
-        text-align:center;
-    }
-    #search form {
-        -webkit-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-        -moz-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-        box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-        display:inline-block;
-        margin:0 auto;
-        background:#FFF;
-        padding:10px;
-        -webkit-border-radius: 0 0 10px 10px;
-        -moz-border-radius: 0 0 10px 10px;
-        border-radius: 0 0 10px 10px;
-    }
-    #search label {
-        font-size:3em;
-        font-family:Helvetica, Verdana, Sans-Serif;
-    }
-    
-    #search input {
-        text-align:left;
-        width:400px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-        font-size:3em;
-        color:#666;
-        padding-left:10px;
-    }
-    
-    #listWrap {
-        text-align:center;
-        font-weight:bold;
-        color:#FFF;
-        font-family:helvetica, arial, sans-serif;
-        position:absolute;
-        right:0;
-        top:100px;
-        width:200px;
-        background:#666;
-        padding:25px 15px;
-        -webkit-border-radius: 10px 0 0 10px;
-        -moz-border-radius: 10px 0 0 10px;
-        border-radius: 10px 0 0 10px;
-        -webkit-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-        -moz-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-        box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-    }
-    .ui-state-highlight { height: 64px; }
-    
-    #listWrap label{
-        font-size:10px;
-        font-weight:normal;
-    }
-    
-    
-    #list {
-        font-weight:normal;
-        color:#666;
-        padding:0;
-        margin:10px 0;
-    }
-    
-    #list li {
-        height:32px;
-        padding:16px;
-        list-style: none outside none; 
-    }
-    
-    #list li div.grips {
-        position:absolute;
-        top:5px;
-        bottom:5px;
-        right:0;
-        width:16px;
-        background:transparent url("./images/Gripper.png") repeat left top;
-    }
-    
-    #list li.mapItem {
-        cursor:move;
-        position:relative;
-        background:transparent url('./images/li_background.png') repeat-x left top;
-    }
-    
-    #list a.remove, #list a.remove:visited {
-        font-size:10px;
-        text-decoration:none;
-        color:#194c70;
-    }
-    
-    #list a.remove:hover {
-        text-decoration:underline;
-    }
-    
-    #saveButton{
-/*        display:none;*/
-    }
-    
-    #createForm {
-        display:none;
-    }
-    
-    #createForm input, #createForm textarea{
-        margin-left:10px;
-    }
-    
-    #createForm textarea {
-        width:270px;
-    }
-    
-    /* Header/Nav */
-    #header {
-        background: url("images/header.gif") repeat scroll 0 0 transparent;
-        height: 90px;
-        display:none; /* hide for now */
-    }
-    
-    .shell {
-        margin: 0 auto;
-        width: 980px;
-    }
-    h1#logo {
-        float: left;
-        font-size: 0;
-        height: 90px;
-        line-height: 0;
-        width: 216px;
-    }
-    #navigation {
-        float: right;
-    }
-    h2, h3, #navigation, #slider-navigation, #footer {
-        font-family: "Trebuchet MS",Arial,sans-serif;
-    }
-    #navigation ul {
-        float: left;
-        font-size: 14px;
-        list-style-type: none;
-        padding-top: 37px;
-    }
-    #navigation ul li {
-        background: url("images/nav-border.gif") repeat-y scroll right 0 transparent;
-        display: inline;
-        float: left;
-        height: 21px;
-        margin-right: 20px;
-        padding: 0 20px 0 0;
-        position: relative;
-    }
-    #navigation ul li a {
-        color: #FFFFFF;
-        float: left;
-        text-decoration: none;
-    }
-    </style>
+
+</style>
 <script type="text/javascript" src="./js/jq1.6.4.js"></script>
 <script type="text/javascript" src="./js/gGears.js"></script>
 <script type="text/javascript" src="./js/jqui1.8.16.js"></script>
@@ -185,7 +26,14 @@ var loc,// Starting location
     
 function initialize() {
     var myOptions = {
-        zoom: 13,
+        zoom: 12,
+        streetViewControl: false,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        panControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_BOTTOM
+        },
         center: new google.maps.LatLng(47.6062095, -122.3320708),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -229,16 +77,16 @@ function initialize() {
     
     
     //Fire off an ajax request to grab some data
-    $.ajax({
-      url: "./data.json",
-      success: function(data, textStatus, jqXHR) {
-         loadRoute(data.data[0])//Load the first test, just for testing
-      },
-      error: function () {
-          console.log(arguments)
-      },
-      dataType: "JSON"
-    });
+    // $.ajax({
+    //   url: "./data.json",
+    //   success: function(data, textStatus, jqXHR) {
+    //      loadRoute(data.data[0])//Load the first test, just for testing
+    //   },
+    //   error: function () {
+    //       console.log(arguments)
+    //   },
+    //   dataType: "JSON"
+    // });
 }
 
 function callback(results, status) {
@@ -256,9 +104,8 @@ function callback(results, status) {
 }
 
 function calcRoute() {
-    
     var $allPoints = $("#list li");
-    
+
     if($allPoints.length < 2) {
         return false;
     }
@@ -313,61 +160,261 @@ function removeAllMarkers() {
 </script>
 </head>
 <body onload="initialize()">
-    <div id="header">
-        <div class="shell">
-            <h1 id="logo"><a href="#">Friend in Town</a></h1>
-            <div id="navigation">
-                <ul>
-                    <li><a href="#">Home<span><em></em></span></a></li>
-                    <li><a href="#">About<span><em></em></span></a></li>
-                    <li><a href="#">Services<span><em></em></span></a></li>
-
-                    <li><a href="#">Clients<span><em></em></span></a></li>
-                    <li class="last"><a href="#">Contact<span><em></em></span></a></li>
+    <div id="container">
+        <div id="logo">TOURIOUS<div id="subLogo">Seattle<br /> Edition</div></div>
+        <div id="mapWrap">
+            <div id="map_canvas"></div>
+            <div id="myTour">
+                <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
+                <ul id="list">
                 </ul>
-            </div>
+                <button id="saveButton">Save Tour</button>
+            </div> 
         </div>
+        <section id="focusBanner">
+            <div id="currentTour">
+                <div class="info">
+                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                        <h3 class="title">Seattle Needle Tour 1</h3>
+                    </div>
+                    <div style="height:100%">
+                        <div class="fact dur"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                        <div class="fact cost"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                        <div class="fact spots"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                        <div class="fact likes"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                    </div>
+                </div>
+                <div class="places">
+                     <div class="place"><h3>Space Needle</h3><p>It's tall.</p></div>
+                     <div class="place"><h3>Stop Numero 2</h3><p>I always have fun here</p></div>
+                     <div class="place"><h3>The Third Stop</h3><p>Nibbler's favorite spot</p></div>
+                     <div class="place"><h3>Final Stop</h3><p>Long trip, time to rest</p></div>
+                </div>
+            </div>
+            <div id="getStarted" class="current"><div class="getStartedText">Choose a Tour Below to Begin Exploring<br /><a id="createTour" href="#">or create a Tour</a></div></div>
+            <div id="search">
+                <form id="searchForm">
+                  <label for="searchBox">Search: </label>
+                  <input type="text" id="searchBox" />
+              </form>
+            </div>
+        </section>
+        <section id="featuredTours">
+            <h1 id="toursHeader">FEATURED TOURS </h1>
+            <div id="toursWrapper"></div>
+            <!--<ul>
+                 <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="blue">Seattle Needle Tour1</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li>
+                                <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="purple">Seattle Needle Tour2</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li>
+                                <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="red">Seattle Needle Tour3</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li>
+                                <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="turq">Seattle Needle Tour4</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li>
+                                <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="pink">Seattle Needle Tour5</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li> -
+               
+                
+                
+            </ul>-->
+            
+            
+            
+            
+        </section>
+        <!-- <div id="search">
+                  <form id="searchForm">
+                      <label for="searchBox">Search: </label>
+                      <input type="text" id="searchBox" />
+                  </form>
+                </div> -->
+        <!-- <div id="listWrap">
+          Places <br />
+        <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
+        <ul id="list">
+        </ul>
+        <button id="saveButton">Save Tour</button>
+        </div> -->
+
+        <form id="createForm" title="Save Tour">
+          <fieldset>
+            <label for="name">Name</label><br />
+            <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" /><br />
+            <label for="desc">Description</label><br />
+            <textarea  name="desc" id="desc" class="text ui-widget-content ui-corner-all" ></textarea>
+            <input type="submit" id="createTour" />
+        </fieldset> 
+        </form>
     </div>
-  <div id="map_canvas" style="width:100%; height:100%"></div>
-  <div id="search">
-      <form id="searchForm">
-          <label for="searchBox">Search: </label>
-          <input type="text" id="searchBox" />
-      </form>
-  </div>
-  <div id="listWrap">
-      Places <br />
-      <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
-    <ul id="list">
-    </ul>
-    <button id="saveButton">Save Tour</button>
-  </div>
-  
-  <form id="createForm" title="Save Tour">
-      <fieldset>
-        <label for="name">Name</label><br />
-        <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" /><br />
-        <label for="desc">Description</label><br />
-        <textarea  name="desc" id="desc" class="text ui-widget-content ui-corner-all" ></textarea>
-        <input type="submit" id="createTour" />
-    </fieldset> 
-  </form>
+    
+    
+    <li id="tourClone" class="tour">      
+         <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+             <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+             <h3 class="title"></h3>
+         </div>
+         <div class="fact dur"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+         <div class="fact cost"><span class="number">1</span><br /><span class="unit">USD</span></div>
+         <div class="fact spots"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+         <div class="fact likes"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+     </li>
  <script type="text/javascript">
  function loadRoute(tour) {
+     $("#list").empty();
      //Add items to list
     for(var i=0, l=tour.routes.length;i<l;i++) {
         var location = new google.maps.LatLng(tour.routes[i].lat, tour.routes[i].long);
         createListItem(tour.routes[i].name, location);
     }
-       
     calcRoute();
  }
  
 function createListItem(text, loc) {
-     $("#list").append($("<li />").addClass("mapItem").text(text).data("loc", loc).append("<br /><a class='remove' href='#'>[Remove]</a>").append("<div class='grips'></div>"));
+     $("#list").append($("<li />").addClass("mapItem").text(text).data("loc", loc).append("<a class='remove' href='#'>[X]</a>").append("<div class='grips'></div>"));
 }
 
+function loadTour(tour) {
+    //Check if the right div is displayed
+    var $current = $("#focusBanner").children("div.current");
+        $current.fadeOut(500, function () {
+            //Update DOM
+            $("#currentTour").find("h3.title").removeClass("blue purple red turq pink").addClass(tour.color).text(tour.name).end()
+            .find("div.dur .number").text(tour.duration).end()
+            .find("div.cost .number").text(tour.cost).end()
+            .find("div.spots .number").text(tour.spots).end()
+            .find("div.likes .number").text(tour.likes).end();
+            
+            if( $current.attr("id") === "search") {
+                $("#myTour").fadeOut();
+                $("#focusBanner").animate({height:185}, "linear", function() {$("#currentTour").fadeIn(500, function () {$(this).addClass("current")});});
+            } else {
+                $("#currentTour").fadeIn(500, function () {$(this).addClass("current")});
+            }
+            $(this).removeClass("current")
+        });
+        
+    loadRoute(tour) 
+}
+
+function loadAllTours(tours) {
+    if( typeof tours === "undefined") { return false; }
+    
+    var colors = ['blue', 'pink', 'purple','turq', 'red'],
+        $newTourLi,
+        $clone = $("#tourClone"),
+        $list = $("<ul />");
+        
+    for(var i=0,l=tours.length;i<l;i++) {
+        //Create tour DOM object and add it to the page...To Do: Optimization
+        tours[i].color = colors[(Math.floor(Math.random()*colors.length))]
+        $newTourLi = $clone.clone();
+        $newTourLi.removeAttr("id").find("h3.title").addClass(tours[i].color).text(tours[i].name).end()
+        .find("div.dur .number").text(tours[i].duration).end()
+        .find("div.cost .number").text(tours[i].cost).end()
+        .find("div.spots .number").text(tours[i].spots).end()
+        .find("div.likes .number").text(tours[i].likes).end()
+        .data("tour",tours[i]);
+        
+        $list.append($newTourLi);
+    }
+    $("#toursWrapper").append($list)
+    
+}
+
+
 $(function () { 
+    
+    // Load tours
+    $.ajax({
+      url: "./data.json",
+      success: function(d, textStatus, jqXHR) {
+          loadAllTours(d.data)
+         //loadRoute(data.data[0])//Load the first test, just for testing
+      },
+      error: function () {
+          alert("Sorry :( We're broken. Email nibbler and he'll get right on it: Nibbler.thePug@gmail.com")
+          console.log(arguments)
+      },
+      dataType: "JSON"
+    });
+    
+    
+    $("#createTour").click(function() {
+        //Fade nonsense/expand map/shrink currentTour/fade in search
+        $("#focusBanner").children("div.current").fadeOut(500, function () {$(this).removeClass("current")});
+        $("#map_canvas").animate({height:600}, 1000, "easeOutQuint", function () {$("#myTour").fadeIn();google.maps.event.trigger(map, 'resize')})
+        $("#focusBanner").animate({height:85}, 1000, "linear", function() { $("#search").fadeIn().addClass("current")})
+        //Fade in Search and list
+    })
+    
+
+    
+    $("#featuredTours div.selectCover").css("opacity","0").show();
+    
+    // Show "select Tour" on hover
+    $("#featuredTours li").live({
+        mouseenter:
+           function () {    
+                $(this).find(".selectCover").stop().animate({opacity:0.5}, 300);
+           },
+        mouseleave:
+           function() {
+               $(this).find(".selectCover").stop().animate({opacity:0}, 300);
+           }
+       });
+
+    
+    
+     $("#featuredTours li").live("click", function () {
+         //$(this).effect("scale",{percent: 50},500);
+         var newTop = $("#focusBanner").offset().top - $(this).offset().top,
+            time = newTop * -2;
+         
+         $(this).animate({opacity:0.5}, 500, "easeInOutSine", function () {
+             $(this).animate({top:newTop},time, "easeInOutQuint", function () {loadTour($(this).data("tour"));$(this).remove();})
+         })
+     })
+    
         
          $( "#list" ).sortable({
                     placeholder: "ui-state-highlight",
@@ -425,7 +472,7 @@ $(function () {
             var allRoutes = [];
             
             for(var i=0,$allPoints=$("#list li"), l=$allPoints.length;i<l;i++) {
-                  allRoutes.push({name:$allPoints.eq(i).text(), lat: $allPoints.eq(i).data('loc').Ja, Long:$allPoints.eq(i).data('loc').Ka });
+                  allRoutes.push({name:$allPoints.eq(i).text(), lat: $allPoints.eq(i).data('loc').Ja, long:$allPoints.eq(i).data('loc').Ka });
                }
             
             // Create JSON blob of the routes
@@ -435,6 +482,7 @@ $(function () {
                 routes: allRoutes
             }
             
+            console.log(blob)
             return false;
         })
         
@@ -443,8 +491,6 @@ $(function () {
     })
  
  
- </script>
-  
-  
+ </script> 
 </body>
 </html>

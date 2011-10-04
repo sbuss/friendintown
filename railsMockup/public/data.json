@@ -1,8 +1,12 @@
 {
   "data": [
      {
-        "name": "Drunkies Tour",
+        "name": "Drunk Tour",
         "desc": "Follow this route to get drunk",
+        "duration": 4,
+        "cost": 42,
+        "spots": 2,
+        "likes":33,
         "routes": [
           {
           "lat": "47.606059",
@@ -19,9 +23,84 @@
             "long": "-122.33209199999999",
             "name": "Polar Bar"
           }
-        
+          ]
+      },
+      {
+        "desc": "lots of needles",
+        "name": "Needle Tour",
+        "duration": 1,
+        "cost": 250,
+        "spots": 3,
+        "likes":800,
+          "routes": [
+          {
+            "long": "-122.34931",
+            "lat":  "47.62074",
+            "name": "Sky City At the Needle"
+          },
+          {
+            "long": "-122.34365600000001",
+            "lat": "47.613025",
+            "name": "Under the Needle Tattoos"
+          },
+          {
+          "long": "-122.34509100000002",
+          "lat": "47.618434",
+          "name": "Under The Needle Tattoos"
+          }
         ]
-      }
+      },
+      
+      {
+          "name": "Drunkies Tour NUMBER 2",
+          "desc": "Follow this route to get drunk TWO",
+          "duration": 2,
+          "cost": 7,
+          "spots": 22,
+          "likes":1223,
+          "routes": [
+            {
+            "lat": "47.606059",
+            "long": "-122.34101800000002",
+            "name":"Crab Pot Restaurant"
+            },
+            {
+              "lat": "47.6084",
+              "long": "-122.32689399999998",
+              "name":	"First Hill Bar & Grill"
+            },
+            {
+              "lat": "47.603749",
+              "long": "-122.33209199999999",
+              "name": "Polar Bar"
+            }
+            ]
+        },
+        {
+            "name": "Space Needle Tour",
+            "desc": "Just go to the space needle..then somewhere else",
+            "duration": 1,
+            "cost": 2,
+            "spots": 4,
+            "likes":78,
+            "routes": [
+              {
+              "lat": "47.606059",
+              "long": "-122.34101800000002",
+              "name":"Crab Pot Restaurant"
+              },
+              {
+                "lat": "47.6084",
+                "long": "-122.32689399999998",
+                "name":	"First Hill Bar & Grill"
+              },
+              {
+                "lat": "47.603749",
+                "long": "-122.33209199999999",
+                "name": "Polar Bar"
+              }
+            ]
+          } 
 
   ] 
 }
