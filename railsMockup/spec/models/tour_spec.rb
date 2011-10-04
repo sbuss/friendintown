@@ -42,6 +42,8 @@ describe Tour do
       dupe_tour = Tour.new(my_attr)
       dupe_tour.should_not be_valid
     end
+
+      
   end
 
   describe "Add stops" do
@@ -53,12 +55,27 @@ describe Tour do
                         :stop_num => 0)
     end
 
+    describe "invalid stops" do
+      it "should not allow two stops with the same stop number" do
+        lambda do
+          Factory(:stop, :tour => @tour, :place => Factory(:place),
+                  :stop_num => 0)
+        end.should_not change(Stop, :count)
+      end
+    end
+
     it "should have a stops attribute" do
       @tour.should respond_to(:stops)
     end
 
     it "should have the right stops in the right order" do
       @tour.stops.should == [@stop_0, @stop_1]
+    end
+
+    it "should allow stops to be added" do
+      lambda do
+        Factory(:stop, :tour => @tour, :place => Factory(:place))
+      end.should change(Stop, :count).by(1)
     end
 
   end
