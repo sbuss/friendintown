@@ -23,6 +23,40 @@ body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#
   -webkit-box-shadow: 2px 2px 8px #000;
   box-shadow: 2px 2px 8px #000;
 }
+.topright {
+  float: right;
+  font-size: 0.8em;
+  background: #EA1C23;
+  margin-top: -40px;
+  color: #fff;
+  padding: 10px;
+}
+ul.inline {
+  margin: 0;
+  padding: 0;
+}
+ul.inline li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+ul.inline li a {
+  padding: 0 5px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+ul.inline li a:visited {
+  color: #eee;
+}
+
+ul.inline li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 #subLogo {
   float: right;
   font-size: 0.4em;
