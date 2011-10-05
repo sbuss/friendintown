@@ -10,4 +10,3 @@ doc/
 .DS_Store
 *.lock
 bin/*
-*.pid
