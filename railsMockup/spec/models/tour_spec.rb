@@ -49,18 +49,23 @@ describe Tour do
   describe "Add stops" do
     before(:each) do
       @tour = Tour.create(@attr)
+      @stop_2 = Factory(:stop, :tour => @tour, :place => Factory(:place), 
+                        :stop_num => 2)
       @stop_1 = Factory(:stop, :tour => @tour, :place => Factory(:place), 
                         :stop_num => 1)
-      @stop_0 = Factory(:stop, :tour => @tour, :place => Factory(:place), 
-                        :stop_num => 0)
     end
 
     describe "invalid stops" do
       it "should not allow two stops with the same stop number" do
-        lambda do
-          Factory(:stop, :tour => @tour, :place => Factory(:place),
-                  :stop_num => 0)
-        end.should_not change(Stop, :count)
+        stop = Stop.create(:tour => @tour, :place => Factory(:place),
+                           :stop_num => 1)
+        stop.should_not be_valid
+      end
+
+      it "should not allow a stop with a stop number < 1" do
+        stop = Stop.create(:tour => @tour, :place => Factory(:place),
+                           :stop_num => 0)
+        stop.should_not be_valid
       end
     end
 
@@ -69,7 +74,7 @@ describe Tour do
     end
 
     it "should have the right stops in the right order" do
-      @tour.stops.should == [@stop_0, @stop_1]
+      @tour.stops.should == [@stop_1, @stop_2]
     end
 
     it "should allow stops to be added" do

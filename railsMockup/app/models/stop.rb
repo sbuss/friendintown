@@ -4,8 +4,9 @@ class Stop < ActiveRecord::Base
 
   validates :tour_id, :presence => true
   validates :stop_num, :presence     => true,
-                       :numericality => { :greater_than_or_equal_to => 0 ,
-                                          :only_integer => true }
+                       :numericality => { :greater_than => 0 ,
+                                          :only_integer => true },
+                       :uniqueness   => { :scope => :tour_id }
   
   default_scope :order => 'stops.stop_num ASC'
 end
