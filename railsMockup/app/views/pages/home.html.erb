@@ -1,0 +1,135 @@
+<div id="mapWrap">
+    <div id="map_canvas"></div>
+    <div id="myTour">
+        <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
+        <ul id="list">
+        </ul>
+        <button id="saveButton">Save Tour</button>
+    </div> 
+</div>
+
+<section id="focusBanner">
+    <div id="currentTour">
+        <div class="info">
+            <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                <h3 class="title">Seattle Needle Tour 1</h3>
+            </div>
+            <div style="height:100%">
+                <div class="fact dur"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                <div class="fact cost"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                <div class="fact spots"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                <div class="fact likes"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+            </div>
+        </div>
+        <div class="places">
+             <div class="place"><h3>Space Needle</h3><p>It's tall.</p></div>
+             <div class="place"><h3>Stop Numero 2</h3><p>I always have fun here</p></div>
+             <div class="place"><h3>The Third Stop</h3><p>Nibbler's favorite spot</p></div>
+             <div class="place"><h3>Final Stop</h3><p>Long trip, time to rest</p></div>
+        </div>
+    </div>
+    <div id="getStarted" class="current"><div class="getStartedText">Choose a Tour Below to Begin Exploring<br /><a id="createTour" href="#">or create a Tour</a></div></div>
+    <div id="search">
+        <form id="searchForm">
+          <label for="searchBox">Search: </label>
+          <input type="text" id="searchBox" />
+      </form>
+    </div>
+</section>
+<section id="featuredTours">
+    <h1 id="toursHeader">FEATURED TOURS </h1>
+    <div id="toursWrapper"></div>
+    <!--<ul>
+         <li class="tour">      
+                            <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                <h3 class="blue">Seattle Needle Tour1</h3>
+                            </div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                        </li>
+                        <li class="tour">      
+                            <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                <h3 class="purple">Seattle Needle Tour2</h3>
+                            </div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                        </li>
+                        <li class="tour">      
+                            <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                <h3 class="red">Seattle Needle Tour3</h3>
+                            </div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                        </li>
+                        <li class="tour">      
+                            <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                <h3 class="turq">Seattle Needle Tour4</h3>
+                            </div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                        </li>
+                        <li class="tour">      
+                            <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                <h3 class="pink">Seattle Needle Tour5</h3>
+                            </div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                            <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                        </li> -
+       
+        
+        
+    </ul>-->
+    
+    
+    
+    
+</section>
+<!-- <div id="search">
+          <form id="searchForm">
+              <label for="searchBox">Search: </label>
+              <input type="text" id="searchBox" />
+          </form>
+        </div> -->
+<!-- <div id="listWrap">
+  Places <br />
+<label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
+<ul id="list">
+</ul>
+<button id="saveButton">Save Tour</button>
+</div> -->
+
+<form id="createForm" title="Save Tour">
+  <fieldset>
+    <label for="name">Name</label><br />
+    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" /><br />
+    <label for="desc">Description</label><br />
+    <textarea  name="desc" id="desc" class="text ui-widget-content ui-corner-all" ></textarea>
+    <input type="submit" id="createTour" />
+</fieldset> 
+</form>
+
+<li id="tourClone" class="tour">      
+     <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+         <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+         <h3 class="title"></h3>
+     </div>
+     <div class="fact dur"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+     <div class="fact cost"><span class="number">1</span><br /><span class="unit">USD</span></div>
+     <div class="fact spots"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+     <div class="fact likes"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+ </li>

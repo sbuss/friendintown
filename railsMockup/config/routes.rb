@@ -1,7 +1,20 @@
 FriendInTown::Application.routes.draw do
-  resources :places
+  resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
 
+  resources :places
   resources :tours
+  resources :stop
+
+  match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout',  :to => 'sessions#destroy'
+
+  match '/contact', :to => 'pages#contact'
+  match '/about',   :to => 'pages#about'
+  match '/help',    :to => 'pages#help'
+
+  root :to => 'pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

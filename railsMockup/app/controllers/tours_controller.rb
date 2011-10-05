@@ -7,6 +7,7 @@ class ToursController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tours }
+      format.json  { render :json => @tours, :include => :stops }
     end
   end
 
@@ -18,6 +19,7 @@ class ToursController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tour }
+      format.json  { render :json => @tour, :include => { :stops => {:include => :place} } }
     end
   end
 
