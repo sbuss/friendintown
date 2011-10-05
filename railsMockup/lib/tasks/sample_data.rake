@@ -27,7 +27,7 @@ namespace :db do
       name = Faker::Company.name
       lat = r.rand() * (latmax-latmin) + latmin
       long = r.rand() * (longmax-longmin) + longmin
-      Place.create(:name => name,
+      Place.create!(:name => name,
                    :lat  => lat,
                    :long => long)
     end
@@ -38,9 +38,9 @@ namespace :db do
       desc = "Description for tour ##{n}"
       numStops = r.rand(2..10)
       u = User.find_by_id(n+1)
-      t = Tour.create(:name => name, :desc => desc, :user => u)
+      t = u.tours.create!(:name => name, :desc => desc)
       numStops.times do |m|
-        Stop.create(:tour => t, 
+        Stop.create!(:tour => t, 
                     :place => Place.find_by_id(r.rand(1..100)),
                     :stop_num => m+1)
       end

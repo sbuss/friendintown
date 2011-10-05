@@ -362,6 +362,14 @@ li.tour .image, .image {
   text-decoration: none;
 }
 
+.content ul {
+  font-size: 1em;
+}
+
+.content ul li {
+  font-size: 1em;
+}
+
 /*#search {
     position:absolute;
     top:0;

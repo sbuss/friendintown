@@ -1,14 +1,17 @@
-<table class="profile" summary="Profile information">
-  <tr>
-    <td class="main">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </td>
-    <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
-    </td>
-  </tr>
-</table>
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
+
+<div class="sidebar round">
+  <strong>Name</strong> <%= @user.name %><br />
+  <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+</div>
+<h2>
+<%= @user.name %> has <%= pluralize(@user.tours.size, 'tour') %>
+</h2>
+<% unless @user.tours.empty? %>
+  <ul>
+    <%= render @tours %>
+  </ul>
+<% end %>
