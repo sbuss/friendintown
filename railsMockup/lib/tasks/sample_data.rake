@@ -38,11 +38,13 @@ namespace :db do
       desc = "Description for tour ##{n}"
       numStops = r.rand(2..10)
       u = User.find_by_id(n+1)
-      t = u.tours.create!(:name => name, :desc => desc)
+      t = u.tours.create!(:name => name, :desc => desc, 
+                          :duration => r.rand(1..10),
+                          :cost => r.rand(10..1000))
       numStops.times do |m|
         Stop.create!(:tour => t, 
-                    :place => Place.find_by_id(r.rand(1..100)),
-                    :stop_num => m+1)
+                     :place => Place.find_by_id(r.rand(1..100)),
+                     :stop_num => m+1)
       end
     end
   end

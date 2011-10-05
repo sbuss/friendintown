@@ -5,7 +5,9 @@ describe Tour do
     @attr = {
       :name => "Test tour",
       :desc => "Has a description",
-      :user => Factory(:user)
+      :user => Factory(:user),
+      :duration => 5,
+      :cost => 100
     }
   end
 
@@ -22,6 +24,30 @@ describe Tour do
     it "can be created without a description" do
       no_desc_tour = Tour.new(@attr.merge(:desc => ""))
       no_desc_tour.should be_valid
+    end
+
+    describe "methods" do
+      before(:each) do
+        @tour = Tour.new(@attr)
+      end
+
+      it "should have :name" do
+        @tour.should respond_to(:name)
+      end
+
+      it "should have :desc" do
+        @tour.should respond_to(:desc)
+      end
+
+      it "should have :duration" do
+        @tour.should respond_to(:duration)
+        @tour.duration.should == @attr['duration']
+      end
+
+      it "should have :cost" do
+        @tour.should respond_to(:cost)
+        @tour.cost.should == @attr['cost']
+      end
     end
   end
 
@@ -58,14 +84,14 @@ describe Tour do
 
     describe "invalid stops" do
       it "should not allow two stops with the same stop number" do
-        stop = Stop.create(:tour => @tour, :place => Factory(:place),
-                           :stop_num => 1)
+        stop = @tour.stops.create(:place => Factory(:place),
+                                  :stop_num => 1)
         stop.should_not be_valid
       end
 
       it "should not allow a stop with a stop number < 1" do
-        stop = Stop.create(:tour => @tour, :place => Factory(:place),
-                           :stop_num => 0)
+        stop = @tour.stops.create(:place => Factory(:place),
+                                  :stop_num => 0)
         stop.should_not be_valid
       end
     end
@@ -80,7 +106,7 @@ describe Tour do
 
     it "should allow stops to be added" do
       lambda do
-        Factory(:stop, :tour => @tour, :place => Factory(:place))
+        @tour.stops.create(:place => Factory(:place), :stop_num => 3)
       end.should change(Stop, :count).by(1)
     end
 
