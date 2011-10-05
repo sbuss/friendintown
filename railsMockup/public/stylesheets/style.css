@@ -23,6 +23,12 @@ body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#
   -webkit-box-shadow: 2px 2px 8px #000;
   box-shadow: 2px 2px 8px #000;
 }
+#subLogo {
+  float: right;
+  font-size: 0.4em;
+  line-height: 1em;
+  padding-top: 17px;
+}
 .topright {
   float: right;
   font-size: 0.8em;
@@ -57,12 +63,6 @@ ul.inline li a:hover {
   text-decoration: underline;
 }
 
-#subLogo {
-  float: right;
-  font-size: 0.4em;
-  line-height: 1em;
-  padding-top: 17px;
-}
 #mapWrap {
   z-index:1;
 
@@ -346,6 +346,22 @@ li.tour .image, .image {
 .ui-dialog {
   text-align:left;
 }
+
+.content {
+  background: #353738;
+  padding: 20px;
+  color: #fff;
+}
+
+.content a  {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.content a:hover {
+  text-decoration: none;
+}
+
 /*#search {
     position:absolute;
     top:0;
