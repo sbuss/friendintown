@@ -2,21 +2,505 @@
 <html>
   <head>
     <title><%= title %></title>
-    <%= csrf_meta_tag %>
-    <%= render 'layouts/stylesheets' %>
-    <%= javascript_include_tag :defaults %>
-  </head>
-  <body>
-    <div class="container">
-      <%= render 'layouts/header' %>
-      <section class="round">
+    <%# csrf_meta_tag %>
+    <%# render 'layouts/stylesheets' %>
+    <%# javascript_include_tag :defaults %>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="/css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:700' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+
+    </style>
+<script type="text/javascript" src="./js/jq1.6.4.js"></script>
+<script type="text/javascript" src="./js/gGears.js"></script>
+<script type="text/javascript" src="./js/jqui1.8.16.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+<script type="text/javascript">
+var loc,// Starting location
+    map,
+    info,
+    locService,
+    markers = [],
+    directionsDisplay,
+    directionsService = new google.maps.DirectionsService(),
+    currentLoc;
+    
+function initialize() {
+    var myOptions = {
+        zoom: 12,
+        streetViewControl: false,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        panControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_BOTTOM
+        },
+        center: new google.maps.LatLng(47.6062095, -122.3320708),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    directionsDisplay.setMap(map);
+  
+  // < determine location >
+  // Try W3C Geolocation (Preferred)
+  // if(navigator.geolocation) {
+  //    navigator.geolocation.getCurrentPosition(function(position) {
+  //      loc = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+  //      map.setCenter(loc);
+  //    }, function() {
+  //      handleNoGeolocation();
+  //    });
+  //  // Try Google Gears Geolocation
+  //  } else if (google.gears) {
+  //    var geo = google.gears.factory.create('beta.geolocation');
+  //    geo.getCurrentPosition(function(position) {
+  //      loc = new google.maps.LatLng(position.latitude,position.longitude);
+  //      map.setCenter(loc);
+  //    }, function() {
+  //      handleNoGeoLocation();
+  //    });
+  //  // Browser doesn't support Geolocation
+  //  } else {
+  //    handleNoGeolocation();
+  //  }
+  // 
+  // function handleNoGeolocation() {
+  //   loc = new google.maps.LatLng(47.6062095, -122.3320708);//Seattle
+  // }
+  // map.setCenter(loc);
+  
+  // </ determine location >
+  
+  
+    locService = new google.maps.places.PlacesService(map);
+    info = new google.maps.InfoWindow();
+    
+    
+    //Fire off an ajax request to grab some data
+    // $.ajax({
+    //   url: "./data.json",
+    //   success: function(data, textStatus, jqXHR) {
+    //      loadRoute(data.data[0])//Load the first test, just for testing
+    //   },
+    //   error: function () {
+    //       console.log(arguments)
+    //   },
+    //   dataType: "JSON"
+    // });
+}
+
+function callback(results, status) {
+    removeAllMarkers();
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]); 
+        }
+        
+        if(markers.length) {
+            info.setContent(markers[0].name);
+            info.open(map, markers[0]);
+        }
+    }
+}
+
+function calcRoute() {
+    var $allPoints = $("#list li");
+
+    if($allPoints.length < 2) {
+        return false;
+    }
+    
+    var start = $allPoints.eq(0).data("loc"),
+        end = $allPoints.eq(-1).data("loc"),
+        wayPoints = [];
+    
+    for(var i=1,l=$allPoints.length-1;i<l;i++) {
+        wayPoints.push({location:$allPoints.eq(i).data("loc"), stopover:true});
+    }
+
+  var request = {
+    origin:start,
+    destination:end,
+    waypoints:wayPoints,
+    travelMode: google.maps.TravelMode.WALKING
+  };
+  
+  directionsService.route(request, function(result, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(result);
+    }
+  });
+}
+
+
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+  
+  markers.push(marker);
+   
+  //Need to store current location in a better place
+  google.maps.event.addListener(marker, 'click', function() {
+    info.setContent(("<div> <span class='title'>" + place.name + "</span><br /><button id='add'>Add</button></div>"));
+    currentLoc = place.geometry.location;
+    info.open(map, this);
+    
+  });
+}
+
+function removeAllMarkers() {
+    for (i in markers) {
+        markers[i].setMap(null);
+    }
+    markers.length = 0;
+}
+</script>
+
+</head>
+<body onload="initialize()">
+    <div id="container">
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, :class => "flash #{key}") %>
         <% end %>
-        <%= yield %>
-      </section>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
+        <div id="logo">TOURIOUS<div id="subLogo">Seattle<br /> Edition</div></div>
+        <div id="mapWrap">
+            <div id="map_canvas"></div>
+            <div id="myTour">
+                <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
+                <ul id="list">
+                </ul>
+                <button id="saveButton">Save Tour</button>
+            </div> 
+        </div>
+        <section id="focusBanner">
+            <div id="currentTour">
+                <div class="info">
+                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                        <h3 class="title">Seattle Needle Tour 1</h3>
+                    </div>
+                    <div style="height:100%">
+                        <div class="fact dur"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                        <div class="fact cost"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                        <div class="fact spots"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                        <div class="fact likes"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                    </div>
+                </div>
+                <div class="places">
+                     <div class="place"><h3>Space Needle</h3><p>It's tall.</p></div>
+                     <div class="place"><h3>Stop Numero 2</h3><p>I always have fun here</p></div>
+                     <div class="place"><h3>The Third Stop</h3><p>Nibbler's favorite spot</p></div>
+                     <div class="place"><h3>Final Stop</h3><p>Long trip, time to rest</p></div>
+                </div>
+            </div>
+            <div id="getStarted" class="current"><div class="getStartedText">Choose a Tour Below to Begin Exploring<br /><a id="createTour" href="#">or create a Tour</a></div></div>
+            <div id="search">
+                <form id="searchForm">
+                  <label for="searchBox">Search: </label>
+                  <input type="text" id="searchBox" />
+              </form>
+            </div>
+        </section>
+        <section id="featuredTours">
+            <h1 id="toursHeader">FEATURED TOURS </h1>
+            <div id="toursWrapper"></div>
+            <!--<ul>
+                 <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="blue">Seattle Needle Tour1</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li>
+                                <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="purple">Seattle Needle Tour2</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li>
+                                <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="red">Seattle Needle Tour3</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li>
+                                <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="turq">Seattle Needle Tour4</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li>
+                                <li class="tour">      
+                                    <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+                                        <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+                                        <h3 class="pink">Seattle Needle Tour5</h3>
+                                    </div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">USD</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+                                    <div class="fact"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+                                </li> -
+               
+                
+                
+            </ul>-->
+            
+            
+            
+            
+        </section>
+        <!-- <div id="search">
+                  <form id="searchForm">
+                      <label for="searchBox">Search: </label>
+                      <input type="text" id="searchBox" />
+                  </form>
+                </div> -->
+        <!-- <div id="listWrap">
+          Places <br />
+        <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
+        <ul id="list">
+        </ul>
+        <button id="saveButton">Save Tour</button>
+        </div> -->
+
+        <form id="createForm" title="Save Tour">
+          <fieldset>
+            <label for="name">Name</label><br />
+            <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" /><br />
+            <label for="desc">Description</label><br />
+            <textarea  name="desc" id="desc" class="text ui-widget-content ui-corner-all" ></textarea>
+            <input type="submit" id="createTour" />
+        </fieldset> 
+        </form>
     </div>
-  </body>
+    
+    
+    <li id="tourClone" class="tour">      
+         <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
+             <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
+             <h3 class="title"></h3>
+         </div>
+         <div class="fact dur"><span class="number">1</span><br /><span class="unit">DAY</span></div>
+         <div class="fact cost"><span class="number">1</span><br /><span class="unit">USD</span></div>
+         <div class="fact spots"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
+         <div class="fact likes"><span class="number">1</span><br /><span class="unit">PEOPLE LOVE IT</span></div>
+     </li>
+ <script type="text/javascript">
+ function loadRoute(tour) {
+     $("#list").empty();
+     //Add items to list
+    for(var i=0, l=tour.routes.length;i<l;i++) {
+        var location = new google.maps.LatLng(tour.routes[i].lat, tour.routes[i].long);
+        createListItem(tour.routes[i].name, location);
+    }
+    calcRoute();
+ }
+ 
+function createListItem(text, loc) {
+     $("#list").append($("<li />").addClass("mapItem").text(text).data("loc", loc).append("<a class='remove' href='#'>[X]</a>").append("<div class='grips'></div>"));
+}
+
+function loadTour(tour) {
+    //Check if the right div is displayed
+    var $current = $("#focusBanner").children("div.current");
+        $current.fadeOut(500, function () {
+            //Update DOM
+            $("#currentTour").find("h3.title").removeClass("blue purple red turq pink").addClass(tour.color).text(tour.name).end()
+            .find("div.dur .number").text(tour.duration).end()
+            .find("div.cost .number").text(tour.cost).end()
+            .find("div.spots .number").text(tour.spots).end()
+            .find("div.likes .number").text(tour.likes).end();
+            
+            if( $current.attr("id") === "search") {
+                $("#myTour").fadeOut();
+                $("#focusBanner").animate({height:185}, "linear", function() {$("#currentTour").fadeIn(500, function () {$(this).addClass("current")});});
+            } else {
+                $("#currentTour").fadeIn(500, function () {$(this).addClass("current")});
+            }
+            $(this).removeClass("current")
+        });
+        
+    loadRoute(tour) 
+}
+
+function loadAllTours(tours) {
+    if( typeof tours === "undefined") { return false; }
+    
+    var colors = ['blue', 'pink', 'purple','turq', 'red'],
+        $newTourLi,
+        $clone = $("#tourClone"),
+        $list = $("<ul />");
+        
+    for(var i=0,l=tours.length;i<l;i++) {
+        //Create tour DOM object and add it to the page...To Do: Optimization
+        tours[i].color = colors[(Math.floor(Math.random()*colors.length))]
+        $newTourLi = $clone.clone();
+        $newTourLi.removeAttr("id").find("h3.title").addClass(tours[i].color).text(tours[i].name).end()
+        .find("div.dur .number").text(tours[i].duration).end()
+        .find("div.cost .number").text(tours[i].cost).end()
+        .find("div.spots .number").text(tours[i].spots).end()
+        .find("div.likes .number").text(tours[i].likes).end()
+        .data("tour",tours[i]);
+        
+        $list.append($newTourLi);
+    }
+    $("#toursWrapper").append($list)
+    
+}
+
+
+$(function () { 
+    
+    // Load tours
+    $.ajax({
+      url: "./data.json",
+      success: function(d, textStatus, jqXHR) {
+          loadAllTours(d.data)
+         //loadRoute(data.data[0])//Load the first test, just for testing
+      },
+      error: function () {
+          alert("Sorry :( We're broken. Email nibbler and he'll get right on it: Nibbler.thePug@gmail.com")
+          console.log(arguments)
+      },
+      dataType: "JSON"
+    });
+    
+    
+    $("#createTour").click(function() {
+        //Fade nonsense/expand map/shrink currentTour/fade in search
+        $("#focusBanner").children("div.current").fadeOut(500, function () {$(this).removeClass("current")});
+        $("#map_canvas").animate({height:600}, 1000, "easeOutQuint", function () {$("#myTour").fadeIn();google.maps.event.trigger(map, 'resize')})
+        $("#focusBanner").animate({height:85}, 1000, "linear", function() { $("#search").fadeIn().addClass("current")})
+        //Fade in Search and list
+    })
+    
+
+    
+    $("#featuredTours div.selectCover").css("opacity","0").show();
+    
+    // Show "select Tour" on hover
+    $("#featuredTours li").live({
+        mouseenter:
+           function () {    
+                $(this).find(".selectCover").stop().animate({opacity:0.5}, 300);
+           },
+        mouseleave:
+           function() {
+               $(this).find(".selectCover").stop().animate({opacity:0}, 300);
+           }
+       });
+
+    
+    
+     $("#featuredTours li").live("click", function () {
+         //$(this).effect("scale",{percent: 50},500);
+         var newTop = $("#focusBanner").offset().top - $(this).offset().top,
+            time = newTop * -2;
+         
+         $(this).animate({opacity:0.5}, 500, "easeInOutSine", function () {
+             $(this).animate({top:newTop},time, "easeInOutQuint", function () {loadTour($(this).data("tour"));$(this).remove();})
+         })
+     })
+    
+        
+         $( "#list" ).sortable({
+                    placeholder: "ui-state-highlight",
+                    update:calcRoute
+                });
+                $( "#list" ).disableSelection();
+         
+         $("a.remove").live('click', function () {
+             $(this).parents("li.mapItem").remove();
+             if($("#autoRoute").is(":checked")) {
+                  calcRoute();
+              }
+         })
+                
+         $("#add").live('click', function () {
+             createListItem($(this).siblings("span.title").text(),currentLoc);
+            
+             if($("#autoRoute").is(":checked")) {
+                 calcRoute();
+             }
+         })
+         
+         
+        $("#autoRoute").click(function() {
+            if($(this).is(":checked")) {
+                calcRoute();
+            }
+        }) 
+         
+        $("#searchForm").submit( function () {
+            locService.search(
+                {
+                    location: map.getCenter(),
+                    radius: '1',
+                    //types: ['store'],
+                    name: $("#searchBox").val()
+                }, 
+                callback
+            );
+            
+            return false;
+        })
+        
+        $("#saveButton").click(function() {
+            $( "#createForm" ).dialog( "open" );
+        })
+        
+        $( "#createForm" ).dialog({
+            autoOpen: false,
+            height: 300,
+            width: 350,
+            modal: true
+        }).submit(function () {
+            // Create routes
+            var allRoutes = [];
+            
+            for(var i=0,$allPoints=$("#list li"), l=$allPoints.length;i<l;i++) {
+                  allRoutes.push({name:$allPoints.eq(i).text(), lat: $allPoints.eq(i).data('loc').Ja, long:$allPoints.eq(i).data('loc').Ka });
+               }
+            
+            // Create JSON blob of the routes
+            var blob = {
+                name: $("#name").val(),
+                desc: $("#desc").val(),
+                routes: allRoutes
+            }
+            
+            console.log(blob)
+            return false;
+        })
+        
+        
+        
+    })
+ 
+ 
+ </script> 
+<%= debug(params) if Rails.env.development? %>
+</body>
 </html>
