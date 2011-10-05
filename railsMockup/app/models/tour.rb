@@ -1,5 +1,5 @@
 class Tour < ActiveRecord::Base
-  attr_accessible :name, :desc
+  attr_accessible :name, :desc, :user
 
   belongs_to :user
   has_many :stops, :dependent => :destroy

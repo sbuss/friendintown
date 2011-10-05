@@ -4,7 +4,8 @@ describe Tour do
   before(:each) do
     @attr = {
       :name => "Test tour",
-      :desc => "Has a description"
+      :desc => "Has a description",
+      :user => Factory(:user)
     }
   end
 

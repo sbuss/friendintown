@@ -5,6 +5,7 @@ end
 Factory.define :tour do |tour|
   tour.name   { Factory.next(:tour_name) }
   tour.desc   "The test tour, used for testing"
+  tour.user   { Factory(:user) }
 end
 
 Factory.define :stop do |stop|
@@ -31,8 +32,8 @@ Factory.define :place do |place|
 end
 
 Factory.define :user do |user|
-  user.name                   "Steven Buss"
-  user.email                  "steven.buss@gmail.com"
+  user.name                   "Factory user"
+  user.email                  { Factory.next(:email) }
   user.password               "foobar"
   user.password_confirmation  "foobar"
 end
