@@ -17,4 +17,8 @@ class PagesController < ApplicationController
     @title = "Help"
   end
 
+  def yc
+    @title = "Y Combinator winter 2012!"
+  end
+
 end
