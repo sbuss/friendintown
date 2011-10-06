@@ -4,7 +4,7 @@ FriendInTown::Application.routes.draw do
 
   resources :places
   resources :tours
-  resources :stop
+  resources :stops
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
@@ -13,6 +13,8 @@ FriendInTown::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
+
+  match '/yc',      :to => 'pages#yc'
 
   root :to => 'pages#home'
 
