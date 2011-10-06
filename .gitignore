@@ -8,5 +8,4 @@ doc/
 *~
 .project
 .DS_Store
-*.lock
 bin/*
