@@ -9,4 +9,12 @@ class Stop < ActiveRecord::Base
                        :uniqueness   => { :scope => :tour_id }
   
   default_scope :order => 'stops.stop_num ASC'
+
+  def as_json(options = {})
+    {
+      id:       self.id,
+      stop_num: self.stop_num,
+      place:    self.place
+    }
+  end
 end

@@ -1,25 +1,13 @@
 <h1>Listing tours</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Desc</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= will_paginate %>
 
-<% @tours.each do |tour| %>
-  <tr>
-    <td><%= tour.name %></td>
-    <td><%= tour.desc %></td>
-    <td><%= link_to 'Show', tour %></td>
-    <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
-    <td><%= link_to 'Destroy', tour, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<ul>
+<%= render @tours %>
+</uL>
 
-<br />
+<br style="clear: both"/>
+<%= will_paginate %>
+
 
 <%= link_to 'New Tour', new_tour_path %>

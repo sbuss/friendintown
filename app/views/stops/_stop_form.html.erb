@@ -1,0 +1,20 @@
+<h2>Stop number</h2>
+<div class="field">
+  <%= f.label :stop_num %>
+  <%= f.text_field :stop_num %>
+</div>
+<h2>Associated Place</h2>
+<%= fields_for :place do |place| %>
+  <div class="field">
+    <%= place.label :name %>
+    <%= place.text_field :name %>
+  </div>
+  <div class="field">
+    <%= place.label :lat %>
+    <%= place.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= place.label :long %>
+    <%= place.text_field :long %>
+  </div>
+<% end %>
