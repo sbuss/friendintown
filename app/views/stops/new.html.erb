@@ -1,0 +1,7 @@
+<h1>Create a stop</h1>
+<%= form_for(@stop) do |f| %>
+  <%= render 'stop_form', :f => f %>
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+<% end %>

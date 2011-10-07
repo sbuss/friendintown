@@ -1,8 +1,10 @@
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#000;}
 #container {
-  width:950px;
-  margin:40px auto 0;
+  min-width:800px;
+  max-width:950px;
+  margin: auto;
+  margin-top:40px;
   text-align:left;
   position:relative;
   height:100%;
@@ -23,6 +25,10 @@ body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#
   -webkit-box-shadow: 2px 2px 8px #000;
   box-shadow: 2px 2px 8px #000;
 }
+#logo a {
+  color: inherit;
+  text-decoration: none;
+}
 #subLogo {
   float: right;
   font-size: 0.4em;
@@ -33,9 +39,13 @@ body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#
   float: right;
   font-size: 0.8em;
   background: #EA1C23;
-  margin-top: -40px;
   color: #fff;
   padding: 10px;
+  position: absolute;
+  top: -40px;
+  right: 0px;
+  z-index: 2;
+
 }
 ul.inline {
   margin: 0;
@@ -224,6 +234,11 @@ li.tour .selectCover .black {
 li.tour .image, .image {
   cursor:pointer;
   width:50%;height:100%;position:relative;float:left;
+}
+li.tour a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
 }
 .image h3 {
   position:absolute;bottom:15px;left:0px;height:30px;color:#FFF;padding:0 7px;line-height:30px;
@@ -447,3 +462,13 @@ h2, h3, #navigation, #slider-navigation, #footer {
     float: left;
     text-decoration: none;
 }*/
+/* Flash messages */
+.error, .alert, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error, .alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+.success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.error a, .alert a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}

@@ -10,6 +10,11 @@
   <%= @tour.desc %>
 </p>
 
+<% unless @tour.stops.empty? %>
+<ul>
+  <%= render @stops %>
+</ul>
+<% end %>
 
 <%= link_to 'Edit', edit_tour_path(@tour) %> |
 <%= link_to 'Back', tours_path %>

@@ -2,12 +2,12 @@ class ToursController < ApplicationController
   # GET /tours
   # GET /tours.xml
   def index
-    @tours = Tour.all
+    @tours = Tour.all.paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tours }
-      format.json  { render :json => @tours, :include => :stops }
+      format.json  { render :json => @tours }
     end
   end
 
@@ -15,11 +15,13 @@ class ToursController < ApplicationController
   # GET /tours/1.xml
   def show
     @tour = Tour.find(params[:id])
+    @stops = @tour.stops
+    @title = "Details for #{@tour.name}"
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tour }
-      format.json  { render :json => @tour, :include => { :stops => {:include => :place} } }
+      format.json  { render :json => @tour }
     end
   end
 
