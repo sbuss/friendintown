@@ -1,4 +1,4 @@
-<%= form_for(@place) do |f| %>
+<%= fields_for(@place) do |f| %>
   <% if @place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
@@ -11,26 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :lat %><br />
-    <%= f.text_field :lat %>
-  </div>
-  <div class="field">
-    <%= f.label :long %><br />
-    <%= f.text_field :long %>
-  </div>
-  <div class="field">
-    <%= f.label :order %><br />
-    <%= f.text_field :order %>
-  </div>
-  <div class="field">
-    <%= f.label :tour_id %><br />
-    <%= f.text_field :tour_id %>
-  </div>
+  <%= render 'places/form_fields', :f => f %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

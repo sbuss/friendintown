@@ -1,6 +1,10 @@
 class Stop < ActiveRecord::Base
   belongs_to :tour
-  belongs_to :place
+  has_one :place
+
+  accepts_nested_attributes_for :place,
+            :reject_if => lambda { |p| p.name.empty? },
+            :allow_destroy => false
 
   validates :tour_id, :presence => true
   validates :stop_num, :presence     => true,

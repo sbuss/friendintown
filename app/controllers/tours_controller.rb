@@ -1,4 +1,5 @@
 class ToursController < ApplicationController
+  before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
   # GET /tours
   # GET /tours.xml
   def index
@@ -28,12 +29,16 @@ class ToursController < ApplicationController
   # GET /tours/new
   # GET /tours/new.xml
   def new
-    @tour = Tour.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @tour }
+    @tour = current_user.tours.build
+    3.times do 
+      stop = @tour.stops.build
+      place = stop.build_place
     end
+
+    #respond_to do |format|
+    #  format.html # new.html.erb
+    #  format.xml  { render :xml => @tour }
+    #end
   end
 
   # GET /tours/1/edit
@@ -44,7 +49,7 @@ class ToursController < ApplicationController
   # POST /tours
   # POST /tours.xml
   def create
-    @tour = Tour.new(params[:tour])
+    @tour = current_user.tours.new(params[:tour])
 
     respond_to do |format|
       if @tour.save
