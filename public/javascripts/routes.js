@@ -158,10 +158,10 @@ $(function () {
         })
         
         $("#saveButton").click(function() {
-            $( "#createForm" ).dialog( "open" );
+            $( "#new_tour" ).dialog( "open" );
         })
         
-        $( "#createForm" ).dialog({
+        $( "#new_tour" ).dialog({
             autoOpen: false,
             height: 300,
             width: 350,

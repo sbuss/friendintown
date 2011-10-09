@@ -1,8 +1,13 @@
 class Stop < ActiveRecord::Base
   belongs_to :tour
   belongs_to :place
+  attr_accessible :tour, :stop_num, :place_attributes, :place
 
-  validates :tour_id, :presence => true
+  accepts_nested_attributes_for :place,
+            :reject_if => :all_blank,
+            :allow_destroy => false
+
+  #validates :tour, :presence => true
   validates :stop_num, :presence     => true,
                        :numericality => { :greater_than => 0 ,
                                           :only_integer => true },

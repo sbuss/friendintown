@@ -345,16 +345,19 @@ li.tour a {
 /*        display:none;*/
 }
 
-#createForm {
-    display:none;
+.hidden {
+  display: none;
+}
+#new_tour {
 }
 
-#createForm input, #createForm textarea{
+#new_tour input, #new_tour textarea{
     margin-left:10px;
 }
 
-#createForm textarea {
+#new_tour textarea {
     width:270px;
+    height: 180px;
 }
 
 .ui-dialog {

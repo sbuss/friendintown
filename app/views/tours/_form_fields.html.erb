@@ -1,0 +1,23 @@
+<% form_class ||= nil %>
+<% @default_class = "text ui-widget-content ui-corner-all" %>
+<div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name , :class => @default_class %>
+</div>
+<div class="field">
+  <%= f.label :duration %><br />
+  <%= f.text_field :duration , :class => @default_class %>
+</div>
+<div class="field">
+  <%= f.label :cost %><br />
+  <%= f.text_field :cost , :class => @default_class %>
+</div>
+<div class="field">
+  <%= f.label :desc %><br />
+  <%= f.text_area :desc , :class => @default_class %>
+</div>
+
+<% f.fields_for :stops do | builder | %>
+  <%= render 'stops/form_fields', :f => builder, 
+            :form_class => form_class%>
+<% end %>

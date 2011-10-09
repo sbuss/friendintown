@@ -8,10 +8,13 @@ class StopsController < ApplicationController
 
   def new
     @stop = Stop.new
+    @place = @stop.build_place
     @title = "Create stop"
   end
 
   def create
-
+    @tour = Tour.find(params[:tour])
+    @tour.stops.create(params[:stops])
   end
+
 end

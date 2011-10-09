@@ -113,7 +113,8 @@
 <button id="saveButton">Save Tour</button>
 </div> -->
 
-<form id="createForm" title="Save Tour">
+<%= render 'tours/form', :f => @tour, :form_class => "hidden" %>
+<!--<form id="createForm" title="Save Tour" method="POST" action="/tour/new">
   <fieldset>
     <label for="name">Name</label><br />
     <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" /><br />
@@ -121,7 +122,7 @@
     <textarea  name="desc" id="desc" class="text ui-widget-content ui-corner-all" ></textarea>
     <input type="submit" id="createTour" />
 </fieldset> 
-</form>
+</form>-->
 
 <li id="tourClone" class="tour">      
      <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">

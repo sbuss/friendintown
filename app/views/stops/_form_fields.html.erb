@@ -1,0 +1,9 @@
+<% form_class ||= nil %>
+<div class="field <%= form_class %>">
+  <%= f.label :stop_num %>
+  <%= f.text_field :stop_num %>
+</div>
+<%= f.fields_for :place do | builder | %>
+  <%= render 'places/form_fields', :f => builder, 
+            :form_class => form_class %>
+<% end %>

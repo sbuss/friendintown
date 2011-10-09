@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def home
     @title = "Home"
+    @tour = Tour.new
+    stop = @tour.stops.build
+    place = stop.build_place
     if signed_in?
     end
   end
