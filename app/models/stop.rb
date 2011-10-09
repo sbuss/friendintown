@@ -1,5 +1,5 @@
 class Stop < ActiveRecord::Base
-  belongs_to :tour
+  belongs_to :tour, :inverse_of => :stops
   belongs_to :place
   attr_accessible :tour, :stop_num, :place_attributes, :place
 
@@ -7,7 +7,7 @@ class Stop < ActiveRecord::Base
             :reject_if => :all_blank,
             :allow_destroy => false
 
-  #validates :tour, :presence => true
+  validates :tour, :presence => true
   validates :stop_num, :presence     => true,
                        :numericality => { :greater_than => 0 ,
                                           :only_integer => true },

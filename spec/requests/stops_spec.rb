@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe "Stops" do
+  before(:each) do
+    user = Factory(:user)
+    visit signin_path
+    fill_in :email,     :with => user.email
+    fill_in :password,  :with => user.password
+    click_button
+  end
+
   describe "new" do
     describe "failure" do
       it "should not make a new stop" do
