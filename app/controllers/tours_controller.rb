@@ -30,10 +30,6 @@ class ToursController < ApplicationController
   # GET /tours/new.xml
   def new
     @tour = current_user.tours.build
-    3.times do 
-      stop = @tour.stops.build
-      place = stop.build_place
-    end
 
     #respond_to do |format|
     #  format.html # new.html.erb

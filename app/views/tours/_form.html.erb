@@ -1,5 +1,5 @@
 <% form_class ||= nil %>
-<%= form_for(@tour, :html => {:class => form_class}) do |f| %>
+<%= form_for(setup_tour(@tour), :html => {:class => form_class}) do |f| %>
   <% if @tour.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tour.errors.count, "error") %> prohibited this tour from being saved:</h2>

@@ -1,12 +1,12 @@
 class Tour < ActiveRecord::Base
   # Note, duration is in MINUTES
   attr_accessor :user
-  attr_accessible :name, :desc, :duration, :cost
+  #attr_accessible :name, :desc, :duration, :cost, :stops_attributes
 
   belongs_to :user
   has_many :stops, :dependent => :destroy
   accepts_nested_attributes_for :stops, 
-        :reject_if => lambda { |s| s.place.name.empty? },
+        :reject_if => proc { |s| s['stop_num'].empty? },
         :allow_destroy => true
 
   validates :user_id, :presence => true

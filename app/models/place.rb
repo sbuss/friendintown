@@ -1,6 +1,5 @@
 class Place < ActiveRecord::Base
   attr_accessible :name, :lat, :long 
-  belongs_to :stops
 
   def as_json(options = {})
     {
