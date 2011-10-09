@@ -1,5 +1,6 @@
 class ToursController < ApplicationController
   before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authorized_user, :only => [:edit, :update, :destroy]
   # GET /tours
   # GET /tours.xml
   def index
@@ -85,4 +86,10 @@ class ToursController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+    def authorized_user
+      @tour = current_user.tours.find_by_id(params[:id])
+      redirect_to root_path if @tour.nil?
+    end
 end

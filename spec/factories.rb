@@ -1,11 +1,19 @@
+Factory.sequence :username do |n|
+  "Test user ##{n}"
+end
+
 Factory.sequence :tour_name do |n|
   "Test tour #{n}"
+end
+
+Factory.sequence :email do |n|
+  "person-#{n}@example.com"
 end
 
 Factory.define :tour do |tour|
   tour.name   { Factory.next(:tour_name) }
   tour.desc   "The test tour, used for testing"
-  tour.user   { Factory(:user) }
+  tour.association :user
 end
 
 Factory.define :stop do |stop|
@@ -32,12 +40,8 @@ Factory.define :place do |place|
 end
 
 Factory.define :user do |user|
-  user.name                   "Factory user"
+  user.name                   { Factory.next(:username) }
   user.email                  { Factory.next(:email) }
   user.password               "foobar"
   user.password_confirmation  "foobar"
-end
-
-Factory.sequence :email do |n|
-  "person-#{n}@example.com"
 end

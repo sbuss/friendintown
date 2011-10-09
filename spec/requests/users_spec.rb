@@ -26,7 +26,7 @@ describe "Users" do
           fill_in "Password",     :with => "foobar"
           fill_in "Confirmation", :with => "foobar"
           click_button
-          response.should have_selector("div.flash.success",
+          response.should have_selector("div.flash_success",
                                         :content => "Welcome")
           response.should render_template('users/show')
         end.should change(User, :count).by(1)
@@ -41,7 +41,7 @@ describe "Users" do
         user.email = ""
         user.password = ""
         integration_sign_in(user)
-        response.should have_selector("div.flash.error", :content => "Invalid")
+        response.should have_selector("div.flash_error", :content => "Invalid")
       end
     end
 
