@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :tours
 
   has_many :tours
+  has_many :likes
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
 
@@ -46,9 +47,14 @@ class User < ActiveRecord::Base
     (user && user.salt == cookie_salt) ? user : nil
   end
 
-  def feed
-    # PRELIMINARY. See Ch.12 for full implementation
-    Micropost.where("user_id = ?", id)
+  def as_json(options = {})
+    {
+      id: self.id,
+      name: self.name,
+      email: self.email,
+      tours: self.tours.map { |t| t.id },
+      likes: self.likes.map { |l| l.tour_id }
+    }
   end
 
   private
