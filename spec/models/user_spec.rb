@@ -155,4 +155,30 @@ describe User do
       @user.should be_admin
     end
   end
+
+  describe "tour association" do
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "should be able to create a tour" do
+      tour = Factory(:tour, :user => @user)
+      tour.user.should == @user
+    end
+
+    it "should not be associated with another user's tour" do
+      my_tour = Factory(:tour, :user => @user)
+      user2 = Factory(:user)
+      their_tour = Factory(:tour, :user => user2)
+      @user.tours.include?(their_tour).should be_false
+    end
+
+    it "should be able to like another user's tour" do
+      user2 = Factory(:user)
+      their_tour = Factory(:tour, :user => user2)
+      lambda do
+        @user.likes.create!(their_tour)
+      end.should change(Like, :count).by(1)
+    end
+  end
 end

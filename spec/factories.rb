@@ -13,7 +13,7 @@ end
 Factory.define :tour do |tour|
   tour.name   { Factory.next(:tour_name) }
   tour.desc   "The test tour, used for testing"
-  tour.user   { Factory(:user) }
+  tour.association :user
 end
 
 Factory.define :stop do |stop|
