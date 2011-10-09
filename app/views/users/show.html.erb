@@ -5,7 +5,6 @@
 
 <div class="sidebar round">
   <strong>Name</strong> <%= @user.name %><br />
-  <strong>URL</strong>  <%= link_to user_path(@user), @user %>
 </div>
 <h2>
 <%= @user.name %> has <%= pluralize(@user.tours.size, 'tour') %>
@@ -15,3 +14,4 @@
     <%= render @tours %>
   </ul>
 <% end %>
+<br class="spacer" />
