@@ -3,7 +3,6 @@ body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#
 #container {
   width:950px;
   margin: auto;
-  margin-top:40px;
   text-align:left;
   position:relative;
   height:100%;
@@ -18,7 +17,7 @@ body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#
   line-height: 65px;
   padding: 0 25px 0 10px;
   position: absolute;
-  top: -40px;
+  top: 0;
   z-index: 2;
   -moz-box-shadow: 2px 2px 8px #000;
   -webkit-box-shadow: 2px 2px 8px #000;
@@ -34,17 +33,17 @@ body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#
   line-height: 1em;
   padding-top: 17px;
 }
+nav.header  {
+  background: #000;
+  float: left;
+  width: 100%;
+}
 .topright {
   float: right;
   font-size: 0.8em;
   background: #EA1C23;
   color: #fff;
   padding: 10px;
-  position: absolute;
-  top: -40px;
-  right: 0px;
-  z-index: 2;
-
 }
 ul.inline {
   margin: 0;
@@ -70,6 +69,11 @@ ul.inline li a:visited {
 ul.inline li a:hover {
   color: #fff;
   text-decoration: underline;
+}
+
+/* For resolving float issues */
+.spacer {
+  clear: both;
 }
 
 #mapWrap {
