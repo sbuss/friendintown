@@ -6,8 +6,8 @@ class Like < ActiveRecord::Base
 
   def as_json(options = {})
     {
-      user: self.user,
-      tour: self.tour
+      :user => self.user,
+      :tour => self.tour
     }
   end
 end

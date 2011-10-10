@@ -9,7 +9,7 @@ class Stop < ActiveRecord::Base
 
   validates :tour, :presence => true
   validates :stop_num, :presence     => true,
-                       :numericality => { :greater_than => 0 ,
+                       :numericality => { :greater_than_or_equal_to => 0 ,
                                           :only_integer => true },
                        :uniqueness   => { :scope => :tour_id }
   
@@ -17,9 +17,9 @@ class Stop < ActiveRecord::Base
 
   def as_json(options = {})
     {
-      id:       self.id,
-      stop_num: self.stop_num,
-      place:    self.place
+      :id =>       self.id,
+      :stop_num => self.stop_num,
+      :place =>    self.place
     }
   end
 end

@@ -49,11 +49,11 @@ class User < ActiveRecord::Base
 
   def as_json(options = {})
     {
-      id: self.id,
-      name: self.name,
-      email: self.email,
-      tours: self.tours.map { |t| t.id },
-      likes: self.likes.map { |l| l.tour_id }
+      :id => self.id,
+      :name => self.name,
+      :email => self.email,
+      :tours => self.tours.map { |t| t.id },
+      :likes => self.likes.map { |l| l.tour_id }
     }
   end
 

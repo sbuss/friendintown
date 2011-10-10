@@ -19,11 +19,11 @@ class Tour < ActiveRecord::Base
 
   def as_json(options = {})
     {
-      id:       self.id,
-      name:     self.name,
-      stops:    self.stops,
-      cost:     self.cost,
-      duration: self.duration
+      :id =>       self.id,
+      :name =>     self.name,
+      :stops =>    self.stops,
+      :cost =>     self.cost,
+      :duration => self.duration
     }
   end
 

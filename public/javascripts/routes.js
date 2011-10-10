@@ -144,7 +144,7 @@ $(function () {
         }) 
          
         $("#searchForm").submit( function () {
-            locService.search(
+          locService.search(
                 {
                     location: map.getCenter(),
                     radius: '1',
@@ -168,20 +168,43 @@ $(function () {
             modal: true
         }).submit(function () {
             // Create routes
-            var allRoutes = [];
+            var allRoutes = [],
+              $hiddenFields = $("<fieldset />");
             
             for(var i=0,$allPoints=$("#list li"), l=$allPoints.length;i<l;i++) {
-                  allRoutes.push({name:$allPoints.eq(i).text(), lat: $allPoints.eq(i).data('loc').Ja, long:$allPoints.eq(i).data('loc').Ka });
+                  // Normally these will be added as the user adds points to his map, and reordered on reorder...well no shit Devin
+                  
+                  $hiddenFields.append(
+                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][stop_num]' value='"+i+"' />"),
+                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][name]' value='"+$allPoints.eq(i).text()+"' />"),
+                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][loc]' value='"+$allPoints.eq(i).data('loc').Ja+"' />"),
+                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][long]' value='"+$allPoints.eq(i).data('loc').Ka+"' />"));
+                  
+                  //allRoutes.push({name:$allPoints.eq(i).text(), lat: $allPoints.eq(i).data('loc').Ja, long:$allPoints.eq(i).data('loc').Ka });
                }
+               
+            $hiddenFields.appendTo($(this));
             
+            // tour[stops_attributes][0][stop_num]
+            // tour[stops_attributes][0][place_attributes][name]
+            // tour[stops_attributes][0][place_attributes][lat]
+            // tour[stops_attributes][0][place_attributes][long]
             // Create JSON blob of the routes
-            var blob = {
-                name: $("#name").val(),
-                desc: $("#desc").val(),
-                routes: allRoutes
-            }
+            // var blob = {
+            //                 name: $("#name").val(),
+            //                 desc: $("#desc").val(),
+            //                 routes: allRoutes
+            //             }
+            //             
+            //             console.log(blob)
             
-            console.log(blob)
+            $.ajax({
+              type: 'POST',
+              url: "/tours",
+              data: $(this).serialize(),
+              success: function () {console.log(arguments)}
+            });
+            
             return false;
         })
         

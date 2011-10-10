@@ -5,10 +5,10 @@ class Place < ActiveRecord::Base
 
   def as_json(options = {})
     {
-      id:   self.id,
-      name: self.name,
-      lat:  self.lat,
-      long: self.long
+      :id =>   self.id,
+      :name => self.name,
+      :lat =>  self.lat,
+      :long => self.long
     }
   end
 end
