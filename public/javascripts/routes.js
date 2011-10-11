@@ -146,9 +146,10 @@ $(function () {
         $("#searchForm").submit( function () {
           locService.search(
                 {
-                    location: map.getCenter(),
-                    radius: '1',
-                    //types: ['store'],
+                    //location: map.getCenter(),
+                    //radius: '100',
+                    bounds: map.getBounds(),
+                    //types: ['bar'],
                     name: $("#searchBox").val()
                 }, 
                 callback

@@ -10,7 +10,7 @@ var loc,// Starting location
     
 function initialize() {
     var myOptions = {
-        zoom: 12,
+        zoom: 13,
         streetViewControl: false,
         zoomControlOptions: {
             position: google.maps.ControlPosition.RIGHT_TOP
@@ -25,6 +25,12 @@ function initialize() {
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     directionsDisplay.setMap(map);
   
+    // Autocomplete on the search box
+    /*autocomplete = new google.maps.places.Autocomplete(
+                          document.getElementById("searchBox"),
+                          { bounds: map.getBounds() });
+    autocomplete.bindTo('bounds', map);*/
+    
   // < determine location >
   // Try W3C Geolocation (Preferred)
   // if(navigator.geolocation) {
@@ -58,7 +64,6 @@ function initialize() {
   
     locService = new google.maps.places.PlacesService(map);
     info = new google.maps.InfoWindow();
-    
     
     //Fire off an ajax request to grab some data
     // $.ajax({
