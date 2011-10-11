@@ -187,7 +187,7 @@ $(function () {
 
             $.ajax({
               type: 'POST',
-              url: "/tours",
+              url: "/tours.json",
               data: $(this).serialize(),
               success: function () { $( "#new_tour" ).dialog( "close" );}
             });
