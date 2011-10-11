@@ -9,7 +9,7 @@
  }
  
 function createListItem(text, loc) {
-     $("#list").append($("<li />").addClass("mapItem").text(text).data("loc", loc).append("<a class='remove' href='#'>[X]</a>").append("<div class='grips'></div>"));
+     $("#list").append($("<li />").addClass("mapItem").text(text).data("name",text).data("loc", loc).append("<a class='remove' href='#'>[X]</a>").append("<div class='grips'></div>"));
 }
 
 function loadTour(tour) {
@@ -177,34 +177,22 @@ $(function () {
                   
                   $hiddenFields.append(
                       $("<input type='hidden' name='tour[stops_attributes]["+i+"][stop_num]' value='"+i+"' />"),
-                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][name]' value='"+$allPoints.eq(i).text()+"' />"),
-                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][loc]' value='"+$allPoints.eq(i).data('loc').Ja+"' />"),
-                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][long]' value='"+$allPoints.eq(i).data('loc').Ka+"' />"));
-                  
-                  //allRoutes.push({name:$allPoints.eq(i).text(), lat: $allPoints.eq(i).data('loc').Ja, long:$allPoints.eq(i).data('loc').Ka });
+                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][name]' value='"+$allPoints.eq(i).data('name')+"' />"),
+                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][lat]' value='"+$allPoints.eq(i).data('loc').lat()+"' />"),
+                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][long]' value='"+$allPoints.eq(i).data('loc').lng()+"' />"));
+                 
                }
                
             $hiddenFields.appendTo($(this));
-            
-            // tour[stops_attributes][0][stop_num]
-            // tour[stops_attributes][0][place_attributes][name]
-            // tour[stops_attributes][0][place_attributes][lat]
-            // tour[stops_attributes][0][place_attributes][long]
-            // Create JSON blob of the routes
-            // var blob = {
-            //                 name: $("#name").val(),
-            //                 desc: $("#desc").val(),
-            //                 routes: allRoutes
-            //             }
-            //             
-            //             console.log(blob)
-            
+
             $.ajax({
               type: 'POST',
               url: "/tours",
               data: $(this).serialize(),
-              success: function () {console.log(arguments)}
+              success: function () { $( "#new_tour" ).dialog( "close" );}
             });
+            
+           
             
             return false;
         })
