@@ -50,11 +50,13 @@ class ToursController < ApplicationController
 
     respond_to do |format|
       if @tour.save
-        format.html { redirect_to(@tour, :notice => 'Tour was successfully created.') }
+        format.html { redirect_to @tour, :notice => 'Tour was successfully created.' }
         format.xml  { render :xml => @tour, :status => :created, :location => @tour }
+        format.json  { render :json => @tour, :status => :created, :location => @tour }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :status => :unprocessable_entity }
         format.xml  { render :xml => @tour.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @tour.errors, :status => :unprocessable_entity }
       end
     end
   end
