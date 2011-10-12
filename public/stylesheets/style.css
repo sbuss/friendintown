@@ -111,27 +111,15 @@ ul.inline li a:hover {
 
 #getStarted .getStartedText {
   float:right;
-  color:#5fb611;
-  font-family: 'Josefin Slab', serif;
-  font-weight:bold;
+  font-weight:thin;
   float:right;
-  border:1px solid #5fb611;
-  width:295px;
+  width:400px;
   font-size:2em;
   padding:15px;
   margin:43px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  filter: dropshadow(color=#000000, offx=2, offy=2);
-  text-shadow: 2px 2px 2px #000000;
-  position:relative;
 }
 #getStarted a {
-  font-size:0.5em;
   text-align:center;
-  position:absolute;
-  bottom:-17px;
   left:100px;
   color:#FFF;
 }
