@@ -6,7 +6,6 @@ class Tour < ActiveRecord::Base
   belongs_to :user
   has_many :stops, :inverse_of => :tour, :dependent => :destroy
   has_many :places, :through => :stops
-  has_many :likes
   accepts_nested_attributes_for :stops, 
         :reject_if => proc { |s| s['stop_num'].empty? },
         :allow_destroy => true

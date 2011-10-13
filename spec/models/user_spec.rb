@@ -173,12 +173,5 @@ describe User do
       @user.tours.include?(their_tour).should be_false
     end
 
-    it "should be able to like another user's tour" do
-      user2 = Factory(:user)
-      their_tour = Factory(:tour, :user => user2)
-      lambda do
-        @user.likes.create!(their_tour)
-      end.should change(Like, :count).by(1)
-    end
   end
 end
