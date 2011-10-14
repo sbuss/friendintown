@@ -1,4 +1,6 @@
 FriendInTown::Application.routes.draw do
+  resources :ratings
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
 
