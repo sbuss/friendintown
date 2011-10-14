@@ -90,9 +90,9 @@ describe Tour do
         stop.should_not be_valid
       end
 
-      it "should not allow a stop with a stop number < 1" do
+      it "should not allow a stop with a stop number < 0" do
         stop = @tour.stops.create(:place => Factory(:place),
-                                  :stop_num => 0)
+                                  :stop_num => -1)
         stop.should_not be_valid
       end
     end
