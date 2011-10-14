@@ -1,7 +1,7 @@
 class Stop < ActiveRecord::Base
   belongs_to :tour, :inverse_of => :stops
   belongs_to :place
-  attr_accessible :tour, :stop_num, :place_attributes, :place
+  attr_accessible :tour, :stop_num, :place_attributes, :place, :notes
 
   accepts_nested_attributes_for :place,
             :reject_if => :all_blank,
