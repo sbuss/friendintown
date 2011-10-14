@@ -8,7 +8,7 @@ class Rating < ActiveRecord::Base
                       :length   => { :minimum => 5 }
   validates :score, :presence     => true,
                     :numericality => { :greater_than => 0,
-                                       :less_than => 6 },
+                                       :less_than => 6 }
 
   def as_json(options = {})
     {

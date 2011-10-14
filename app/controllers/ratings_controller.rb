@@ -1,23 +1,19 @@
 class RatingsController < ApplicationController
-  # GET /ratings
-  # GET /ratings.xml
-  def index
-    @ratings = Rating.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @ratings }
-    end
-  end
+  before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authorized_user, :only => [:edit, :update, :destroy]
 
   # GET /ratings/1
   # GET /ratings/1.xml
+  # GET /ratings/1.json
   def show
     @rating = Rating.find(params[:id])
+    @title = "Rating details"
+    @user = @rating.user
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @rating }
+      format.json  { render :json => @rating }
     end
   end
 
@@ -29,6 +25,7 @@ class RatingsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @rating }
+      format.json  { render :json => @rating }
     end
   end
 
@@ -46,9 +43,11 @@ class RatingsController < ApplicationController
       if @rating.save
         format.html { redirect_to(@rating, :notice => 'Rating was successfully created.') }
         format.xml  { render :xml => @rating, :status => :created, :location => @rating }
+        format.json  { render :json => @rating, :status => :created, :location => @rating }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @rating.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @rating.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -62,9 +61,11 @@ class RatingsController < ApplicationController
       if @rating.update_attributes(params[:rating])
         format.html { redirect_to(@rating, :notice => 'Rating was successfully updated.') }
         format.xml  { head :ok }
+        format.json  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @rating.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @rating.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -78,6 +79,13 @@ class RatingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(ratings_url) }
       format.xml  { head :ok }
+      format.json  { head :ok }
     end
   end
+  
+  private
+    def authorized_user
+      @rating = current_user.ratings.find_by_id(params[:id])
+      redirect_to root_path if @rating.nil?
+    end
 end
