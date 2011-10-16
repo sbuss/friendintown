@@ -1,6 +1,30 @@
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#000;}
 fieldset{border:none;}
+.button {
+  display:inline-block;
+  height:35px;
+  line-height:35px;
+  padding:0 10px;
+  position:relative;
+  cursor:pointer;
+  color:#fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.button.green {
+    background:#0f3847 url("/images/buttonBack.png") repeat-x left top;
+}
+.button.gray {
+    background:#8b8b8b url("/images/buttonBack_gray.png") repeat-x left top;
+}
+
+.button.mini {
+    height:20px;
+    line-height:20px;
+}
 #container {
   width:950px;
   margin: auto;
@@ -92,12 +116,14 @@ ul.inline li a:hover {
   left:10px;
   z-index:2;
   background:#0f3847;
-  padding:0 5px;
+  padding:5px;
   color:#fff;
+  text-align:center;
+  
 }
 #focusBanner {
   height:185px;
-  background:#353738;
+  background:#555 ;
   color:#FFF;
   position:relative;
   z-index:2;
@@ -114,9 +140,11 @@ ul.inline li a:hover {
   font-weight:thin;
   float:right;
   width:400px;
-  font-size:2em;
+  font-size:1.5em;
   padding:15px;
   margin:43px;
+  text-align:center;
+  font-family: 'Josefin Slab', serif;
 }
 #getStarted a {
   text-align:center;
@@ -159,12 +187,49 @@ ul.inline li a:hover {
   margin:0;
   padding-top:3px;
 }
+#currentSearch {
+    position:absolute;
+    left:-250px;
+    top:100px;
+    width:250px;
+    background:#FFF;
+}
+
+#currentSearch li.current a.mini {
+    visibility:visible;
+}
+
+#currentSearch a.mini {
+    visibility:hidden;
+    margin-left:5px;
+}
+#currentSearch ul{
+ list-style:none;
+ padding:10px;   
+}
+
+
+#currentSearch li{
+    cursor:pointer;
+    margin-bottom:5px;
+    border-bottom:1px solid #C0C0C0;
+}
+
+#currentSearch li.current {
+    font-weight:bold;
+}
 #searchBox  {
+  font-family: 'Josefin Sans', sans-serif;
   width: 400px;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 #search {
+  padding:25px 0 0 20px;
   display:none;
+}
+#search .button{
+ bottom:2px; 
+ left:5px;
 }
 #focusBanner > div {
   display:none;
@@ -383,83 +448,17 @@ li.tour a {
   font-size: 1em;
 }
 
-/*#search {
-    position:absolute;
-    top:0;
-    width:100%;
-    text-align:center;
-}
-#search form {
-    -webkit-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-    box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
-    display:inline-block;
-    margin:0 auto;
-    background:#FFF;
-    padding:10px;
-    -webkit-border-radius: 0 0 10px 10px;
-    -moz-border-radius: 0 0 10px 10px;
-    border-radius: 0 0 10px 10px;
-}
-#search label {
-    font-size:3em;
+/* Tour Details Page */
+#tourDetails .stops, #tourDetails .map {
+    margin:0;
+    padding:0;
+    width:50%;
+    float:left;
+    height:350px;
 }
 
-#search input {
-    text-align:left;
-    width:400px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    font-size:3em;
-    color:#666;
-    padding-left:10px;
-}*/
 
-/* Header/Nav */
-/*
-#header {
-    background: url("images/header.gif") repeat scroll 0 0 transparent;
-    height: 90px;
-}
 
-.shell {
-    margin: 0 auto;
-    width: 980px;
-}
-h1#logo {
-    float: left;
-    font-size: 0;
-    height: 90px;
-    line-height: 0;
-    width: 216px;
-}
-#navigation {
-    float: right;
-}
-h2, h3, #navigation, #slider-navigation, #footer {
-    font-family: "Trebuchet MS",Arial,sans-serif;
-}
-#navigation ul {
-    float: left;
-    font-size: 14px;
-    list-style-type: none;
-    padding-top: 37px;
-}
-#navigation ul li {
-    background: url("images/nav-border.gif") repeat-y scroll right 0 transparent;
-    display: inline;
-    float: left;
-    height: 21px;
-    margin-right: 20px;
-    padding: 0 20px 0 0;
-    position: relative;
-}
-#navigation ul li a {
-    color: #FFFFFF;
-    float: left;
-    text-decoration: none;
-}*/
 /* Flash messages */
 .flash_error, .flash_alert, .flash_notice, .flash_success, .flash_info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
 .flash_error, .flash_alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
