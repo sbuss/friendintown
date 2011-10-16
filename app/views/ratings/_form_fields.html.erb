@@ -1,0 +1,11 @@
+<div class="field">
+  <%= f.label :score %><br />
+  <% Rating::VALID_RATINGS.each do |n| %>
+    <%= radio_button "rating", :score, n %>
+    <%= label_tag "rating_score_#{n}", n %>
+  <% end %>
+</div>
+<div class="field">
+  <%= f.label :comment %><br />
+  <%= f.text_area :comment %>
+</div>

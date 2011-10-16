@@ -37,17 +37,19 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.xml
   def create
-    @rating = Rating.new(params[:rating])
+    @tour = Tour.find(params[:tour_id])
+    @rating = @tour.ratings.build(params[:rating])
+    @rating.user = current_user
 
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to(@rating, :notice => 'Rating was successfully created.') }
-        format.xml  { render :xml => @rating, :status => :created, :location => @rating }
-        format.json  { render :json => @rating, :status => :created, :location => @rating }
+        format.html { redirect_to(@tour, :notice => 'Rating was successfully created.') }
+        format.xml  { render :xml => @tour, :status => :created, :location => @rating }
+        format.json  { render :json => @tour, :status => :created, :location => @rating }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @rating.errors, :status => :unprocessable_entity }
-        format.json  { render :json => @rating.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @tour.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @tour.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -74,10 +76,11 @@ class RatingsController < ApplicationController
   # DELETE /ratings/1.xml
   def destroy
     @rating = Rating.find(params[:id])
+    @tour = @rating.tour
     @rating.destroy
 
     respond_to do |format|
-      format.html { redirect_to(ratings_url) }
+      format.html { redirect_to(@tour) }
       format.xml  { head :ok }
       format.json  { head :ok }
     end

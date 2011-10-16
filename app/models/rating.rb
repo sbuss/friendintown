@@ -10,6 +10,8 @@ class Rating < ActiveRecord::Base
                     :numericality => { :greater_than => 0,
                                        :less_than => 6 }
 
+  VALID_RATINGS = (1..5).to_a
+
   def as_json(options = {})
     {
       :id      => self.id,

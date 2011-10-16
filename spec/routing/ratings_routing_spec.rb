@@ -3,14 +3,6 @@ require "spec_helper"
 describe RatingsController do
   describe "routing" do
 
-    it "routes to #index" do
-      get("/ratings").should route_to("ratings#index")
-    end
-
-    it "routes to #new" do
-      get("/ratings/new").should route_to("ratings#new")
-    end
-
     it "routes to #show" do
       get("/ratings/1").should route_to("ratings#show", :id => "1")
     end
@@ -20,7 +12,7 @@ describe RatingsController do
     end
 
     it "routes to #create" do
-      post("/ratings").should route_to("ratings#create")
+      post("/tours/1/ratings").should route_to("ratings#create", :tour_id => "1")
     end
 
     it "routes to #update" do
