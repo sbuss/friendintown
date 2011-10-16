@@ -1,0 +1,15 @@
+<% if tour.ratings.empty? %> 
+<h2>No ratings yet</h2>
+<% else %>
+<h2><%= pluralize tour.ratings.count, "rating" %></h2>
+<%= render tour.ratings %>
+<% end %>
+
+<h2>Leave a rating</h2>
+<%= form_for([tour, tour.ratings.new]) do |f| %>
+  <%= render 'ratings/form_fields', :f => f %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

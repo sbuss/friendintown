@@ -1,9 +1,13 @@
 FriendInTown::Application.routes.draw do
+  resources :ratings, :only => [:show, :edit, :update, :destroy]
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
 
   resources :places
-  resources :tours
+  resources :tours do
+    resources :ratings, :only => [:create]
+  end
   resources :stops
 
   match '/signup',  :to => 'users#new'

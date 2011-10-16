@@ -1,0 +1,18 @@
+<h1><%= tour.name %>
+<% if current_user == @tour.user %>
+  <span style="font-size:0.5em">
+    <%= link_to 'Edit', edit_tour_path(@tour) %>
+  </span>
+<% end %>
+</h1>
+<p>
+  <%= tour.desc %>
+</p>
+<% unless tour.stops.empty? %>
+<ul class="stops">
+  <%= render tour.stops %>
+</ul>
+<% end %>
+<div class="map"></div>
+<br style="clear:both" />
+

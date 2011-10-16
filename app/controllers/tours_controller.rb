@@ -18,6 +18,7 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @stops = @tour.stops
+    @ratings = @tour.ratings
     @title = "Details for #{@tour.name}"
 
     respond_to do |format|
