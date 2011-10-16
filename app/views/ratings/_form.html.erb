@@ -11,22 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :tour_id %><br />
-    <%= f.text_field :tour_id %>
-  </div>
-  <div class="field">
-    <%= f.label :score %><br />
-    <%= f.text_field :score %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br />
-    <%= f.text_field :comment %>
-  </div>
+  <%= render 'tours/tour_detail', :tour => @rating.tour %>
+
+  <%= render 'ratings/form_fields', :f => f %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

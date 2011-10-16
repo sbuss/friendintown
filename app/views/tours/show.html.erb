@@ -1,37 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_tour_path(@tour) %> |
-<%= link_to 'Back', tours_path %>
+<%= render 'tours/tour_detail', :tour => @tour %>
 
-<p>
-  <b>Name:</b>
-  <%= @tour.name %>
-</p>
-
-<p>
-  <b>Desc:</b>
-  <%= @tour.desc %>
-</p>
-
-<% unless @tour.stops.empty? %>
-<ul>
-  <%= render @stops %>
-</ul>
-<% end %>
-
-<div class="comments">
-  <% if @tour.ratings.empty? %> 
-  No comments yet
-  <% else %>
-  <%= render @ratings %>
-  <% end %>
-</div>
-
-<%= form_for([@tour, @tour.ratings.new]) do |f| %>
+<br class="spacer" />
+<section id="ratings">
+  <%= render 'ratings/existing_and_new', :tour => @tour %>
+</section>
   
-  <%= render 'ratings/form_fields', :f => f %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

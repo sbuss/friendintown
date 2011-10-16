@@ -1,8 +1,8 @@
-<div class="head">
-  By <%= link_to rating.user.name, rating.user %>
-  <br />
-  <%= pluralize(rating.score, "star") %>
-</div>
-<div class="content">
-  <%= rating.comment %>
+<div class="rating">
+  <div class="head">
+    <%= pluralize(rating.score, "star") %> By <%= link_to rating.user.name, rating.user %>
+  </div>
+  <p class="content">
+    <%= rating.comment %>
+  </p>
 </div>

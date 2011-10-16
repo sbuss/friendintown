@@ -23,12 +23,19 @@ describe RatingsController do
   # Rating. As you add validations to Rating, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
+    #@tour_user = Factory(:user)
     {
-      :tour => @tour,
-      :user => @user,
       :score => 4,
       :comment => "hello world"
     }
+  end
+
+  def build_rating
+    rating = Rating.new valid_attributes
+    rating.user = @user
+    rating.tour = @tour
+    rating.save
+    rating
   end
 
   before(:each) do
@@ -60,7 +67,7 @@ describe RatingsController do
 
     describe "GET show" do
       it "assigns the requested rating as @rating" do
-        rating = Rating.create! valid_attributes
+        rating = build_rating
         get :show, :id => rating.id.to_s
         assigns(:rating).should eq(rating)
       end
@@ -75,7 +82,7 @@ describe RatingsController do
 
     describe "GET edit" do
       it "assigns the requested rating as @rating" do
-        rating = Rating.create! valid_attributes
+        rating = build_rating
         get :edit, :id => rating.id.to_s
         assigns(:rating).should eq(rating)
       end
@@ -85,15 +92,15 @@ describe RatingsController do
       describe "with valid params" do
         it "creates a new Rating" do
           expect {
-            post :create, 
-                 :tour_id => valid_attributes[:tour], 
+            post :create,
+                 :tour_id => @tour,
                  :rating => valid_attributes
           }.to change(Rating, :count).by(1)
         end
 
         it "assigns a newly created rating as @rating" do
           post :create, 
-               :tour_id => valid_attributes[:tour], 
+               :tour_id => @tour,
                :rating => valid_attributes
           assigns(:rating).should be_a(Rating)
           assigns(:rating).should be_persisted
@@ -101,9 +108,9 @@ describe RatingsController do
 
         it "redirects to the created rating" do
           post :create, 
-               :tour_id => valid_attributes[:tour], 
+               :tour_id => @tour,
                :rating => valid_attributes
-          response.should redirect_to(valid_attributes[:tour])
+          response.should redirect_to(@tour)
         end
       end
 
@@ -127,7 +134,7 @@ describe RatingsController do
     describe "PUT update" do
       describe "with valid params" do
         it "updates the requested rating" do
-          rating = Rating.create! valid_attributes
+          rating = build_rating
           # Assuming there are no other ratings in the database, this
           # specifies that the Rating created on the previous line
           # receives the :update_attributes message with whatever params are
@@ -137,13 +144,13 @@ describe RatingsController do
         end
 
         it "assigns the requested rating as @rating" do
-          rating = Rating.create! valid_attributes
+          rating = build_rating
           put :update, :id => rating.id, :rating => valid_attributes
           assigns(:rating).should eq(rating)
         end
 
         it "redirects to the rating" do
-          rating = Rating.create! valid_attributes
+          rating = build_rating
           put :update, :id => rating.id, :rating => valid_attributes
           response.should redirect_to(rating)
         end
@@ -151,7 +158,7 @@ describe RatingsController do
 
       describe "with invalid params" do
         it "assigns the rating as @rating" do
-          rating = Rating.create! valid_attributes
+          rating = build_rating
           # Trigger the behavior that occurs when invalid params are submitted
           Rating.any_instance.stub(:save).and_return(false)
           put :update, :id => rating.id.to_s, :rating => {}
@@ -159,7 +166,7 @@ describe RatingsController do
         end
 
         it "re-renders the 'edit' template" do
-          rating = Rating.create! valid_attributes
+          rating = build_rating
           # Trigger the behavior that occurs when invalid params are submitted
           Rating.any_instance.stub(:save).and_return(false)
           put :update, :id => rating.id.to_s, :rating => {}
@@ -170,14 +177,14 @@ describe RatingsController do
 
     describe "DELETE destroy" do
       it "destroys the requested rating" do
-        rating = Rating.create! valid_attributes
+        rating = build_rating
         expect {
           delete :destroy, :id => rating.id.to_s
         }.to change(Rating, :count).by(-1)
       end
 
       it "redirects to the ratings list" do
-        rating = Rating.create! valid_attributes
+        rating = build_rating
         delete :destroy, :id => rating.id.to_s
         response.should redirect_to(@tour)
       end
