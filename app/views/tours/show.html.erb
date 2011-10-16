@@ -1,20 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @tour.name %>
-</p>
+<%= render 'tours/tour_detail', :tour => @tour %>
 
-<p>
-  <b>Desc:</b>
-  <%= @tour.desc %>
-</p>
-
-<% unless @tour.stops.empty? %>
-<ul>
-  <%= render @stops %>
-</ul>
-<% end %>
-
-<%= link_to 'Edit', edit_tour_path(@tour) %> |
-<%= link_to 'Back', tours_path %>
+<br class="spacer" />
+<section id="ratings">
+  <%= render 'ratings/existing_and_new', :tour => @tour %>
+</section>
+  

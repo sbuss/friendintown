@@ -1,0 +1,21 @@
+#ratings {
+}
+#ratings h2 {
+  width: 100%;
+  background: #fff;
+  padding: 5px;
+  color: #000;
+}
+
+div.rating {
+  background: #777;
+  margin: 20px;
+  padding: 8px;
+}
+
+div.rating .content {
+  background: none;
+  margin: 5px;
+  padding: 5px;
+}
+  
