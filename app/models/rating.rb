@@ -1,4 +1,6 @@
 class Rating < ActiveRecord::Base
+  attr_accessible :score, :comment
+
   belongs_to :tour
   belongs_to :user
 
