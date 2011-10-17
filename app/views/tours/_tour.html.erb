@@ -28,9 +28,9 @@
     <span class="unit">STOPS</span>
   </div>
   <div class="fact likes">
-    <span class="number">???</span>
+    <span class="number"><%= tour.ratings_score_formatted %></span>
     <br>
-    <span class="unit">PEOPLE LOVE IT</span>
+    <span class="unit">STARS</span>
   </div>
   <% if not current_page?(:controller => 'pages', :action => 'home') %>
     <a href="/tours/<%= tour.id %>">
