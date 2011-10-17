@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate, :only => [:create, :edit, :update, :destroy]
   before_filter :authorized_user, :only => [:edit, :update, :destroy]
   # GET /tours
   # GET /tours.xml
