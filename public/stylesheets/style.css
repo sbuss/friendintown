@@ -449,12 +449,17 @@ li.tour a {
 }
 
 /* Tour Details Page */
-#tourDetails .stops, #tourDetails .map {
-    margin:0;
-    padding:0;
-    width:50%;
-    float:left;
-    height:350px;
+#tourDetails {
+  margin: 10px;
+}
+#tourDetails .stops {
+  padding:5px;
+  float:left;
+} 
+#tourDetails .map {
+  float: right;
+  width:350px;
+  height:350px;
 }
 
 

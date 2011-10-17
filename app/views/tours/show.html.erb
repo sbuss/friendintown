@@ -1,24 +1,21 @@
 <div id="tourDetails">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<%= render 'tours/tour_detail', :tour => @tour %>
-<br class="spacer" />
-<section id="ratings">
-  <%= render 'ratings/existing_and_new', :tour => @tour %>
-</section>
+  <%= render 'tours/tour_detail', :tour => @tour %>
+
+  <br class="spacer" />
+  <section id="ratings">
+    <%= render 'ratings/existing_and_new', :tour => @tour %>
+  </section>
 
 </div>
+<br class="spacer" />
 
 
 <script type="text/javascript">
     //Grab the tour data...there is definitely an easy way to do this, I just don't know rails well enough
     var id = <%= @tour.id %>;
-    $.ajax({
-      type: 'GET',
-      url: "/tours/"+id+".json",
-      success: function (t) { loadMap($("div.map").get(0),{}, t.stops)},
-      error: function () {}
-    });
-    
+    var data = <%= @tour.to_json.to_s.html_safe %>;
+    loadMap($("div.map").get(0),{}, data.stops);
 </script>
 
