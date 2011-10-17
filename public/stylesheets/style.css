@@ -193,6 +193,7 @@ ul.inline li a:hover {
     top:100px;
     width:250px;
     background:#FFF;
+    display:none;
 }
 
 #currentSearch li.current a.mini {
