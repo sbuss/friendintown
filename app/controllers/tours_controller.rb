@@ -19,7 +19,7 @@ class ToursController < ApplicationController
     @tour = Tour.find_by_url(params[:id])
     @stops = @tour.stops
     @ratings = @tour.ratings
-    @title = "Details for #{@tour.name}"
+    @title = @tour.name
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,6 +41,7 @@ class ToursController < ApplicationController
 
   # GET /tours/1/edit
   def edit
+    @title = @tour.name
     @tour = Tour.find_by_url(params[:id])
   end
 
