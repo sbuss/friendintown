@@ -19,6 +19,12 @@ class Tour < ActiveRecord::Base
 
   default_scope :order => 'tours.ratings_score DESC'
 
+  # Allow tours to be looked up by their name, instead of their id
+  acts_as_url :name
+  def to_param
+    url
+  end
+
   # Helper method to display the cached bayes rating with 2 trailing digits
   def ratings_score_formatted
     sprintf("%1.1f", self.ratings_score)

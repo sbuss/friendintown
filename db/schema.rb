@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111017002733) do
+ActiveRecord::Schema.define(:version => 20111017064850) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20111017002733) do
     t.integer  "duration"
     t.integer  "cost"
     t.decimal  "ratings_score", :precision => 3, :scale => 2
+    t.string   "url"
   end
 
   add_index "tours", ["user_id"], :name => "index_tours_on_user_id"

@@ -1,6 +1,6 @@
 <li class="tour">
   <% if not current_page?(:controller => 'pages', :action => 'home') %>
-    <a href="/tours/<%= tour.id %>">
+    <a href="<%= tour_path(tour) %>">
   <% end %>
   <div class="image" 
        style="background: url(&quot;/images/needle.jpg&quot;) no-repeat scroll left center transparent;">

@@ -16,7 +16,7 @@ class ToursController < ApplicationController
   # GET /tours/1
   # GET /tours/1.xml
   def show
-    @tour = Tour.find(params[:id])
+    @tour = Tour.find_by_url(params[:id])
     @stops = @tour.stops
     @ratings = @tour.ratings
     @title = "Details for #{@tour.name}"
@@ -41,7 +41,7 @@ class ToursController < ApplicationController
 
   # GET /tours/1/edit
   def edit
-    @tour = Tour.find(params[:id])
+    @tour = Tour.find_by_url(params[:id])
   end
 
   # POST /tours
@@ -65,7 +65,7 @@ class ToursController < ApplicationController
   # PUT /tours/1
   # PUT /tours/1.xml
   def update
-    @tour = Tour.find(params[:id])
+    @tour = Tour.find_by_url(params[:id])
 
     respond_to do |format|
       if @tour.update_attributes(params[:tour])
@@ -81,7 +81,7 @@ class ToursController < ApplicationController
   # DELETE /tours/1
   # DELETE /tours/1.xml
   def destroy
-    @tour = Tour.find(params[:id])
+    @tour = Tour.find_by_url(params[:id])
     @tour.destroy
 
     respond_to do |format|
