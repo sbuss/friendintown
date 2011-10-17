@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111017064850) do
+ActiveRecord::Schema.define(:version => 20111017073858) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20111017064850) do
     t.string   "url"
   end
 
+  add_index "tours", ["url"], :name => "index_tours_on_url"
   add_index "tours", ["user_id"], :name => "index_tours_on_user_id"
 
   create_table "users", :force => true do |t|
@@ -66,8 +67,10 @@ ActiveRecord::Schema.define(:version => 20111017064850) do
     t.boolean  "admin",              :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["url"], :name => "index_users_on_url"
 
 end

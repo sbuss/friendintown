@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_url(params[:id])
     @title = @user.name
     @tours = @user.tours
     respond_to do |format|
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_url(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated."
       redirect_to @user
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    destroy_user = User.find(params[:id])
+    destroy_user = User.find_by_url(params[:id])
     if current_user?(destroy_user)
       flash[:error] = "You cannot destroy yourself."
       redirect_to users_path
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
   private
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.find_by_url(params[:id])
       redirect_to(root_path) unless current_user?(@user)
     end
 
