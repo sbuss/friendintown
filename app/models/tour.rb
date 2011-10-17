@@ -17,10 +17,11 @@ class Tour < ActiveRecord::Base
                    :length      => { :minimum => 5 },
                    :uniqueness  => { :case_sensitive => false }
 
+  default_scope :order => 'tours.ratings_score DESC'
 
   # Helper method to display the cached bayes rating with 2 trailing digits
   def ratings_score_formatted
-    sprintf("%1.2f", self.ratings_score)
+    sprintf("%1.1f", self.ratings_score)
   end
 
   # Update the bayesian score estimate.
@@ -65,8 +66,8 @@ class Tour < ActiveRecord::Base
     # Numerator part 2
     numerator += num_ratings_this_item * avg_rating_this_item
     denominator = avg_num_ratings_all_items * num_ratings_this_item
-    # Return the bayesian estimate
-    @bayes_rating_score = numerator / denominator
+    # Return the bayesian estimate, bounded at (1,5)
+    @bayes_rating_score = [5, [1, numerator / denominator].max].min
   end
 
   def as_json(options = {})
