@@ -30,6 +30,12 @@ class User < ActiveRecord::Base
                        :length        => { :within => 6..40 }
 
   before_save :encrypt_password
+  
+  # Allow tours to be looked up by their name, instead of their id
+  acts_as_url :name
+  def to_param
+    url
+  end
 
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
