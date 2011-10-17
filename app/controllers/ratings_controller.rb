@@ -1,6 +1,7 @@
 class RatingsController < ApplicationController
   before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
   before_filter :authorized_user, :only => [:edit, :update, :destroy]
+  after_filter :update_rating_cache, :only => [:create, :update, :destroy]
 
   # GET /ratings/1
   # GET /ratings/1.xml
@@ -90,5 +91,9 @@ class RatingsController < ApplicationController
     def authorized_user
       @rating = current_user.ratings.find_by_id(params[:id])
       redirect_to root_path if @rating.nil?
+    end
+
+    def update_rating_cache
+      @rating.tour.update_rating
     end
 end

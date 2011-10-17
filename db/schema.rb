@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20111017002733) do
     t.integer  "user_id"
     t.integer  "duration"
     t.integer  "cost"
+    t.decimal  "ratings_score", :precision => 3, :scale => 2
   end
 
   add_index "tours", ["user_id"], :name => "index_tours_on_user_id"

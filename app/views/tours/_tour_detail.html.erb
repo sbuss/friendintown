@@ -1,9 +1,12 @@
 <h1><%= tour.name %>
-<% if current_user == @tour.user %>
   <span style="font-size:0.5em">
+  <% unless tour.ratings_score.nil? %>
+    <%= pluralize(tour.ratings_score_formatted, "star") %>
+  <% end %>
+  <% if current_user == @tour.user %>
     <%= link_to 'Edit', edit_tour_path(@tour) %>
+  <% end %>
   </span>
-<% end %>
 </h1>
 <p>
   <%= tour.desc %>
