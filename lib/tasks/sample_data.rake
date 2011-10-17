@@ -18,10 +18,10 @@ namespace :db do
     end
 
     # Establish a valid area for places
-    latmin = -122.336926
-    latmax = -122.303495
-    longmin = 47.602893
-    longmax = 47.620455
+    longmin = -122.336926
+    longmax = -122.303495
+    latmin = 47.602893
+    latmax = 47.620455
     r = Random.new
     100.times do |n|
       name = Faker::Company.name
@@ -46,6 +46,16 @@ namespace :db do
                      :place => Place.find_by_id(r.rand(1..100)),
                      :stop_num => m+1)
       end
+    end
+
+    # Add some ratings
+    i = 0
+    User.all.each do |u|
+      tour = Tour.find_by_id(i % 35 + 1)
+      rating = tour.ratings.build(:score => r.rand(1..5), :comment => "test comment ##{i}")
+      rating.user = u
+      rating.save
+      i += 1
     end
   end
 end
