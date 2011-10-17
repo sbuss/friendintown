@@ -62,6 +62,9 @@ function loadAllTours(tours) {
 
 
 $(function () { 
+    $("#placesSearch").click(function() {
+        $("#searchForm").submit();
+    })
     
     // Load tours
     $.ajax({
@@ -78,6 +81,8 @@ $(function () {
     });
     
     
+    // Clicking on create tour link on homepage
+    // Adjusts size of map and shows tour creation section
     $("#createTour").click(function() {
         //Fade nonsense/expand map/shrink currentTour/fade in search
         $("#focusBanner").children("div.current").fadeOut(500, function () {$(this).removeClass("current")});
@@ -103,7 +108,7 @@ $(function () {
        });
 
     
-    
+    // When a tour is selected animate the tour into the top, just below the map
      $("#featuredTours li").live("click", function () {
          //$(this).effect("scale",{percent: 50},500);
          var newTop = $("#focusBanner").offset().top - $(this).offset().top,
@@ -115,90 +120,99 @@ $(function () {
      })
     
         
-         $( "#list" ).sortable({
-                    placeholder: "ui-state-highlight",
-                    update:calcRoute
-                });
-                $( "#list" ).disableSelection();
-         
-         $("a.remove").live('click', function () {
-             $(this).parents("li.mapItem").remove();
-             if($("#autoRoute").is(":checked")) {
-                  calcRoute();
-              }
-         })
-                
-         $("#add").live('click', function () {
-             createListItem($(this).siblings("span.title").text(),currentLoc);
-            
-             if($("#autoRoute").is(":checked")) {
-                 calcRoute();
-             }
-         })
-         
-         
-        $("#autoRoute").click(function() {
-            if($(this).is(":checked")) {
-                calcRoute();
-            }
-        }) 
-         
-        $("#searchForm").submit( function () {
-          locService.search(
-                {
-                    //location: map.getCenter(),
-                    //radius: '100',
-                    bounds: map.getBounds(),
-                    //types: ['bar'],
-                    name: $("#searchBox").val()
-                }, 
-                callback
-            );
-            
-            return false;
-        })
-        
-        $("#saveButton").click(function() {
-            $( "#new_tour" ).dialog( "open" );
-        })
-        
-        $( "#new_tour" ).dialog({
-            autoOpen: false,
-            height: 300,
-            width: 350,
-            modal: true
-        }).submit(function () {
-            // Create routes
-            var allRoutes = [],
-              $hiddenFields = $("<fieldset />");
-            
-            for(var i=0,$allPoints=$("#list li"), l=$allPoints.length;i<l;i++) {
-                  // Normally these will be added as the user adds points to his map, and reordered on reorder...well no shit Devin
-                  
-                  $hiddenFields.append(
-                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][stop_num]' value='"+i+"' />"),
-                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][name]' value='"+$allPoints.eq(i).data('name')+"' />"),
-                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][lat]' value='"+$allPoints.eq(i).data('loc').lat()+"' />"),
-                      $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][long]' value='"+$allPoints.eq(i).data('loc').lng()+"' />"));
-                 
-               }
-               
-            $hiddenFields.appendTo($(this));
-
-            $.ajax({
-              type: 'POST',
-              url: "/tours.json",
-              data: $(this).serialize(),
-              success: function () { $( "#new_tour" ).dialog( "close" );}
+     $( "#list" ).sortable({
+                placeholder: "ui-state-highlight",
+                update:calcRoute
             });
-            
-           
-            
-            return false;
-        })
+            $( "#list" ).disableSelection();
+     
+     $("a.remove").live('click', function () {
+         $(this).parents("li.mapItem").remove();
+         if($("#autoRoute").is(":checked")) {
+              calcRoute();
+          }
+     })
+    
+    
+    $("#currentSearch").find("a.mini").live("click", function() {
+        createListItem($(this).parent().text(),currentLoc);
         
-        
-        
+         if($("#autoRoute").is(":checked")) {
+             calcRoute();
+         }
     })
+            
+     $("#add").live('click', function () {
+         createListItem($(this).siblings("span.title").text(),currentLoc);
+        
+         if($("#autoRoute").is(":checked")) {
+             calcRoute();
+         }
+     })
+     
+     
+    $("#autoRoute").click(function() {
+        if($(this).is(":checked")) {
+            calcRoute();
+        }
+    }) 
+     
+    $("#searchForm").submit( function () {
+      locService.search(
+               {
+                   //location: map.getCenter(),
+                   //radius: '100',
+                   bounds: map.getBounds(),
+                   //types: ['bar'],
+                   name: $("#searchBox").val()
+               }, 
+               callback
+           );
+        
+        return false;
+    })
+        
+    $("#saveButton").click(function() {
+        $( "#new_tour" ).dialog( "open" );
+    })
+    
+    $( "#new_tour" ).dialog({
+        autoOpen: false,
+        height: 500,
+        width: 350,
+        modal: true,
+        title: "Save Tour"
+    }).submit(function () {
+        // Create routes
+        var allRoutes = [],
+          $hiddenFields = $("<fieldset />");
+        
+        for(var i=0,$allPoints=$("#list li"), l=$allPoints.length;i<l;i++) {
+              // Normally these will be added as the user adds points to his map, and reordered on reorder...well no shit Devin
+              
+              $hiddenFields.append(
+                  $("<input type='hidden' name='tour[stops_attributes]["+i+"][stop_num]' value='"+i+"' />"),
+                  $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][name]' value='"+$allPoints.eq(i).data('name')+"' />"),
+                  $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][lat]' value='"+$allPoints.eq(i).data('loc').lat()+"' />"),
+                  $("<input type='hidden' name='tour[stops_attributes]["+i+"][place_attributes][long]' value='"+$allPoints.eq(i).data('loc').lng()+"' />"));
+             
+           }
+           
+        $hiddenFields.appendTo($(this));
+
+        $.ajax({
+          type: 'POST',
+          url: "/tours.json",
+          data: $(this).serialize(),
+          success: function () { $( "#new_tour" ).dialog( "close" );},
+          error: function () {}
+        });
+        
+        return false;
+    })
+    
+        
+        
+})
  
  

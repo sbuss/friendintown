@@ -1,10 +1,11 @@
 <div id="mapWrap">
     <div id="map_canvas"></div>
+    <div id="currentSearch"><ul></ul></div>
     <div id="myTour">
         <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
         <ul id="list">
         </ul>
-        <button id="saveButton">Save Tour</button>
+        <a id="saveButton" class="button gray">Save Tour</a>
     </div> 
 </div>
 
@@ -31,8 +32,10 @@
     <div id="getStarted" class="current"><div class="getStartedText">Choose a Tour Below or <br /><a id="createTour" href="#">Create a Tour</a></div></div>
     <div id="search">
         <form id="searchForm">
-          <label for="searchBox">Search: </label>
           <input type="text" id="searchBox" />
+          <a id="placesSearch" class="button green">Search for Places</a>
+          <input type="submit" style="position:absolute;display:none">
+          
       </form>
     </div>
 </section>

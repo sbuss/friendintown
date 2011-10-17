@@ -8,13 +8,14 @@
   <% end %>
   </span>
 </h1>
-
-<p style="float:right;width:300px;height:300px;border:solid 1px #fff; margin:10px;padding:8px;">TODO: Map here</p>
 <p>
   <%= tour.desc %>
 </p>
 <% unless tour.stops.empty? %>
-<ul>
+<ul class="stops">
   <%= render tour.stops %>
 </ul>
 <% end %>
+<div class="map"></div>
+<br style="clear:both" />
+
