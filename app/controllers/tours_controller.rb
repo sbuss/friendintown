@@ -13,6 +13,15 @@ class ToursController < ApplicationController
     end
   end
 
+  def popular
+    @tours = Tour.find(:all, :limit => 4)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @tours }
+      format.json  { render :json => @tours }
+    end
+  end
+
   # GET /tours/1
   # GET /tours/1.xml
   def show
