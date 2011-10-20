@@ -80,9 +80,12 @@ class Tour < ActiveRecord::Base
     {
       :id =>       self.id,
       :name =>     self.name,
-      :stops =>    self.stops,
+      :desc =>     self.desc,
+      :duration => self.duration,
       :cost =>     self.cost,
-      :duration => self.duration
+      :rating =>   self.ratings_score_formatted,
+      :stops =>    self.stops,
+
     }
   end
 

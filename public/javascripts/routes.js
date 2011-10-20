@@ -1,9 +1,9 @@
  function loadRoute(tour) {
      $("#list").empty();
      //Add items to list
-    for(var i=0, l=tour.routes.length;i<l;i++) {
-        var location = new google.maps.LatLng(tour.routes[i].lat, tour.routes[i].long);
-        createListItem(tour.routes[i].name, location);
+    for(var i=0, l=tour.stops.length;i<l;i++) {
+        var location = new google.maps.LatLng(tour.stops[i].place.lat, tour.stops[i].place.long);
+        createListItem(tour.stops[i].place.name, location);
     }
     calcRoute();
  }
@@ -20,8 +20,8 @@ function loadTour(tour) {
             $("#currentTour").find("h3.title").removeClass("blue purple red turq pink").addClass(tour.color).text(tour.name).end()
             .find("div.dur .number").text(tour.duration).end()
             .find("div.cost .number").text(tour.cost).end()
-            .find("div.spots .number").text(tour.spots).end()
-            .find("div.likes .number").text(tour.likes).end();
+            .find("div.spots .number").text(tour.stops.length).end()
+            .find("div.rating .number").text(tour.rating).end();
             
             if( $current.attr("id") === "search") {
                 $("#myTour").fadeOut();
@@ -50,8 +50,8 @@ function loadAllTours(tours) {
         $newTourLi.removeAttr("id").find("h3.title").addClass(tours[i].color).text(tours[i].name).end()
         .find("div.dur .number").text(tours[i].duration).end()
         .find("div.cost .number").text(tours[i].cost).end()
-        .find("div.spots .number").text(tours[i].spots).end()
-        .find("div.likes .number").text(tours[i].likes).end()
+        .find("div.spots .number").text(tours[i].stops.length).end()
+        .find("div.rating .number").text(tours[i].rating).end()
         .data("tour",tours[i]);
         
         $list.append($newTourLi);
@@ -68,9 +68,9 @@ $(function () {
     
     // Load tours
     $.ajax({
-      url: "./data.json",
+      url: "/tours/popular.json",
       success: function(d, textStatus, jqXHR) {
-          loadAllTours(d.data)
+          loadAllTours(d)
          //loadRoute(data.data[0])//Load the first test, just for testing
       },
       error: function () {
