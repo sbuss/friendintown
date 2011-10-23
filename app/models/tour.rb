@@ -27,6 +27,7 @@ class Tour < ActiveRecord::Base
 
   # Helper method to display the cached bayes rating with 2 trailing digits
   def ratings_score_formatted
+    return nil if self.ratings_score.nil?
     sprintf("%1.1f", self.ratings_score)
   end
 
