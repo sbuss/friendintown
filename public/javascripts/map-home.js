@@ -41,16 +41,16 @@ function loadMap(mapDOMobj, options, stops) {
                for(var i=1,l=stops.length-1;i<l;i++) {
                    wayPoints.push({location:new google.maps.LatLng(stops[i].place.lat,stops[i].place.long), stopover:true});
                }
-
+               
              var request = {
                origin:start,
                destination:end,
                waypoints:wayPoints,
                travelMode: google.maps.TravelMode.WALKING
              };
-
+             
              directionsService.route(request, function(result, status) {
-               if (status == google.maps.DirectionsStatus.OK) {
+               if (status == google.maps.DirectionsStatus.OK) {      
                  directionsDisplay.setDirections(result);
                }
              });

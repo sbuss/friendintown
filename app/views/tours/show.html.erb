@@ -15,7 +15,7 @@
     $.ajax({
       type: 'GET',
       url: "/tours/"+id+".json",
-      success: function (t) { loadMap($("div.map").get(0),{}, t.stops)},
+      success: function (t) {loadMap($("div.map").get(0),{}, t.stops)},
       error: function () {}
     });
     

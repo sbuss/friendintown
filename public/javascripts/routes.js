@@ -75,7 +75,6 @@ $(function () {
       },
       error: function () {
           alert("Sorry :( We're broken. Email nibbler and he'll get right on it: Nibbler.thePug@gmail.com")
-          console.log(arguments)
       },
       dataType: "JSON"
     });
@@ -204,7 +203,7 @@ $(function () {
           type: 'POST',
           url: "/tours.json",
           data: $(this).serialize(),
-          success: function () { $( "#new_tour" ).dialog( "close" );},
+          success: function (data) { $( "#new_tour" ).dialog( "close" );},
           error: function () {}
         });
         
