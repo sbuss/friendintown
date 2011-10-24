@@ -1,15 +1,4 @@
 <h1>New tour</h1>
-
-<%= render 'form' %>
-
-<div id="mapWrap" style="float:left;width:600px;margin-left:20px">
-    <div id="map_canvas"></div>
-    <div id="myTour">
-        <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
-        <ul id="list">
-        </ul>
-    </div> 
-</div>
 <div id="search" style="clear:both">
     <form id="searchForm">
       <input type="text" id="searchBox" />
@@ -19,8 +8,18 @@
 </div>
 
 <div id="currentSearch"><ul></ul></div>
+<div id="mapWrap" style="float:left;width:475px;margin-left:20px">
+    <div id="map_canvas"></div>
+    <div id="myTour">
+        <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
+        <ul id="list">
+        </ul>
+    </div> 
+</div>
 
-<%= link_to 'Back', tours_path %>
+
+
+<%= render 'form' %>
 
 
 <script type='text/javascript'>

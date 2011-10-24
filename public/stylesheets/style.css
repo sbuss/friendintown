@@ -368,7 +368,7 @@ li.tour a {
   display: none;
 }
 #new_tour {
-    float:left;
+    clear:left;
 }
 
 #new_tour input, #new_tour textarea{
@@ -422,8 +422,9 @@ li.tour a {
 }
 
 #currentSearch {
+    float:left;
     color:#000;
-    width:500px;
+    width:400px;
     background:#FFF;
 }
 
@@ -462,7 +463,6 @@ li.tour a {
 
 #myTour {
   position:absolute;
-  bottom:10px;
   left:10px;
   z-index:2;
   background:#0f3847;
