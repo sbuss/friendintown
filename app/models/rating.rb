@@ -1,4 +1,5 @@
 class Rating < ActiveRecord::Base
+  after_save :update_rating_cache
   attr_accessible :score, :comment
 
   belongs_to :tour
@@ -23,4 +24,9 @@ class Rating < ActiveRecord::Base
       :comment => self.comment
     }
   end
+
+  private
+    def update_rating_cache
+      self.tour.update_rating
+    end
 end

@@ -6,9 +6,15 @@ FriendInTown::Application.routes.draw do
 
   resources :places
   resources :tours do
+    # Allows /tours/popular queries
+    collection do
+      get 'popular', :as => "popular_tours"
+    end
     resources :ratings, :only => [:create]
+    resources :stops
   end
   resources :stops
+
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

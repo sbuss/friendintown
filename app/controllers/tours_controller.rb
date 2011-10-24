@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate, :only => [:create, :edit, :update, :destroy]
   before_filter :authorized_user, :only => [:edit, :update, :destroy]
   # GET /tours
   # GET /tours.xml
@@ -13,13 +13,22 @@ class ToursController < ApplicationController
     end
   end
 
+  def popular
+    @tours = Tour.find(:all, :limit => 4)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @tours }
+      format.json  { render :json => @tours }
+    end
+  end
+
   # GET /tours/1
   # GET /tours/1.xml
   def show
-    @tour = Tour.find(params[:id])
+    @tour = Tour.find_by_url(params[:id])
     @stops = @tour.stops
     @ratings = @tour.ratings
-    @title = "Details for #{@tour.name}"
+    @title = @tour.name
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,7 +50,8 @@ class ToursController < ApplicationController
 
   # GET /tours/1/edit
   def edit
-    @tour = Tour.find(params[:id])
+    @title = @tour.name
+    @tour = Tour.find_by_url(params[:id])
   end
 
   # POST /tours
@@ -65,7 +75,7 @@ class ToursController < ApplicationController
   # PUT /tours/1
   # PUT /tours/1.xml
   def update
-    @tour = Tour.find(params[:id])
+    @tour = Tour.find_by_url(params[:id])
 
     respond_to do |format|
       if @tour.update_attributes(params[:tour])
@@ -81,7 +91,7 @@ class ToursController < ApplicationController
   # DELETE /tours/1
   # DELETE /tours/1.xml
   def destroy
-    @tour = Tour.find(params[:id])
+    @tour = Tour.find_by_url(params[:id])
     @tour.destroy
 
     respond_to do |format|

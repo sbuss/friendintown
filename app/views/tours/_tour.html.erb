@@ -1,6 +1,6 @@
 <li class="tour">
   <% if not current_page?(:controller => 'pages', :action => 'home') %>
-    <a href="/tours/<%= tour.id %>">
+    <a href="<%= tour_path(tour) %>">
   <% end %>
   <div class="image" 
        style="background: url(&quot;/images/needle.jpg&quot;) no-repeat scroll left center transparent;">
@@ -27,10 +27,10 @@
     <br>
     <span class="unit">STOPS</span>
   </div>
-  <div class="fact likes">
-    <span class="number">???</span>
+  <div class="fact rating">
+    <span class="number"><%= tour.ratings_score_formatted %></span>
     <br>
-    <span class="unit">PEOPLE LOVE IT</span>
+    <span class="unit">STARS</span>
   </div>
   <% if not current_page?(:controller => 'pages', :action => 'home') %>
     <a href="/tours/<%= tour.id %>">

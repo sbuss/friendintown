@@ -59,27 +59,27 @@ describe UsersController do
     end
 
     it "should be successful" do
-      get :show, :id => @user
+      get :show, :id => @user.url
       response.should be_success
     end
 
     it "should find the right user" do
-      get :show, :id => @user
+      get :show, :id => @user.url
       assigns(:user).should == @user
     end
 
     it "should have the right title" do
-      get :show, :id => @user
+      get :show, :id => @user.url
       response.should have_selector("title", :content => @user.name)
     end
 
     it "should include the user's name" do
-      get :show, :id => @user
+      get :show, :id => @user.url
       response.should have_selector("h1", :content => @user.name)
     end
 
     it "should have a profile image" do
-      get :show, :id => @user
+      get :show, :id => @user.url
       response.should have_selector("h1>img", :class => "gravatar")
     end
 
@@ -185,17 +185,17 @@ describe UsersController do
     end
 
     it "should be successful" do
-      get :edit, :id => @user
+      get :edit, :id => @user.url
       response.should be_successful
     end
 
     it "should have the right title" do
-      get :edit, :id => @user
+      get :edit, :id => @user.url
       response.should have_selector("title", :content => "Edit user")
     end
 
     it "should have a link to change the Gravatar" do
-      get :edit, :id => @user
+      get :edit, :id => @user.url
       gravatar_url = "http://gravatar.com/emails"
       response.should have_selector("a", :href => gravatar_url,
                                          :content => "change")
@@ -215,12 +215,12 @@ describe UsersController do
       end
 
       it "shoudl render the 'edit' page" do
-        put :update, :id => @user, :user => @attr
+        put :update, :id => @user.url, :user => @attr
         response.should render_template('edit')
       end
 
       it "should have the right title" do
-        put :update, :id => @user, :user => @attr
+        put :update, :id => @user.url, :user => @attr
         response.should have_selector("title", :content => "Edit user")
       end
     end
@@ -232,19 +232,19 @@ describe UsersController do
       end
 
       it "should change the user's attributes" do
-        put :update, :id => @user, :user => @attr
+        put :update, :id => @user.url, :user => @attr
         @user.reload
         @user.name.should == @attr[:name]
         @user.email.should == @attr[:email]
       end
 
       it "should redirect to the user show page" do
-        put :update, :id => @user, :user => @attr
+        put :update, :id => @user.url, :user => @attr
         response.should redirect_to(user_path(@user))
       end
 
       it "should have a flash message" do
-        put :update, :id => @user, :user => @attr
+        put :update, :id => @user.url, :user => @attr
         flash[:success].should =~ /updated/
       end
     end
@@ -257,12 +257,12 @@ describe UsersController do
 
     describe "for non-signed-in users" do
       it "should deny access to 'edit'" do
-        get :edit, :id => @user
+        get :edit, :id => @user.url
         response.should redirect_to(signin_path)
       end
 
       it "should deny access to 'update'" do
-        put :update, :id => @user, :user => {}
+        put :update, :id => @user.url, :user => {}
         response.should redirect_to(signin_path)
       end
     end
@@ -274,12 +274,12 @@ describe UsersController do
       end
 
       it "should require matching users for 'edit'" do
-        get :edit, :id => @user
+        get :edit, :id => @user.url
         response.should redirect_to(root_path)
       end
 
       it "should require matching users for 'update'" do
-        put :update, :id => @user, :user => {}
+        put :update, :id => @user.url, :user => {}
         response.should redirect_to(root_path)
       end
     end
@@ -325,18 +325,18 @@ describe UsersController do
 
         it "should destroy the user" do
           lambda do
-            delete :destroy, :id => @user
+            delete :destroy, :id => @user.url
           end.should change(User, :count).by(-1)
         end
 
         it "should redirect to the users page" do
-          delete :destroy, :id => @user
+          delete :destroy, :id => @user.url
           response.should redirect_to(users_path)
         end
 
         it "should not destroy self" do
           lambda do
-            delete :destroy, :id => @admin
+            delete :destroy, :id => @admin.url
           end.should_not change(User, :count).by(-1)
         end
       end

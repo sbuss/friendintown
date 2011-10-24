@@ -7,13 +7,13 @@
   color: #000;
 }
 
-div.rating {
+#ratings div.rating {
   background: #777;
   margin: 20px;
   padding: 8px;
 }
 
-div.rating .content {
+#ratings div.rating .content {
   background: none;
   margin: 5px;
   padding: 5px;

@@ -4,18 +4,18 @@
     <title><%= title %></title>
     <%= csrf_meta_tag %>
     <%= render 'layouts/stylesheets' %>
-    <%# javascript_include_tag :defaults %>
 
 
     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:700' rel='stylesheet' type='text/css'>
 
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places" %>
     <%= javascript_include_tag "jq1.6.4" %>
     <%= javascript_include_tag "jqui1.8.16" %>
     <%= javascript_include_tag "gGears" %>
-    <%= javascript_include_tag "map-home" %>
-
+    <%= javascript_include_tag "mapInit" %>
+    
   <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -31,21 +31,16 @@
 
   </script>
 </head>
-<body onload="initialize()">
+<body>
     <div id="container">
         <div id="logo"><a href="/">TOURIOUS<div id="subLogo">Seattle<br /> Edition</a></div></div>
         <%= render 'layouts/header' %>
-        <% if current_page?(:controller => 'pages', :action => 'home') %>
-          <%= javascript_include_tag "routes" %>
-          <%= yield %>
-        <% else %>
           <div class="content">
             <% flash.each do |key, value| %>
               <%= content_tag(:div, value, :class => "flash_#{key}") %>
             <% end %>
             <%= yield %>
           </div>
-        <% end %>
     </div>
     
     
