@@ -40,7 +40,11 @@ class ToursController < ApplicationController
   # GET /tours/new
   # GET /tours/new.xml
   def new
-    @tour = current_user.tours.build
+    if current_user.nil?
+      @tour = Tour.new
+    else
+      @tour = current_user.tours.build
+    end
 
     #respond_to do |format|
     #  format.html # new.html.erb
