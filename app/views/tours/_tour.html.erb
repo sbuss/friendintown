@@ -1,38 +1,33 @@
 <li class="tour">
-  <% if not current_page?(:controller => 'pages', :action => 'home') %>
+  <%= staticDirectionsMap(tour) %>
+  <div class="details">
     <a href="<%= tour_path(tour) %>">
-  <% end %>
-  <div class="image" 
-       style="background: url(&quot;/images/needle.jpg&quot;) no-repeat scroll left center transparent;">
-    <div style="opacity: 0;" class="selectCover">
-      <div class="black"></div>
-      <span style="position: absolute; z-index: 2;">Select Tour</span>
-    </div>
-    <h3 class="title red"><%= tour.name %></h3>
-  </div>
-  <div class="fact dur">
-    <% @duration_info = duration(tour) %>
-    <span class="number"><%= @duration_info[0] %></span>
-    <br>
-    <span class="unit"><%= @duration_info[1] %></span>
-  </div>
-  <div class="fact cost">
-    <span class="number">$<%= tour.cost %></span>
-    <br>
-    <span class="unit">USD</span>
-  </div>
+    
+    <h1><%= tour.name %></h1>
 
-  <div class="fact spots">
-    <span class="number"><%= tour.stops.count %></span>
-    <br>
-    <span class="unit">STOPS</span>
-  </div>
-  <div class="fact rating">
-    <span class="number"><%= tour.ratings_score_formatted %></span>
-    <br>
-    <span class="unit">STARS</span>
-  </div>
-  <% if not current_page?(:controller => 'pages', :action => 'home') %>
+    <div class="fact dur">
+      <% @duration_info = duration(tour) %>
+      <span class="number"><%= @duration_info[0] %></span>
+      <br>
+      <span class="unit"><%= @duration_info[1] %></span>
+    </div>
+    <div class="fact cost">
+      <span class="number">$<%= tour.cost %></span>
+      <br>
+      <span class="unit">USD</span>
+    </div>
+
+    <div class="fact spots">
+      <span class="number"><%= tour.stops.count %></span>
+      <br>
+      <span class="unit">STOPS</span>
+    </div>
+    <div class="fact rating">
+      <span class="number"><%= tour.ratings_score_formatted %></span>
+      <br>
+      <span class="unit">STARS</span>
+    </div>
     <a href="/tours/<%= tour.id %>">
-  <% end %>
+  </div>
  </li>
+<br class="spacer" />

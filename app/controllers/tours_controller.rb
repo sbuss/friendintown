@@ -4,7 +4,8 @@ class ToursController < ApplicationController
   # GET /tours
   # GET /tours.xml
   def index
-    @tours = Tour.all.paginate(:page => params[:page], :per_page => 20)
+    @search = Tour.new(params[:tour])
+    @tours = Tour.by_filter(params[:tour]).paginate(:page => params[:tours_page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +41,11 @@ class ToursController < ApplicationController
   # GET /tours/new
   # GET /tours/new.xml
   def new
-    @tour = current_user.tours.build
+    if current_user.nil?
+      @tour = Tour.new
+    else
+      @tour = current_user.tours.build
+    end
 
     #respond_to do |format|
     #  format.html # new.html.erb

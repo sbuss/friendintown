@@ -1,13 +1,5 @@
-<h1>Listing tours</h1>
+<br class="spacer">
 
-<%= will_paginate %>
-
-<ul>
-<%= render @tours %>
-</uL>
-
-<br class="spacer" />
-<%= will_paginate %>
-
+<%= render 'tours/tours_list' %>
 
 <%= link_to 'New Tour', new_tour_path %>
