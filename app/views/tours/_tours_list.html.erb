@@ -1,0 +1,14 @@
+<div class="filter_form">
+<%# form_for(@search, 
+             :url => {:action => "index" }, 
+             :html => { :method => "get" }) do |f| %>
+<%# TODO: Enable filtering!! %>
+<%# end %>
+
+</div>
+<ul>
+<%= render @tours %>
+</uL>
+
+<br class="spacer" />
+<%= will_paginate @tours, :param_name => :tours_page %>

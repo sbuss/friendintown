@@ -1,9 +1,7 @@
 class PagesController < ApplicationController
   def home
     @title = "Home"
-    @tour = Tour.new
-    stop = @tour.stops.build
-    place = stop.build_place
+    @tours = Tour.all.paginate(:page => params[:tours_page], :per_page => 10)
     if signed_in?
     end
   end

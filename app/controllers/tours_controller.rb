@@ -4,7 +4,8 @@ class ToursController < ApplicationController
   # GET /tours
   # GET /tours.xml
   def index
-    @tours = Tour.all.paginate(:page => params[:page], :per_page => 20)
+    @search = Tour.new(params[:tour])
+    @tours = Tour.by_filter(params[:tour]).paginate(:page => params[:tours_page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -35,12 +35,12 @@
     <div id="container">
         <div id="logo"><a href="/">TOURIOUS<div id="subLogo">Seattle<br /> Edition</a></div></div>
         <%= render 'layouts/header' %>
-          <div class="content">
-            <% flash.each do |key, value| %>
-              <%= content_tag(:div, value, :class => "flash_#{key}") %>
-            <% end %>
-            <%= yield %>
-          </div>
+        <div class="content">
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, :class => "flash_#{key}") %>
+          <% end %>
+          <%= yield %>
+        </div>
     </div>
     
     

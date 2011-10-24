@@ -17,12 +17,31 @@ class Tour < ActiveRecord::Base
                    :length      => { :minimum => 5 },
                    :uniqueness  => { :case_sensitive => false }
 
-  default_scope :order => 'tours.ratings_score DESC'
+  FILTER_BY = [:ratings_score, :cost, :duration]
+  ORDER = { :asc => "ASC", :desc => "DESC" }
+  ORDER.default = "ASC"
+
+  scope :by_cost, lambda { |ascdesc| 
+    order("tours.cost #{ORDER[ascdesc]}")
+  }
+  scope :by_rating, lambda{ |ascdesc| 
+    order("tours.ratings_score #{ORDER[ascdesc]}")
+  }
+  scope :by_duration, lambda{ |ascdesc| 
+    order("tours.duration #{ORDER[ascdesc]}")
+  }
+  default_scope by_rating :desc
 
   # Allow tours to be looked up by their name, instead of their id
   acts_as_url :name
   def to_param
     url
+  end
+
+  def self.by_filter(params)
+    return Tour.all if params.nil?
+    # else figure out what filters to apply
+
   end
 
   # Helper method to display the cached bayes rating with 2 trailing digits
