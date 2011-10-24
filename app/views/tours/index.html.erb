@@ -1,19 +1,5 @@
-<%= will_paginate %>
+<br class="spacer">
 
-<div class="filter_form">
-<%= form_for(@search, 
-             :url => {:action => "index" }, 
-             :html => { :method => "get" }) do |f| %>
-<%# TODO: Enable filtering!! %>
-<% end %>
-
-</div>
-<ul>
-<%= render @tours %>
-</uL>
-
-<br class="spacer" />
-<%= will_paginate %>
-
+<%= render 'tours/tours_list' %>
 
 <%= link_to 'New Tour', new_tour_path %>

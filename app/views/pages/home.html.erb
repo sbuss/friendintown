@@ -1,34 +1,6 @@
-<div id="mapWrap">
-    <div id="map_canvas"></div>
-    <div id="currentSearch"><ul></ul></div>
-    <div id="myTour">
-        <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
-        <ul id="list">
-        </ul>
-        <a id="saveButton" class="button gray">Save Tour</a>
-    </div> 
-</div>
+  <div class="map">MAP HERE</div>
 
-<section id="focusBanner">
-    <div id="currentTour">
-        <div class="info">
-            <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
-                <h3 class="title">Seattle Needle Tour 1</h3>
-            </div>
-            <div style="height:100%">
-                <div class="fact dur"><span class="number">1</span><br /><span class="unit">DAY</span></div>
-                <div class="fact cost"><span class="number">1</span><br /><span class="unit">USD</span></div>
-                <div class="fact spots"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
-                <div class="fact rating"><span class="number">1</span><br /><span class="unit">STARS</span></div>
-            </div>
-        </div>
-        <div class="places">
-             <div class="place"><h3>Space Needle</h3><p>It's tall.</p></div>
-             <div class="place"><h3>Stop Numero 2</h3><p>I always have fun here</p></div>
-             <div class="place"><h3>The Third Stop</h3><p>Nibbler's favorite spot</p></div>
-             <div class="place"><h3>Final Stop</h3><p>Long trip, time to rest</p></div>
-        </div>
-    </div>
+<section id="focusBanner" style="z-index:0">
     <div id="getStarted" class="current"><div class="getStartedText">Choose a Tour Below or <br /><a id="createTour" href="#">Create a Tour</a></div></div>
     <div id="search">
         <form id="searchForm">
@@ -40,41 +12,8 @@
     </div>
 </section>
 <section id="featuredTours">
-    <h1 id="toursHeader">FEATURED TOURS </h1>
-    <div id="toursWrapper"></div>
+    <h1 id="toursHeader">TOP TOURS </h1>
+    <div id="toursWrapper">
+    <%= render 'tours/tours_list' %>
+    </div>
 </section>
-<!-- <div id="search">
-          <form id="searchForm">
-              <label for="searchBox">Search: </label>
-              <input type="text" id="searchBox" />
-          </form>
-        </div> -->
-<!-- <div id="listWrap">
-  Places <br />
-<label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
-<ul id="list">
-</ul>
-<button id="saveButton">Save Tour</button>
-</div> -->
-
-<%= render 'tours/form', :f => @tour, :form_class => "hidden" %>
-<!--<form id="createForm" title="Save Tour" method="POST" action="/tour/new">
-  <fieldset>
-    <label for="name">Name</label><br />
-    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" /><br />
-    <label for="desc">Description</label><br />
-    <textarea  name="desc" id="desc" class="text ui-widget-content ui-corner-all" ></textarea>
-    <input type="submit" id="createTour" />
-</fieldset> 
-</form>-->
-
-<li id="tourClone" class="tour">      
-     <div class="image" style="background:transparent url('/images/needle.jpg') no-repeat left center;">
-         <div class="selectCover"><div class="black"></div><span style="position:absolute;z-index:2">Select Tour</span></div>
-         <h3 class="title"></h3>
-     </div>
-     <div class="fact dur"><span class="number">1</span><br /><span class="unit">DAY</span></div>
-     <div class="fact cost"><span class="number">1</span><br /><span class="unit">USD</span></div>
-     <div class="fact spots"><span class="number">1</span><br /><span class="unit">SPOTS</span></div>
-     <div class="fact rating"><span class="number">1</span><br /><span class="unit">STARS</span></div>
- </li>

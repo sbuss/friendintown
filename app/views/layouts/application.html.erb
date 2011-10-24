@@ -35,17 +35,12 @@
     <div id="container">
         <div id="logo"><a href="/">TOURIOUS<div id="subLogo">Seattle<br /> Edition</a></div></div>
         <%= render 'layouts/header' %>
-        <% if current_page?(:controller => 'pages', :action => 'home') %>
-          <%= javascript_include_tag "routes" %>
+        <div class="content">
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, :class => "flash_#{key}") %>
+          <% end %>
           <%= yield %>
-        <% else %>
-          <div class="content">
-            <% flash.each do |key, value| %>
-              <%= content_tag(:div, value, :class => "flash_#{key}") %>
-            <% end %>
-            <%= yield %>
-          </div>
-        <% end %>
+        </div>
     </div>
     
     
