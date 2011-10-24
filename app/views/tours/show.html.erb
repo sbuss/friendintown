@@ -12,7 +12,9 @@
 
 
 <script type="text/javascript">
-    var data = <%= @tour.to_json.to_s.html_safe %>;
-    loadMap($("div.map").get(0),{}, data.stops);
+    var data = <%= @tour.to_json.to_s.html_safe %>,
+    map = new Tourious.map($("div.map").get(0));
+    
+    map.loadRoute(data.stops);
 </script>
 

@@ -31,7 +31,7 @@ function createListItem(text, loc) {
 
 $(function () { 
     
-    var map = new Tourious.map("map_canvas", {places:true});
+    var map = new Tourious.map($("#map_canvas").get(0), {places:true});
     
 //    map.search("bar");
     

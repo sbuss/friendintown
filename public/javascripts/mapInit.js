@@ -1,5 +1,5 @@
 
-Tourious.map = function (id, params) {
+Tourious.map = function (DOM, params) {
         myOptions = {
             zoom: 13,
             streetViewControl: false,
@@ -18,7 +18,7 @@ Tourious.map = function (id, params) {
         var markers = [],
             directionsDisplay = new google.maps.DirectionsRenderer(),
             directionsService = new google.maps.DirectionsService(),
-            map = new google.maps.Map(document.getElementById(id), myOptions);
+            map = new google.maps.Map(DOM, myOptions);
             
         directionsDisplay.setMap(map);
         
@@ -65,7 +65,7 @@ Tourious.map = function (id, params) {
         
         var info = new google.maps.InfoWindow();
         google.maps.event.addListener(info, 'closeclick', function() {
-            console.log("info closed")
+            //What to do if info is closed...
         });
 
      function createMarker (place, li) {
