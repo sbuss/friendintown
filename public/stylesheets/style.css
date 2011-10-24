@@ -109,18 +109,7 @@ ul.inline li a:hover {
 #map_canvas {
   height:300px;
 }
-#myTour {
-  display:none;
-  position:absolute;
-  bottom:10px;
-  left:10px;
-  z-index:2;
-  background:#0f3847;
-  padding:5px;
-  color:#fff;
-  text-align:center;
-  
-}
+
 #focusBanner {
   height:185px;
   background:#555 ;
@@ -187,38 +176,7 @@ ul.inline li a:hover {
   margin:0;
   padding-top:3px;
 }
-#currentSearch {
-    position:absolute;
-    left:-250px;
-    top:100px;
-    width:250px;
-    background:#FFF;
-    display:none;
-}
 
-#currentSearch li.current a.mini {
-    visibility:visible;
-}
-
-#currentSearch a.mini {
-    visibility:hidden;
-    margin-left:5px;
-}
-#currentSearch ul{
- list-style:none;
- padding:10px;   
-}
-
-
-#currentSearch li{
-    cursor:pointer;
-    margin-bottom:5px;
-    border-bottom:1px solid #C0C0C0;
-}
-
-#currentSearch li.current {
-    font-weight:bold;
-}
 #searchBox  {
   font-family: 'Josefin Sans', sans-serif;
   width: 400px;
@@ -226,7 +184,6 @@ ul.inline li a:hover {
 }
 #search {
   padding:25px 0 0 20px;
-  display:none;
 }
 #search .button{
  bottom:2px; 
@@ -411,6 +368,7 @@ li.tour a {
   display: none;
 }
 #new_tour {
+    float:left;
 }
 
 #new_tour input, #new_tour textarea{
@@ -463,6 +421,56 @@ li.tour a {
   height:350px;
 }
 
+#currentSearch {
+    color:#000;
+    width:500px;
+    background:#FFF;
+}
+
+#currentSearch li.current a.mini {
+    visibility:visible;
+}
+
+#currentSearch a.mini {
+    visibility:hidden;
+    margin-left:5px;
+}
+#currentSearch ul{
+ list-style:none;
+ padding:10px;   
+}
+
+
+#currentSearch li{
+    cursor:pointer;
+    margin-bottom:5px;
+    border-bottom:1px solid #C0C0C0;
+}
+
+#currentSearch li.current {
+    font-weight:bold;
+}
+
+/* New Tour */
+#tour_submit {
+    display:none;
+}
+
+#mapWrap {
+    color:#000;
+}
+
+#myTour {
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  z-index:2;
+  background:#0f3847;
+  padding:5px;
+  color:#fff;
+  text-align:center;
+  
+}
 
 
 /* Flash messages */

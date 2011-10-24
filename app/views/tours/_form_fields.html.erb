@@ -19,5 +19,7 @@
 
 <%= f.fields_for :stops do | builder | %>
   <%= render 'stops/form_fields', :f => builder, 
-            :form_class => form_class%>
+            :form_class => "hidden" %>
 <% end %>
+
+<a id="saveButton" class="button gray">Save Tour</a>
