@@ -17,20 +17,32 @@ class Tour < ActiveRecord::Base
                    :length      => { :minimum => 5 },
                    :uniqueness  => { :case_sensitive => false }
 
-  FILTER_BY = [:ratings_score, :cost, :duration]
-  ORDER = { :asc => "ASC", :desc => "DESC" }
-  ORDER.default = "ASC"
+  #Filter stuff stolen from:
+  #http://www.idolhands.com/ruby-on-rails/guides-tips-and-tutorials/add-filters-to-views-using-named-scopes-in-rails
+  #NOTE: Make the default scope first in this list
+  FILTERS = [
+    { :scope => "by_rating", :label => "Rating" },
+    { :scope => "by_cost_low", :label => "Price (Low)" },
+    { :scope => "by_cost_high", :label => "Price (High)" },
+    { :scope => "by_duration_short", :label => "Time (Short)" },
+    { :scope => "by_duration_long", :label => "Time (Long)" } ]
 
-  scope :by_cost, lambda { |ascdesc| 
-    order("tours.cost #{ORDER[ascdesc]}")
+  scope :by_cost_low, lambda { 
+    order("tours.cost ASC")
   }
-  scope :by_rating, lambda{ |ascdesc| 
-    order("tours.ratings_score #{ORDER[ascdesc]}")
+  scope :by_cost_high, lambda { 
+    order("tours.cost DESC")
   }
-  scope :by_duration, lambda{ |ascdesc| 
-    order("tours.duration #{ORDER[ascdesc]}")
+  scope :by_rating, lambda{ 
+    order("tours.ratings_score DESC")
   }
-  default_scope by_rating :desc
+  scope :by_duration_short, lambda{ 
+    order("tours.duration ASC")
+  }
+  scope :by_duration_long, lambda{ 
+    order("tours.duration DESC")
+  }
+  default_scope by_rating
 
   # Allow tours to be looked up by their name, instead of their id
   acts_as_url :name

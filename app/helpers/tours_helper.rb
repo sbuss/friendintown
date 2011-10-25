@@ -28,4 +28,14 @@ module ToursHelper
     url = base_url + map_params.map{|k,v| "#{k}=#{v}"}.join("&")
     "<a href=\"#{url}\"><img class=\"gmap-static\" src=\"#{url}\" /></a>".html_safe
   end
+
+  def sort_tours(params)
+    @filters = Tour::FILTERS
+    if params[:sort] && @filters.collect{|f| f[:scope]}.include?(params[:sort])
+      @tours = Tour.unscoped{ Tour.send(params[:sort]).paginate(:page => params[:tours_page], :per_page => 10) }
+      @title = "OMGWTF"
+    else
+      @tours = Tour.all.paginate(:page => params[:tours_page], :per_page => 10)
+    end
+  end
 end
