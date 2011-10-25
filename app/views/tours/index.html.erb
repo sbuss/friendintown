@@ -1,5 +1,6 @@
 <br class="spacer">
 
+<%= list_select_filter("sort", @filters, params) %>
 <%= render 'tours/tours_list' %>
 
 <%= link_to 'New Tour', new_tour_path %>

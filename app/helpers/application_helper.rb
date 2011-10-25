@@ -14,4 +14,15 @@ module ApplicationHelper
     logo = image_tag("logo.png", :alt => "Sample App", :class => "round")
     link_to(logo, root_path)
   end
+
+  # Inspired by http://adambird.com/add-filters-to-views-using-named-scopes-in-ra
+  def list_select_filter(name, filters, selected_scope)
+    select_tag(name, 
+      options_for_select(filters.collect { |filter|
+        [filter[:label], filter[:scope]]
+      },
+      :selected => selected_scope[name]),
+      :class => "filter_select",
+      :onchange => "window.location='?#{name}=' + this.value" )
+  end
 end
