@@ -26,6 +26,8 @@ FriendInTown::Application.routes.draw do
 
   match '/yc',      :to => 'pages#yc'
 
+  match '/mobile',    :to => 'pages#mobile'
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

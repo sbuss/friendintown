@@ -22,4 +22,8 @@ class PagesController < ApplicationController
     @title = "Y Combinator winter 2012!"
   end
 
+  def mobile
+    render :layout => false
+    @title = "Tourious Mobile"
+  end
 end
