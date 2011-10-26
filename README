@@ -34,3 +34,13 @@ And, in another terminal:
 
 If the tests pass, then you're done!
 
+
+= Deploying on Heroku =
+Do this with git. First, consider creating a tag.
+
+    git tag -a v0.1 -m "Tag message"
+
+Then push to heroku and migrate
+
+    git push heroku master
+    heroku rake db:migrate
