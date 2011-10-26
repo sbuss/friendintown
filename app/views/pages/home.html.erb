@@ -1,19 +1,26 @@
-  <div class="map">MAP HERE</div>
 
-<section id="focusBanner" style="z-index:0">
-    <div id="getStarted" class="current"><div class="getStartedText">Choose a Tour Below or <br /><a id="createTour" href="/tours/new">Create a Tour</a></div></div>
+<div id="map"></div>
+<section id="currentTourDetails">Tour Details</section>
+<section id="findTours" style="z-index:0">
+    <h1>SEARCH FOR TOURS </h1>
     <div id="search">
         <form id="searchForm">
           <input type="text" id="searchBox" />
-          <a id="placesSearch" class="button green">Search for Places</a>
+          <a id="placesSearch" class="button gray">Search</a>
           <input type="submit" style="position:absolute;display:none">
           
       </form>
     </div>
 </section>
 <section id="featuredTours">
-    <h1 id="toursHeader">TOP TOURS </h1>
+    <h1>TOP TOURS </h1>
     <div id="toursWrapper">
     <%= render 'tours/tours_list' %>
     </div>
 </section>
+
+<script stype="text/javascript">
+
+    var map = new Tourious.map($("#map").get(0));
+    
+</script>

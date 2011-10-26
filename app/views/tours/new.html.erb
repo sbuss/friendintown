@@ -1,25 +1,24 @@
-<h1>New tour</h1>
-<div id="search" style="clear:both">
+<div id="map"></div>
+<section id="newTourDetails"><form id="new_tour" action="/tours" method="post"><input type="text" name="tour[name]" placeholder="Name your tour!" \><span class="divide">|</span> <input type="text" name="tour[cost]" placeholder="$$ cost $$" \><span class="divide">|</span> <input type="text" name="tour[duration]" placeholder="How long does it take?" \></input></form></section>
+
+<section id="findTours" class="singleCol" style="z-index:0">
+    <h1>SEARCH FOR PLACES </h1>
+     <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
     <form id="searchForm">
       <input type="text" id="searchBox" />
-      <a id="placesSearch" class="button green">Search for Places</a>
+      <a id="placesSearch" class="button green">Search</a>
       <input type="submit" style="position:absolute;display:none">
   </form>
-</div>
+  <div id="currentSearch"></div>
+</section>
+<section id="currentTour" class="singleCol">
+    <h1>CURRENT TOUR <a id="saveButton" class="button gray">Save</a></h1>
 
-<div id="currentSearch"><ul></ul></div>
-<div id="mapWrap" style="float:left;width:475px;margin-left:20px">
-    <div id="map_canvas"></div>
-    <div id="myTour">
-        <label for="autoRoute"><input type="checkbox" id="autoRoute" checked="checked"> Automatically create route</label>
-        <ul id="list">
-        </ul>
-    </div> 
-</div>
+    <ul id="list">
+    </ul>
+</section>
 
-
-
-<%= render 'form' %>
+<!-- <%= render 'form' %> -->
 
 
 <script type='text/javascript'>
@@ -31,20 +30,23 @@ function createListItem(text, loc) {
 
 $(function () { 
     
-    var map = new Tourious.map($("#map_canvas").get(0), {places:true});
+    var map = new Tourious.map($("#map").get(0), {places:true});
     
 //    map.search("bar");
     
     $("#placesSearch").click(function() {
         $("#searchForm").submit();
     })
-        
-        
-     // $( "#list" ).sortable({
-     //            placeholder: "ui-state-highlight",
-     //            update:calcRoute
-     //        });
-     //        $( "#list" ).disableSelection();
+
+
+    function redoRoute() {
+        map.calcRoute($("#list li"))
+    }
+     $( "#list" ).sortable({
+                placeholder: "ui-state-highlight",
+                update:redoRoute
+            });
+    //$( "#list" ).disableSelection();
      
      $("a.remove").live('click', function () {
          $(this).parents("li.mapItem").remove();

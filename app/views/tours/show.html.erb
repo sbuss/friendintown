@@ -1,3 +1,5 @@
+<div id="map"></div>
+<section id="currentTourDetails"><%= @tour.name %> <span class="divide">|</span> $<%= @tour.cost %> <span class="divide">|</span> <%= @tour.stops.length %> stops</section>
 <div id="tourDetails">
   <%= render 'shared/share_buttons' %>
   <%= render 'tours/tour_detail', :tour => @tour %>
@@ -13,7 +15,7 @@
 
 <script type="text/javascript">
     var data = <%= @tour.to_json.to_s.html_safe %>,
-    map = new Tourious.map($("div.map").get(0));
+    map = new Tourious.map($("#map").get(0));
     
     map.loadRoute(data.stops);
 </script>

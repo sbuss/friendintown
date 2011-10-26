@@ -1,5 +1,5 @@
 html { height: 100% }
-body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#000;}
+body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#f3f2ed;}
 fieldset{border:none;}
 .button {
   display:inline-block;
@@ -16,8 +16,10 @@ fieldset{border:none;}
 
 .button.green {
     background:#0f3847 url("/images/buttonBack.png") repeat-x left top;
+    color:#FFF;
 }
 .button.gray {
+    color:#fff;
     background:#8b8b8b url("/images/buttonBack_gray.png") repeat-x left top;
 }
 
@@ -59,16 +61,16 @@ fieldset{border:none;}
   padding-top: 17px;
 }
 nav.header  {
-  background: #000;
+    font-family: 'Josefin Sans', Helvetica, Verdana, sans-serif;
   float: left;
   width: 100%;
 }
 .topright {
-  float: right;
-  font-size: 0.8em;
-  background: #EA1C23;
-  color: #fff;
-  padding: 10px;
+    position:absolute;
+    right:0;
+    top:35px;
+    font-size: 1.3em;
+    color: #b9b8b2;
 }
 ul.inline {
   margin: 0;
@@ -83,16 +85,11 @@ ul.inline li {
 ul.inline li a {
   padding: 0 5px;
   font-weight: bold;
-  color: #fff;
+    color: #b9b8b2;
   text-decoration: none;
 }
 
-ul.inline li a:visited {
-  color: #eee;
-}
-
 ul.inline li a:hover {
-  color: #fff;
   text-decoration: underline;
 }
 
@@ -106,10 +103,20 @@ ul.inline li a:hover {
 
   position:relative;
 }
-#map_canvas {
-  height:300px;
-}
 
+#map {
+  height:300px;
+  -moz-box-shadow: 0 2px 4px #999;
+  -webkit-box-shadow: 0 2px 4px #999;
+  box-shadow: 0 2px 4px #999;
+}
+#currentTourDetails, #newTourDetails {
+    height:40px;
+    line-height:40px;
+    text-align:right;
+    color:#5a5955;
+    border-bottom:2px solid #da511c;
+}
 #focusBanner {
   height:185px;
   background:#555 ;
@@ -141,13 +148,6 @@ ul.inline li a:hover {
   color:#FFF;
 }
 
-#currentTour {
-  display:none;
-  position:relative;
-  height:100%;
-  width:100%;
-  font-family: 'Josefin Slab', serif;
-}
 #currentTour .fact {
   padding-top:10px;
   height:40%;
@@ -179,29 +179,27 @@ ul.inline li a:hover {
 
 #searchBox  {
   font-family: 'Josefin Sans', sans-serif;
-  width: 400px;
+  width: 325px;
   font-size: 1.5em;
 }
 #search {
-  padding:25px 0 0 20px;
+  padding:0;
 }
 #search .button{
  bottom:2px; 
  left:5px;
 }
-#focusBanner > div {
-  display:none;
-}
+section.singleCol {
+width:450px;
+float:left;
 
-#focusBanner > div.current {
-  display:block;
 }
-#focusBanner.welcome {
-  
+#findTours, #featuredTours {
+    width:450px;
+    float:left;
 }
-#toursHeader {
-  background:#000 url("/images/cityScape.png") repeat-x left bottom;
-  color:#FFF;
+.singleCol > h1, .singleCol > h1 {
+  color:#353535;
   height:48px;
   line-height:65px;
   font-family: 'Josefin Sans', sans-serif;
@@ -216,9 +214,10 @@ ul.inline li a:hover {
   display:none;
 }
 li.tour {
+    color:#000;
+    float:left;
   margin-bottom:15px;
   font-family: 'Josefin Slab', serif;
-  float: left;
   list-style-type: none;
   padding: 0px;
   margin-top: 5px;
@@ -234,28 +233,29 @@ li.tour a {
 }
 li.tour h1 {
   font-size: 1.2em;
+  line-height:25px;
   padding: 0px;
   margin: 0px;
-  color: #fff;
+  color: #000;
 }
 li.tour .details {
   float: left;
 }
 
 .fact {
-  width:90px;
+  width:75px;
   text-align:center;
-  color:#FFF;
+  color:#000;
   float: left;
 }
 
 .fact .number {
-  font-size:2.5em;
+  font-size:2em;
 }
 .fact .unit {
   width: 65px;
   display: inline-block;
-  color:#CCC;
+  color:#666;
 }
 #listWrap {
   display:none;
@@ -324,6 +324,17 @@ li.tour .details {
     text-decoration:underline;
 }
 
+#newTourDetails input {
+border: none;
+background-color: #F3F2ED;
+text-align:center;
+font-size:.9em;
+}
+
+#newTourDetails input:hover {
+    border:2px inset;
+}
+
 #saveButton{
 /*        display:none;*/
 }
@@ -349,14 +360,12 @@ li.tour .details {
 }
 
 .content {
-  background: #353738;
   padding: 20px;
-  color: #fff;
+  color: #353535;
 }
 
 .content a  {
   color: #ccc;
-  text-decoration: underline;
 }
 
 .content a:hover {
@@ -386,10 +395,7 @@ li.tour .details {
 }
 
 #currentSearch {
-    float:left;
-    color:#000;
-    width:400px;
-    background:#FFF;
+
 }
 
 #currentSearch li.current a.mini {
@@ -436,7 +442,9 @@ li.tour .details {
   
 }
 
-
+span.divide {
+    color:#CCC;
+}
 /* Flash messages */
 .flash_error, .flash_alert, .flash_notice, .flash_success, .flash_info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
 .flash_error, .flash_alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
