@@ -26,7 +26,7 @@ module ToursHelper
     end
     map_params[:markers] = markers.join("&markers=")
     url = base_url + map_params.map{|k,v| "#{k}=#{v}"}.join("&")
-    "<a href=\"#{url}\"><img class=\"gmap-static\" src=\"#{url}\" /></a>".html_safe
+    "<img class=\"gmap-static\" src=\"#{url}\" />".html_safe
   end
 
   # Sort tours, applying any extra relational algebra
