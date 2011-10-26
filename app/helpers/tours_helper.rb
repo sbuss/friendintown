@@ -29,13 +29,32 @@ module ToursHelper
     "<a href=\"#{url}\"><img class=\"gmap-static\" src=\"#{url}\" /></a>".html_safe
   end
 
-  def sort_tours(params)
+  # Sort tours, applying any extra relational algebra
+  def sort_tours(params, alg)
     @filters = Tour::FILTERS
     if params[:sort] && @filters.collect{|f| f[:scope]}.include?(params[:sort])
-      @tours = Tour.unscoped{ Tour.send(params[:sort]).paginate(:page => params[:tours_page], :per_page => 10) }
-      @title = "OMGWTF"
+      @tours = Tour.unscoped{ Tour.where(alg).send(params[:sort]) }
     else
-      @tours = Tour.all.paginate(:page => params[:tours_page], :per_page => 10)
+      @tours = Tour.where(alg)
     end
+  end
+
+  # Get the relational algebra for searching for tours
+  def search_tours(params)
+    alg = nil
+    if params[:search]
+      kw = "%" + params[:search] + "%"
+      tours = Tour.arel_table
+      alg = tours[:name].matches(kw).or(tours[:desc].matches(kw))
+    end
+    alg
+  end
+
+  def paginate_tours(params, tours)
+    @tours = tours.paginate(:page => params[:tours_page], :per_page => 10)
+  end
+
+  def search_sort_and_paginate_tours(params)
+    paginate_tours(params, sort_tours(params, search_tours(params)))
   end
 end

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
     @title = "Home"
-    sort_tours(params)
+    search_sort_and_paginate_tours(params)
     if signed_in?
     end
   end

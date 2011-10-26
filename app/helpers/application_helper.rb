@@ -23,6 +23,10 @@ module ApplicationHelper
       },
       :selected => selected_scope[name]),
       :class => "filter_select",
-      :onchange => "window.location='?#{name}=' + this.value" )
+      :onchange => "this.form.submit()" )
+  end
+
+  def search_form(name, params)
+    search_field_tag(name, params[name])
   end
 end

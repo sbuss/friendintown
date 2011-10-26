@@ -4,7 +4,12 @@ class ToursController < ApplicationController
   # GET /tours
   # GET /tours.xml
   def index
-    sort_tours(params)
+    if(params[:search])
+      @title = "Tours matching #{params[:search]}"
+    else
+      @title = "Search for tours"
+    end
+    search_sort_and_paginate_tours(params)
 
     respond_to do |format|
       format.html # index.html.erb
