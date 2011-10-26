@@ -27,6 +27,6 @@ module ApplicationHelper
   end
 
   def search_form(name, params)
-    search_field_tag(name, params[name])
+    search_field_tag(name, params[name], :id => "searchBox", :placeholder => "SEARCH TOURS")
   end
 end

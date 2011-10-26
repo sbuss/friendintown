@@ -1,12 +1,5 @@
 <br class="spacer">
 
-<h3>Search for a tour</h3>
-<form method="get" action="." id="search_and_sort">
-<%= search_form(:search, params) %>
-<%= list_select_filter(:sort, @filters, params) %>
-<input type="submit" />
-</form>
+<%= render 'tours/search_and_filter' %>
 
 <%= render 'tours/tours_list' %>
-
-<%= link_to 'New Tour', new_tour_path %>
