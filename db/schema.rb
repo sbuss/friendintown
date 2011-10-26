@@ -10,15 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026165541) do
+ActiveRecord::Schema.define(:version => 20111026172047) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "lat",         :precision => 15, :scale => 10
-    t.decimal  "long",        :precision => 15, :scale => 10
-    t.string   "description"
+    t.decimal  "lat"
+    t.decimal  "long"
+    t.text     "description", :limit => 10000
   end
 
   create_table "ratings", :force => true do |t|
@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(:version => 20111026165541) do
 
   create_table "tours", :force => true do |t|
     t.string   "name"
-    t.string   "desc"
+    t.text     "desc",          :limit => 10000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "duration"
     t.integer  "cost"
-    t.decimal  "ratings_score", :precision => 3, :scale => 2
+    t.decimal  "ratings_score"
     t.string   "url"
   end
 
