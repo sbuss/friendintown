@@ -15,7 +15,8 @@
 <section id="featuredTours">
     <h1>TOP TOURS </h1>
     <div id="toursWrapper">
-    <%= render 'tours/tours_list' %>
+      <%= list_select_filter("sort", @filters, params) %>
+      <%= render 'tours/tours_list' %>
     </div>
 </section>
 
