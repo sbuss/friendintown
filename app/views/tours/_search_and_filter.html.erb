@@ -1,0 +1,8 @@
+<div id="search">
+  <form method="get" action="." id="searchForm">
+    <%= search_form(:search, params) %>
+    <%= list_select_filter(:sort, @filters, params) %>
+    <input type="submit" />
+  </form>
+</div>
+<br class="spacer" />

@@ -184,6 +184,7 @@ ul.inline li a:hover {
 }
 #search {
   padding:0;
+  float: right;
 }
 #search .button{
  bottom:2px; 
@@ -213,30 +214,53 @@ float:left;
 #tourClone {
   display:none;
 }
-li.tour {
-    color:#000;
-    float:left;
-  margin-bottom:15px;
-  font-family: 'Josefin Slab', serif;
-  list-style-type: none;
-  padding: 0px;
-  margin-top: 5px;
-}
-li.tour img {
+ul.tourslist {
+  list-style: none outside none;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
   float: left;
-  margin-right: 20px;
+}
+  
+li.tour {
+  float:left;
+  width: 250px;
+  height: 280px;
+  margin-bottom:15px;
+
+  color:#000;
+  font-family: 'Josefin Slab', serif;
+  text-align: center;
+
+  list-style-type: none;
+}
+li.tour div.tour_contents {
+  border-top: solid 1px #ccc;
+  border-left: solid 1px #ccc;
+  border-bottom: solid 1px #000;
+  border-right: solid 1px #000;
+  margin: 5px;
+  padding: 5px;
+  background: #fff;
+  height: 250px;
 }
 li.tour a {
   text-decoration: none;
   color: inherit;
   font: inherit;
 }
-li.tour h1 {
-  font-size: 1.2em;
+li.tour h3 {
+  font-size: 1.5em;
   line-height:25px;
   padding: 0px;
   margin: 0px;
-  color: #000;
+  color: #e8a658;
+  text-align: left;
+}
+li.tour p {
+  text-align: left;
+  font: normal 1em verdana, sans-serif;
+  margin: 0px;
 }
 li.tour .details {
   float: left;

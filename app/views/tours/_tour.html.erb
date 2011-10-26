@@ -1,33 +1,20 @@
 <li class="tour">
-  <%= staticDirectionsMap(tour) %>
-  <div class="details">
-    <a href="<%= tour_path(tour) %>">
-    
-    <h1><%= tour.name %></h1>
-
-    <div class="fact dur">
+  <a href="<%= tour_path(tour) %>">
+    <div class="tour_contents">
+      <%= staticDirectionsMap(tour) %><br class="spacer"/>
+      <h3><%= tour.name %>
+        <span style="font-size:0.7em">
+          <% unless tour.ratings_score.nil? %>
+            <%= pluralize(tour.ratings_score_formatted, "star") %>
+          <% end %>
+        </span>
+      </h3>
+      <p><%= tour.desc %></p><br class="spacer"/>
+    </div>
+    <div class="tour_specifics">
       <% @duration_info = duration(tour) %>
       <span class="number"><%= @duration_info[0] %></span>
-      <br>
-      <span class="unit"><%= @duration_info[1] %></span>
+      <span class="unit"><%= @duration_info[1] %></span> | $<%= tour.cost %>
     </div>
-    <div class="fact cost">
-      <span class="number">$<%= tour.cost %></span>
-      <br>
-      <span class="unit">USD</span>
-    </div>
-
-    <div class="fact spots">
-      <span class="number"><%= tour.stops.count %></span>
-      <br>
-      <span class="unit">STOPS</span>
-    </div>
-    <div class="fact rating">
-      <span class="number"><%= tour.ratings_score_formatted %></span>
-      <br>
-      <span class="unit">STARS</span>
-    </div>
-    <a href="/tours/<%= tour.id %>">
-  </div>
- </li>
-<br class="spacer" />
+  </a>
+</li>

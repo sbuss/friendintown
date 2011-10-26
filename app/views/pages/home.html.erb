@@ -1,24 +1,10 @@
 
 <div id="map"></div>
-<section id="currentTourDetails">Tour Details</section>
-<section id="findTours" style="z-index:0">
-    <h1>SEARCH FOR TOURS </h1>
-    <div id="search">
-        <form id="searchForm">
-          <input type="text" id="searchBox" />
-          <a id="placesSearch" class="button gray">Search</a>
-          <input type="submit" style="position:absolute;display:none">
-          
-      </form>
-    </div>
-</section>
-<section id="featuredTours">
-    <h1>TOP TOURS </h1>
-    <div id="toursWrapper">
-      <%= list_select_filter("sort", @filters, params) %>
-      <%= render 'tours/tours_list' %>
-    </div>
-</section>
+<section id="currentTourDetails"><%= link_to "Create a tour", :new_tour %></section>
+
+<%= render 'tours/search_and_filter' %>
+
+<%= render 'tours/tours_list' %>
 
 <script stype="text/javascript">
 

@@ -14,7 +14,7 @@ module ToursHelper
 
   def staticDirectionsMap(tour)
     base_url = "http://maps.googleapis.com/maps/api/staticmap?"
-    map_params = { :size    => "130x100",
+    map_params = { :size    => "220x120",
                    :maptype => "roadmap",
                    :sensor  => "true",
                    #:zoom    => 12,
@@ -50,8 +50,12 @@ module ToursHelper
     alg
   end
 
-  def paginate_tours(params, tours)
-    @tours = tours.paginate(:page => params[:tours_page], :per_page => 10)
+  def paginate_tours(params, tours, options = nil)
+    per_page = 12
+    unless options.nil?
+      per_page |= options[:per_page]
+    end
+    @tours = tours.paginate(:page => params[:tours_page], :per_page => per_page)
   end
 
   def search_sort_and_paginate_tours(params)
