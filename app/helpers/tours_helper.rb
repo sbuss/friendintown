@@ -14,7 +14,7 @@ module ToursHelper
 
   def staticDirectionsMap(tour)
     base_url = "http://maps.googleapis.com/maps/api/staticmap?"
-    map_params = { :size    => "220x120",
+    map_params = { :size    => "280x120",
                    :maptype => "roadmap",
                    :sensor  => "true",
                    #:zoom    => 12,

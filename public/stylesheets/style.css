@@ -225,9 +225,10 @@ ul.tourslist {
   
 li.tour {
   float:left;
-  width: 250px;
+  width: 300px;
   height: 280px;
   margin-bottom:15px;
+  margin: 8px;
 
   color:#000;
   font-family: 'Josefin Slab', serif;
@@ -258,7 +259,9 @@ li.tour h3 {
   color: #e8a658;
   text-align: left;
 }
-li.tour p {
+li.tour div.tour_contents p {
+  overflow:auto;
+  height: 100px;
   text-align: left;
   font: normal 1em verdana, sans-serif;
   margin: 0px;

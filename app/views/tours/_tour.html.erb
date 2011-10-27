@@ -9,7 +9,7 @@
           <% end %>
         </span>
       </h3>
-      <p><%= tour.desc %></p><br class="spacer"/>
+      <p><%= truncate(tour.desc, :length => 170, :separator => ' ') %></p><br class="spacer"/>
     </div>
     <div class="tour_specifics">
       <% @duration_info = duration(tour) %>
