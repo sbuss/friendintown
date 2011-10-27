@@ -36,8 +36,8 @@
 </script><!-- end Mixpanel -->
 </head>
 <body>
-    <div id="stripe" style="width:100%;height:10px;background:#da511c"></div>
     <div id="container">
+    <div id="stripe" style="width:100%;height:10px;background:#da511c"></div>
         <%= render 'layouts/header' %>
         <div class="content">
           <% flash.each do |key, value| %>
@@ -45,7 +45,8 @@
           <% end %>
           <%= yield %>
         </div>
-        <%= render 'layouts/footer' %>
+        <div class="push"></div>
     </div>
+    <%= render 'layouts/footer' %>
 </body>
 </html>

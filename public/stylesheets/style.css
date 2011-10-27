@@ -1,4 +1,4 @@
-html { height: 100% }
+html { height: 100%; margin: 0 }
 body { height: 100%; margin: 0; padding: 0; text-align:center;background-color:#f3f2ed;}
 fieldset{border:none;}
 .button {
@@ -30,10 +30,11 @@ fieldset{border:none;}
 #container {
   margin: auto;
   text-align:left;
-  position:relative;
   font-family:Helvetica, Verdana, Sans-Serif;
-  height:100%;
   min-height: 100%;
+  height: auto !important;
+  height:100%;
+  margin-bottom: -150px; /* The height of the footer */
 }
 #logo {
   background: #EA1C23 url("/images/seattle_sil.png") no-repeat center top;
@@ -483,9 +484,15 @@ span.divide {
 .flash_success a {color:#264409;}
 .flash_info a {color:#205791;}
 
+footer, .push {
+  height: 150px;
+}
 footer {
+  margin: 0;
+  padding: 0;
   width: 100%;
   background: #ddddd5;
+  margin-bottom: 0px;
 }
 footer ul {
   float: left;
@@ -497,7 +504,7 @@ footer ul li a {
 }
 footer ul li a:hover {
   color: #DA511C;
-  text-decoration: none;
+  text-decoration: underline;
 }
 footer .right {
   float: right;
