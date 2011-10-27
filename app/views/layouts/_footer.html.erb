@@ -1,10 +1,14 @@
 <footer>
-  <nav class="round">
-    <ul>
-      <li><%= link_to "About", about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
-      <li><a href="http://www.railstutorial.org/">Rails Tutorial</a></li>
+  <div class="content">
+    <ul class="foot">
+      <li><%= link_to "ABOUT", about_path %></li>
+      <li><%= link_to "CONTACT", contact_path %></li>
     </ul>
-  </nav>
+    <div class="right">
+      <a href="http://mixpanel.com/f/partner"><img src="http://mixpanel.com/site_media/images/partner/badge_blue.png" alt="Real Time Web Analytics" /></a>
+    </div>
+    <div style="text-align:left;clear:both">
+    <%= debug(params) if Rails.env.development? %>
+    </div>
+  </div>
 </footer>
