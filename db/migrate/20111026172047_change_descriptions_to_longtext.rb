@@ -1,7 +1,7 @@
 class ChangeDescriptionsToLongtext < ActiveRecord::Migration
   def self.up
-    change_column :places, :description, :text, :limit => 10000
-    change_column :tours, :desc, :text, :limit => 10000
+    change_column :places, :description, :text, :limit => 16777215 #MEDIUMTEXT
+    change_column :tours, :desc, :text, :limit => 16777215
   end
 
   def self.down

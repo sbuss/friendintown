@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20111026172047) do
     t.datetime "updated_at"
     t.decimal  "lat"
     t.decimal  "long"
-    t.text     "description", :limit => 10000
+    t.text     "description", :limit => 16777215
   end
 
   create_table "ratings", :force => true do |t|
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20111026172047) do
 
   create_table "tours", :force => true do |t|
     t.string   "name"
-    t.text     "desc",          :limit => 10000
+    t.text     "desc",          :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
