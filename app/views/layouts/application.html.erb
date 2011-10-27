@@ -49,4 +49,9 @@
     </div>
     <%= render 'layouts/footer' %>
 </body>
+<% if signed_in? %>
+<script type="text/javascript">
+mpq.name_tag('<%= current_user.email %>');
+</script>
+<% end %>
 </html>
