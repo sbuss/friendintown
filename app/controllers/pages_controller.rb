@@ -10,6 +10,12 @@ class PagesController < ApplicationController
     @title = "Contact"
   end
 
+  def send_contact
+    Notifications.deliver_contact(params[:email])
+    flash[:notice] = "Thanks for the message! We'll get back to you soon."
+    redirect_to contact_path
+  end
+
   def about
     @title = "About"
   end

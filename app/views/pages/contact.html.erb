@@ -1,4 +1,18 @@
 <h1>Contact</h1>
-<p>
-  This is the contact page for the blah lbahbalh
-</p>
+<%= form_tag("/contact/send") do %>
+<div class="field">
+  <%= label :email, :name %><br />
+  <%= text_field :email, :name  %>
+</div>
+<div class="field">
+  <%= label :email, :email %><br />
+  <%= text_field :email, :email  %>
+</div>
+<div class="field">
+  <%= label :email, :body, "Message" %><br />
+  <%= text_area :email, :body  %>
+</div>
+
+<input type="submit" value="Send" />
+<% end %>
+
