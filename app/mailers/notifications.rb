@@ -4,7 +4,7 @@ class Notifications < ActionMailer::Base
   def contact(email_params, sent_at = Time.now)
     subject "Contact form submission"
     recipients "steven@tourioushq.com" #TODO: setup a contact email
-    from email_params[:address]
+    from email_params[:email] || "robot@tourioushq.com"
     sent_on sent_at
     body :message => email_params[:body], :sender_name => email_params[:name], :sender_email => email_params[:email]
   end
