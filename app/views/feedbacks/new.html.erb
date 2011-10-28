@@ -17,6 +17,10 @@
   <input type="hidden" value="<%= feedback_last_page %>" />
 
   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
     <%= f.label :score %><br />
     <% Feedback::VALID_RATINGS.each do |n| %>
       <%= radio_button "feedback", :score, n %>

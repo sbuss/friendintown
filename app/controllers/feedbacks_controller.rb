@@ -12,6 +12,12 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(params[:feedback])
     @feedback.page = session[:feedback_last_page] || nil
+    if current_user.nil?
+      email = params[:feedback][:email] || nil
+    else
+      email = current_user.email || params[:email]
+    end
+    @feedback.email = email
     @feedback.user = current_user || nil
 
     respond_to do |format|
