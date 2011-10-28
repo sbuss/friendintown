@@ -23,7 +23,7 @@ module ToursHelper
     markers = []
     tour.stops.each do |stop|
       place = stop.place
-      markers.push("size:mid|label:#{stop.stop_num}|#{place.lat},#{place.long}")
+      markers.push("size:mid|label:#{stop.stop_num + 1}|#{place.lat},#{place.long}")
     end
     map_params[:markers] = markers.join("&markers=")
     url = base_url + map_params.map{|k,v| "#{k}=#{v}"}.join("&")

@@ -44,7 +44,7 @@ namespace :db do
       numStops.times do |m|
         Stop.create!(:tour => t, 
                      :place => Place.find_by_id(r.rand(1..100)),
-                     :stop_num => m+1)
+                     :stop_num => m)
       end
     end
 
