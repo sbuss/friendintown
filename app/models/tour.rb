@@ -34,7 +34,9 @@ class Tour < ActiveRecord::Base
     order("tours.cost DESC")
   }
   scope :by_rating, lambda{ 
-    order("tours.ratings_score DESC")
+    # NOTE: This ugly query is because sqlite doesn't support "ORDER BY tours.ratings_score DESC NULLS LAST"
+    # Change this when we move to pg on dev boxes.
+    order("CASE WHEN tours.ratings_score ISNULL THEN 0 ELSE tours.ratings_score END DESC")
   }
   scope :by_duration_short, lambda{ 
     order("tours.duration ASC")
