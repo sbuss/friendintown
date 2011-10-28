@@ -1,0 +1,31 @@
+<%= form_for(@feedback) do |f| %>
+  <% if @feedback.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feedback.errors.count, "error") %> prohibited this tour from being saved:</h2>
+
+      <ul>
+        <% @feedback.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <input type="hidden" value="<%= feedback_last_page %>" />
+
+  <div class="field">
+    <%= f.label :score %><br />
+    <% Feedback::VALID_RATINGS.each do |n| %>
+      <%= radio_button "feedback", :score, n %>
+      <%= label_tag "feedback_score_#{n}", n %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

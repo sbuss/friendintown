@@ -41,6 +41,14 @@ module SessionsHelper
     clear_return_to
   end
 
+  def store_feedback_last_page
+    session[:feedback_last_page] = request.fullpath
+  end
+
+  def feedback_last_page
+    session[:feedback_last_page]
+  end
+
   private
     def user_from_remember_token
       # this * is for multiple element params, is sum(1,2) = sum(*[1,2])
