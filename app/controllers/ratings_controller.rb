@@ -37,7 +37,7 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.xml
   def create
-    @tour = Tour.find(params[:tour_id])
+    @tour = Tour.find_by_url(params[:tour_id])
     @rating = @tour.ratings.build(params[:rating])
     @rating.user = current_user
 

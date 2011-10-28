@@ -13,7 +13,7 @@ class StopsController < ApplicationController
   end
 
   def create
-    @tour = Tour.find(params[:tour])
+    @tour = Tour.find_by_url(params[:tour])
     @tour.stops.create(params[:stops])
   end
 
