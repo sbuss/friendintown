@@ -1,15 +1,15 @@
+<% map_size ||= nil %>
 <li class="tour">
   <a href="<%= tour_path(tour) %>">
     <div class="tour_contents">
-      <%= staticDirectionsMap(tour) %><br class="spacer"/>
-      <h3><%= tour.name %>
-        <span style="font-size:0.7em">
-          <% unless tour.ratings_score.nil? %>
-            <%= pluralize(tour.ratings_score_formatted, "star") %>
-          <% end %>
-        </span>
-      </h3>
-      <p><%= truncate(tour.desc, :length => 170, :separator => ' ') %></p><br class="spacer"/>
+      <%= staticDirectionsMap(tour, map_size) %><br class="spacer"/>
+      <h3><%= tour.name %></h2>
+      <h3><span style="font-size:0.7em">
+        <% unless tour.ratings_score.nil? %>
+          <%= pluralize(tour.ratings_score_formatted, "star") %>
+        <% end %>
+      </span></h3>
+      <p><%= truncate(tour.desc, :length => 170, :separator => ' ') %></p>
     </div>
     <div class="tour_specifics">
       <% @duration_info = duration(tour) %>

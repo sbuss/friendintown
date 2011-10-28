@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   def home
     @title = "Home"
     search_sort_and_paginate_tours(params)
+    @head_tours = @tours.slice(0,2)
     if signed_in?
     end
   end
