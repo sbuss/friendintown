@@ -1,3 +1,6 @@
+**ABANDONWARE  - this was for a YC application, and we abandoned it.**
+
+
 = Getting your environment running
 
 if you haven't created a gemset for development yet, then:
